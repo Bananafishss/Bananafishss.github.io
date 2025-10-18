@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-DonkeyCar-学习日记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">DonkeyCar 学习日记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="Day-1-霍夫变换车道线检测方法"><a href="#Day-1-霍夫变换车道线检测方法" class="headerlink" title="Day 1 - 霍夫变换车道线检测方法"></a>Day 1 - 霍夫变换车道线检测方法</h2><h3 id="🚗-思路流程整理"><a href="#🚗-思路流程整理" class="headerlink" title="🚗 思路流程整理"></a>🚗 思路流程整理</h3><ol>
+<li>将 RGB 图像转换为 HLS 颜色空间，提取白色可能区域</li>
+<li>阈值过滤后得到黑白二值图</li>
+<li>设计 ROI 区域避免无关干扰</li>
+<li>使用 Canny 边缘检测提取道路边缘</li>
+<li>使用 HoughLinesP 检测直线</li>
+<li>根据斜率判断左右车道线</li>
+<li>根据路况选择拟合方式（直线&#x2F;曲线）</li>
+</ol>
+<hr>
+<h3 id="🔍-Canny-边缘检测"><a href="#🔍-Canny-边缘检测" class="headerlink" title="🔍 Canny 边缘检测"></a>🔍 Canny 边缘检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.Canny(image, threshold1, threshold2, apertureSize=<span class="number">3</span>, L2gradient=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>image</td>
+<td>输入图像（单通道灰度图）</td>
+</tr>
+<tr>
+<td>threshold1</td>
+<td>Canny低阈值</td>
+</tr>
+<tr>
+<td>threshold2</td>
+<td>Canny高阈值</td>
+</tr>
+<tr>
+<td>apertureSize</td>
+<td>Sobel算子大小（3&#x2F;5&#x2F;7）</td>
+</tr>
+<tr>
+<td>L2gradient</td>
+<td>True 更精确但更慢</td>
+</tr>
+</tbody></table>
+<p>目前的问题：</p>
+<blockquote>
+<p>由于前一步二值化不够稳定，Canny 检测受噪声干扰较大 ⚠️</p>
+</blockquote>
+<hr>
+<h3 id="📐-Hough-直线检测"><a href="#📐-Hough-直线检测" class="headerlink" title="📐 Hough 直线检测"></a>📐 Hough 直线检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cv2.HoughLinesP(edges, RHO, THETA, HOUGH_TH,</span><br><span class="line">                minLineLength=MIN_LINE_LEN,</span><br><span class="line">                maxLineGap=MAX_LINE_GAP)</span><br></pre></td></tr></table></figure>
+
+<p>作用：霍夫变换将边缘点转为参数空间，用投票机制拟合出直线。</p>
+<hr>
+<h3 id="➗-区分左右车道线逻辑"><a href="#➗-区分左右车道线逻辑" class="headerlink" title="➗ 区分左右车道线逻辑"></a>➗ 区分左右车道线逻辑</h3><p>通过霍夫拟合出的直线斜率：</p>
+<ul>
+<li>斜率 &lt; 0 → 左车道线</li>
+<li>斜率 &gt; 0 → 右车道线</li>
+</ul>
+<hr>
+<h3 id="🛣️-判断直道还是弯道"><a href="#🛣️-判断直道还是弯道" class="headerlink" title="🛣️ 判断直道还是弯道"></a>🛣️ 判断直道还是弯道</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直道</td>
+<td>霍夫线段斜率接近</td>
+</tr>
+<tr>
+<td>弯道</td>
+<td>拟合出的线段呈弧线，斜率变化大</td>
+</tr>
+</tbody></table>
+<p>若是弯道，需要使用二次曲线拟合。</p>
+<hr>
+<h3 id="❗-当前遇到的问题"><a href="#❗-当前遇到的问题" class="headerlink" title="❗ 当前遇到的问题"></a>❗ 当前遇到的问题</h3><ol>
+<li>很难准确区分真实白线与光照高亮区域</li>
+<li>强反光区域容易被当成车道线</li>
+<li>二值图噪声较多，导致霍夫检测不稳定</li>
+</ol>
+<hr>
+<p>✅ 下一步我计划尝试：</p>
+<ul>
+<li>改进二值化方法，加用颜色空间过滤</li>
+<li>尝试滑动窗口或ROI动态调整</li>
+<li>尝试加入中值滤波和闭运算去噪</li>
+</ul>
+<hr>
+<p>📝 持续更新……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" data-id="cuidjE-Ooz7piErn_wBZVZXJY" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/18/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2025-10-18T21:13:46.488Z" itemprop="datePublished">2025-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/18/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/18/hello-world/" data-id="cuidBFhXECSvL-wT4EIPBAjPT" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DonkeyCar/" style="font-size: 10px;">DonkeyCar</a> <a href="/tags/LaneDetection/" style="font-size: 10px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
