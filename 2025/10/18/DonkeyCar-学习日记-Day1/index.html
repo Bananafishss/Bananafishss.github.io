@@ -9,12 +9,12 @@
   <meta name="description" content="Day 1 - 霍夫变换车道线检测方法🚗 思路流程整理 将 RGB 图像转换为 HLS 颜色空间，提取白色可能区域 阈值过滤后得到黑白二值图 设计 ROI 区域避免无关干扰 使用 Canny 边缘检测提取道路边缘 使用 HoughLinesP 检测直线 根据斜率判断左右车道线 根据路况选择拟合方式（直线&#x2F;曲线）   🔍 Canny 边缘检测1cv2.Canny(image, thr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DonkeyCar 学习日记">
-<meta property="og:url" content="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/index.html">
+<meta property="og:url" content="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
 <meta property="og:description" content="Day 1 - 霍夫变换车道线检测方法🚗 思路流程整理 将 RGB 图像转换为 HLS 颜色空间，提取白色可能区域 阈值过滤后得到黑白二值图 设计 ROI 区域避免无关干扰 使用 Canny 边缘检测提取道路边缘 使用 HoughLinesP 检测直线 根据斜率判断左右车道线 根据路况选择拟合方式（直线&#x2F;曲线）   🔍 Canny 边缘检测1cv2.Canny(image, thr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-18T21:19:14.000Z">
-<meta property="article:modified_time" content="2025-10-18T21:29:47.495Z">
+<meta property="article:modified_time" content="2025-10-20T20:12:11.763Z">
 <meta property="article:author" content="WANG Lixi">
 <meta property="article:tag" content="DonkeyCar">
 <meta property="article:tag" content="LaneDetection">
@@ -76,9 +76,9 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-DonkeyCar-学习日记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-DonkeyCar-学习日记-Day1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" class="article-date">
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" class="article-date">
   <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
 </a>
     
@@ -140,10 +140,6 @@
 <td>True 更精确但更慢</td>
 </tr>
 </tbody></table>
-<p>目前的问题：</p>
-<blockquote>
-<p>由于前一步二值化不够稳定，Canny 检测受噪声干扰较大 ⚠️</p>
-</blockquote>
 <hr>
 <h3 id="📐-Hough-直线检测"><a href="#📐-Hough-直线检测" class="headerlink" title="📐 Hough 直线检测"></a>📐 Hough 直线检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cv2.HoughLinesP(edges, RHO, THETA, HOUGH_TH,</span><br><span class="line">                minLineLength=MIN_LINE_LEN,</span><br><span class="line">                maxLineGap=MAX_LINE_GAP)</span><br></pre></td></tr></table></figure>
 
@@ -177,13 +173,14 @@
 <li>很难准确区分真实白线与光照高亮区域</li>
 <li>强反光区域容易被当成车道线</li>
 <li>二值图噪声较多，导致霍夫检测不稳定</li>
+<li>由于前一步二值化不够稳定，Canny 检测受噪声干扰较大</li>
 </ol>
 <hr>
 <p>✅ 下一步我计划尝试：</p>
 <ul>
-<li>改进二值化方法，加用颜色空间过滤</li>
-<li>尝试滑动窗口或ROI动态调整</li>
-<li>尝试加入中值滤波和闭运算去噪</li>
+<li>改进二值化方法，尝试转换到灰度空间</li>
+<li>修改ROI区域的形状使其更贴合实际形状</li>
+<li>尝试使用clustering，K聚簇，DBSCAN算法来进行曲线拟合</li>
 </ul>
 <hr>
 <p>📝 持续更新……</p>
@@ -191,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" data-id="cuidiR6DOKa0RueXt2M9f5WpH" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" data-id="cuidVAwapXrLAbIbbnAeJPy_F" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -213,9 +210,9 @@
     </a>
   
   
-    <a href="/2025/10/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">DonkeyCar 学习日记</div>
     </a>
   
 </nav>
@@ -245,7 +242,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DonkeyCar/" style="font-size: 10px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 10px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 10px;">OpenCV</a>
+      <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
     </div>
   </div>
 
@@ -271,7 +268,11 @@
           </li>
         
           <li>
-            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">DonkeyCar 学习日记</a>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/">DonkeyCar 学习日记</a>
           </li>
         
           <li>

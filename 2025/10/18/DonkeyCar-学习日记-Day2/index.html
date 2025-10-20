@@ -4,19 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>GitLab使用教程 | Bananafishss 的小站</title>
+  <title>DonkeyCar 学习日记 | Bananafishss 的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="GitLab使用教程在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。 基本流程一、配置SSH 链接GitLab 首先使用学校邮箱创建个人账户 我的邮箱是lixi.wang@imt-atlantique.net 用户名是l24wang 这步很简单就暂且不提。  第二步，配置SSH key 这步对于每个账号只需要配置一次： ssh-k">
+  <meta name="description" content="Day 2 - 霍夫变换车道线检测方法若干问题的改进📝 持续更新……">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitLab使用教程">
-<meta property="og:url" content="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:title" content="DonkeyCar 学习日记">
+<meta property="og:url" content="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
-<meta property="og:description" content="GitLab使用教程在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。 基本流程一、配置SSH 链接GitLab 首先使用学校邮箱创建个人账户 我的邮箱是lixi.wang@imt-atlantique.net 用户名是l24wang 这步很简单就暂且不提。  第二步，配置SSH key 这步对于每个账号只需要配置一次： ssh-k">
+<meta property="og:description" content="Day 2 - 霍夫变换车道线检测方法若干问题的改进📝 持续更新……">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-20T21:19:14.000Z">
-<meta property="article:modified_time" content="2025-10-20T10:43:38.988Z">
+<meta property="article:published_time" content="2025-10-18T21:19:14.000Z">
+<meta property="article:modified_time" content="2025-10-20T19:50:01.428Z">
 <meta property="article:author" content="WANG Lixi">
-<meta property="article:tag" content="Gitlab">
+<meta property="article:tag" content="DonkeyCar">
+<meta property="article:tag" content="LaneDetection">
+<meta property="article:tag" content="OpenCV">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
@@ -74,10 +76,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-GitLab使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-DonkeyCar-学习日记-Day2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2025-10-20T21:19:14.000Z" itemprop="datePublished">2025-10-20</time>
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" class="article-date">
+  <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
 </a>
     
   </div>
@@ -88,7 +90,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      GitLab使用教程
+      DonkeyCar 学习日记
     </h1>
   
 
@@ -96,36 +98,17 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="GitLab使用教程"><a href="#GitLab使用教程" class="headerlink" title="GitLab使用教程"></a>GitLab使用教程</h1><p>在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。</p>
-<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><h3 id="一、配置SSH-链接GitLab"><a href="#一、配置SSH-链接GitLab" class="headerlink" title="一、配置SSH 链接GitLab"></a>一、配置SSH 链接GitLab</h3><ol>
-<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#x6c;&#x69;&#x78;&#x69;&#46;&#x77;&#x61;&#110;&#103;&#64;&#x69;&#x6d;&#116;&#45;&#x61;&#116;&#x6c;&#97;&#110;&#x74;&#x69;&#x71;&#x75;&#x65;&#x2e;&#x6e;&#101;&#x74;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
-</li>
-<li><p>第二步，配置SSH key 这步对于每个账号只需要配置一次： <code>ssh-keygen -t ed25519 -C &quot;你的邮箱&quot;</code><br> ✅ -t ed25519 指定加密算法<br> ✅ -C 是备注信息（写邮箱）<br> ⛔ 不需要设置密码</p>
-</li>
-<li><p>对于Windows：启动 ssh-agent 并载入 key：</p>
-<p> <code>Start-Service ssh-agent </code><br> <code>ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></p>
-</li>
-<li><p>将key添加到GitLab: 复制在终端中生成的key，然后在网站的key选项那里手动添加。</p>
-</li>
-<li><p>测试key连接是否成功 <code>ssh -T git@gitlab.imt-atlantique.fr</code><br> 成功显示： <code>Welcome to GitLab, @l24wang!</code></p>
-</li>
-</ol>
-<h3 id="二、克隆-GitLab-仓库到本地"><a href="#二、克隆-GitLab-仓库到本地" class="headerlink" title="二、克隆 GitLab 仓库到本地"></a>二、克隆 GitLab 仓库到本地</h3><ol>
-<li>先 cd 到想要项目到本地的目的文件夹里</li>
-<li>用<code>git clone git@gitlab.imt-atlantique.fr:仓库路径.git</code><br> 我这里是 <code>git clone git@gitlab.imt-atlantique.fr:z23mahmo/2025-2026-ia-racing.git</code><br> git@…是使用 SSH 方式下载的意思</li>
-</ol>
-<h3 id="三、把自己的文件加入仓库（本地）"><a href="#三、把自己的文件加入仓库（本地）" class="headerlink" title="三、把自己的文件加入仓库（本地）"></a>三、把自己的文件加入仓库（本地）</h3><p>复制粘贴你的文件到仓库文件夹里，注意现在你的文件还没有更新到线上仓库和别人共享，只能在本地查看。</p>
-<h3 id="四、把自己的文件更新到线上仓库"><a href="#四、把自己的文件更新到线上仓库" class="headerlink" title="四、把自己的文件更新到线上仓库"></a>四、把自己的文件更新到线上仓库</h3><p><code>git add .</code><br><code>git commit -m &quot;Add my code&quot;</code><br><code>git push origin main</code></p>
-<p>📝 持续更新……</p>
+        <hr>
+<h2 id="Day-2-霍夫变换车道线检测方法若干问题的改进"><a href="#Day-2-霍夫变换车道线检测方法若干问题的改进" class="headerlink" title="Day 2 - 霍夫变换车道线检测方法若干问题的改进"></a>Day 2 - 霍夫变换车道线检测方法若干问题的改进</h2><p>📝 持续更新……</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuidCxLDyV0uadH8zwQBObQTf" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" data-id="cuidxFh3-O05A_i1T0vlOYafV" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
 
     </footer>
   </div>
@@ -133,10 +116,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          DonkeyCar 学习日记
+        
+      </div>
+    </a>
   
-    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2025/10/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">DonkeyCar 学习日记</div>
+      <div class="article-nav-title">Hello World</div>
     </a>
   
 </nav>
