@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>DonkeyCar 学习日记 | Bananafishss 的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Day 3 - 霍夫变换车道线检测方法若干问题的改进1. 实验流程本章介绍整个感知算法流水线（pipeline）的技术细节，包括透视变换、颜色过滤、ROI、聚类、拟合和几何计算。 1.1 BEV 透视变换（Bird’s Eye View）摄像头存在透视畸变：近处宽、远处窄 使用 单应性矩阵 Homography Matrix 将图像从原始视角映射到 鸟瞰视角 BEV 需要四个 Source Po">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DonkeyCar 学习日记">
+<meta property="og:url" content="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/index.html">
+<meta property="og:site_name" content="Bananafishss 的小站">
+<meta property="og:description" content="Day 3 - 霍夫变换车道线检测方法若干问题的改进1. 实验流程本章介绍整个感知算法流水线（pipeline）的技术细节，包括透视变换、颜色过滤、ROI、聚类、拟合和几何计算。 1.1 BEV 透视变换（Bird’s Eye View）摄像头存在透视畸变：近处宽、远处窄 使用 单应性矩阵 Homography Matrix 将图像从原始视角映射到 鸟瞰视角 BEV 需要四个 Source Po">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-18T21:19:14.000Z">
+<meta property="article:modified_time" content="2025-11-18T12:06:10.456Z">
+<meta property="article:author" content="WANG Lixi">
+<meta property="article:tag" content="DonkeyCar">
+<meta property="article:tag" content="LaneDetection">
+<meta property="article:tag" content="OpenCV">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bananafishss 的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DonkeyCar-学习日记-Day3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" class="article-date">
+  <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      DonkeyCar 学习日记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="Day-3-霍夫变换车道线检测方法若干问题的改进"><a href="#Day-3-霍夫变换车道线检测方法若干问题的改进" class="headerlink" title="Day 3 - 霍夫变换车道线检测方法若干问题的改进"></a>Day 3 - 霍夫变换车道线检测方法若干问题的改进</h2><h2 id="1-实验流程"><a href="#1-实验流程" class="headerlink" title="1. 实验流程"></a>1. 实验流程</h2><p>本章介绍整个感知算法流水线（pipeline）的技术细节，包括透视变换、颜色过滤、ROI、聚类、拟合和几何计算。</p>
+<h3 id="1-1-BEV-透视变换（Bird’s-Eye-View）"><a href="#1-1-BEV-透视变换（Bird’s-Eye-View）" class="headerlink" title="1.1 BEV 透视变换（Bird’s Eye View）"></a>1.1 BEV 透视变换（Bird’s Eye View）</h3><p>摄像头存在透视畸变：近处宽、远处窄</p>
+<p>使用 单应性矩阵 Homography Matrix 将图像从原始视角映射到 鸟瞰视角 BEV</p>
+<p>需要四个 Source Points（梯形）与四个 Destination Points（矩形）</p>
+<p>得到转换矩阵 M &#x3D; cv2.getPerspectiveTransform(src, dst)</p>
+<p>cv2.warpPerspective(img, M, size) 得到 BEV 图像</p>
+<p>效果： BEV 图像中的左右车道线趋于平行，更适合后续几何分析。</p>
+<h3 id="1-2-颜色过滤（HSV-Filtering）"><a href="#1-2-颜色过滤（HSV-Filtering）" class="headerlink" title="1.2 颜色过滤（HSV Filtering）"></a>1.2 颜色过滤（HSV Filtering）</h3><p>将 BGR → HSV 空间（Hue、Saturation、Value）</p>
+<p>HSV 过滤比灰度阈值法更不受光照影响</p>
+<p>本实验主要保留白色线条，同时剔除黄色线条与反光区域</p>
+<p>过滤逻辑：</p>
+<p>白色：低饱和度 + 高亮度</p>
+<p>黄色：中等饱和度 + 特定 Hue 范围，直接剔除</p>
+<p>最终得到仅包含白色车道线的二值图像。</p>
+<h3 id="1-3-ROI-掩膜（Region-of-Interest）"><a href="#1-3-ROI-掩膜（Region-of-Interest）" class="headerlink" title="1.3 ROI 掩膜（Region of Interest）"></a>1.3 ROI 掩膜（Region of Interest）</h3><p>去除天空、桌椅、道路外区域</p>
+<p>使用五边形 ROI，上窄下宽，符合车辆视野形状</p>
+<p>ROI 顶点根据图像比例动态计算</p>
+<p>与二值图像做按位与 → 仅保留小车前方区域</p>
+<p>好处：</p>
+<p>大幅减少误检</p>
+<p>降低计算量</p>
+<p>提高左右车道的提取精度</p>
+<h3 id="1-4-车道区域筛选（Lane-Region-Filtering）"><a href="#1-4-车道区域筛选（Lane-Region-Filtering）" class="headerlink" title="1.4 车道区域筛选（Lane Region Filtering）"></a>1.4 车道区域筛选（Lane Region Filtering）</h3><p>即便经过 ROI，仍可能有噪声或非车道区域</p>
+<p>对每一行（y）统计横向亮度分布</p>
+<p>自动估计车道的大致横向范围</p>
+<p>动态带宽掩膜：</p>
+<p>底部窄，上部宽</p>
+<p>模拟透视变化，让算法能捕捉远处细小车道线</p>
+<p>最终只保留主要车道区域，提高后续聚类成功率。</p>
+<h3 id="1-5-温和清理与线段拼接（Soft-Cleaning-Merging）"><a href="#1-5-温和清理与线段拼接（Soft-Cleaning-Merging）" class="headerlink" title="1.5 温和清理与线段拼接（Soft Cleaning &amp; Merging）"></a>1.5 温和清理与线段拼接（Soft Cleaning &amp; Merging）</h3><p>(1) 温和清理</p>
+<p>使用连通域分析</p>
+<p>删除：</p>
+<p>面积太小的噪点</p>
+<p>横向过宽的块</p>
+<p>保留：</p>
+<p>合理纵向线条</p>
+<p>(2) 拼接断裂线段</p>
+<p>对左右两半图像进行形态学闭操作（closing）</p>
+<p>补全车道线间的小断裂</p>
+<p>结果为：干净、连续、可检测的左右两条车道线。</p>
+<h3 id="1-6-骨架化-DBSCAN-聚类"><a href="#1-6-骨架化-DBSCAN-聚类" class="headerlink" title="1.6 骨架化 + DBSCAN 聚类"></a>1.6 骨架化 + DBSCAN 聚类</h3><p>处理流程：</p>
+<p>Canny 边缘检测</p>
+<p>闭操作</p>
+<p>骨架化（Thinning） → 得到单像素宽度的主干线</p>
+<p>DBSCAN 聚类 → 自动区分左右车道线</p>
+<p>不需要指定簇数</p>
+<p>噪声（label &#x3D; -1）自动剔除</p>
+<p>小簇（&lt;50点）过滤</p>
+<p>Silhouette Score 评估聚类质量</p>
+<p>优点：</p>
+<p>抗噪能力强</p>
+<p>能适应车道线断裂、光照变化</p>
+<p>自动找到左右两条主干线</p>
+<h3 id="1-7-曲线拟合（Curve-Fitting）"><a href="#1-7-曲线拟合（Curve-Fitting）" class="headerlink" title="1.7 曲线拟合（Curve Fitting）"></a>1.7 曲线拟合（Curve Fitting）</h3><p>对每个簇的点集进行二次多项式拟合：</p>
+<p>x &#x3D; a·y² + b·y + c</p>
+<p>为什么不用 y &#x3D; f(x)？</p>
+<p>在弯道可能出现“一条 y 对应多个 x”的多值问题</p>
+<p>而 y 始终单调递增，更适合建模 BEV 中的纵向车道结构</p>
+<p>输出：</p>
+<p>左车道拟合曲线</p>
+<p>右车道拟合曲线</p>
+<p>在 BEV 图像上叠加可视化</p>
+<h3 id="1-8-坐标生成、偏向角、中心偏移量（Lane-Point-Generation）"><a href="#1-8-坐标生成、偏向角、中心偏移量（Lane-Point-Generation）" class="headerlink" title="1.8 坐标生成、偏向角、中心偏移量（Lane Point Generation）"></a>1.8 坐标生成、偏向角、中心偏移量（Lane Point Generation）</h3><p>完成拟合后，需要将连续曲线离散化成像素点：</p>
+<p>从 y &#x3D; ymin → ymax 均匀采样</p>
+<p>根据函数计算 x</p>
+<p>得到结构化点集（按 y 递增排序）</p>
+<p>额外计算：</p>
+<p>两条车道线的方向角（朝向角）</p>
+<p>左右车道线与中线之间的距离</p>
+<p>小车相对中心线的偏移量</p>
+<p>所有结果存储到 JSON，用于控制模块。</p>
+<p>未来可通过真实赛道标定：</p>
+<p>将 pixel → meter 转换为真实距离</p>
+<h2 id="2-结果分析（Results）"><a href="#2-结果分析（Results）" class="headerlink" title="2. 结果分析（Results）"></a>2. 结果分析（Results）</h2><p>基于 111 张模拟器图像的测试结果：</p>
+<p>a) 时间性能</p>
+<p>平均耗时：0.015 s&#x2F;帧</p>
+<p>标准差：0.00725 s</p>
+<p>最快：0.009 s</p>
+<p>最慢：0.0397 s</p>
+<p>➡ 支持高刷新率实时控制</p>
+<p>b) 鲁棒性</p>
+<p>识别准确率：93.69%</p>
+<p>c) 混淆情况</p>
+<p>在仅看到一条车道线时仍可保持区域识别</p>
+<p>左右簇未混淆比例：98.19%</p>
+<p>聚类数量：</p>
+<p>平均：2.1</p>
+<p>标准差：0.3</p>
+<p>最优：2</p>
+<p>最差：3</p>
+<h2 id="3-结论（Conclusion）"><a href="#3-结论（Conclusion）" class="headerlink" title="3. 结论（Conclusion）"></a>3. 结论（Conclusion）</h2><p>整体算法在模拟器测试中表现稳定：</p>
+<p>实时性强：支持高频控制循环</p>
+<p>准确率高：93.69%</p>
+<p>左右车道分离效果良好：98.19% 未混淆</p>
+<p>能够处理车道丢失、部分遮挡等情况</p>
+<p>适用于真实环境和模拟环境的车道检测任务。</p>
+<h2 id="4-展望（Perspectives）"><a href="#4-展望（Perspectives）" class="headerlink" title="4. 展望（Perspectives）"></a>4. 展望（Perspectives）</h2><p>当前方案的局限：</p>
+<p>对光照（阴影、反光）较敏感</p>
+<p>参数（阈值、ROI等）依赖人工调整</p>
+<p>在复杂环境的泛化能力有限</p>
+<p>未来改进方向：</p>
+<p>引入深度学习车道检测模型</p>
+<p>社区成熟模型丰富</p>
+<p>更强的抗光照、抗噪声鲁棒性</p>
+<p>泛化能力明显优于传统方法</p>
+<p>自适应阈值 &#x2F; 滤波方法（但计算量较大）</p>
+<p>深度模型 + 当前几何管线结合</p>
+<p>进一步提高稳定性与实时性能</p>
+<h2 id="附录（Appendix）"><a href="#附录（Appendix）" class="headerlink" title="附录（Appendix）"></a>附录（Appendix）</h2><p>GitLab 项目资源（Perception_Groupe 分支）</p>
+<p>包含内容：</p>
+<p>hough_final_fr.py</p>
+<p>可视化调试版本</p>
+<p>realtime_fr.py</p>
+<p>无 GUI，最高运行速度版本</p>
+<p>test.zip</p>
+<p>111 张模拟器图像数据集</p>
+<p>output_test.zip</p>
+<p>使用 hough_final 的检测结果集</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" data-id="cuidbQYDGC1x8kU_4IYSdrUGc" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          DonkeyCar 学习日记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">DonkeyCar 学习日记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">GitLab使用教程</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 WANG Lixi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -6,15 +6,15 @@
   
   <title>DonkeyCar 学习日记 | Bananafishss 的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Day 2 - 霍夫变换车道线检测方法若干问题的改进📝 持续更新……">
+  <meta name="description" content="Day 2 - 霍夫变换车道线检测方法若干问题的改进霍夫变换改进 改变ROI从梯形到五边形 预处理图像从HLS二值转换变成灰度值转换 用K-means和DBSCAN算法处理霍夫变换得到的线段集 增加BEV鸟瞰图变换def bev_perspective(img):  h, w &#x3D; img.shape[:2]  src_points &#x3D; np.float32([  [w * 0.05, h * 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DonkeyCar 学习日记">
 <meta property="og:url" content="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
-<meta property="og:description" content="Day 2 - 霍夫变换车道线检测方法若干问题的改进📝 持续更新……">
+<meta property="og:description" content="Day 2 - 霍夫变换车道线检测方法若干问题的改进霍夫变换改进 改变ROI从梯形到五边形 预处理图像从HLS二值转换变成灰度值转换 用K-means和DBSCAN算法处理霍夫变换得到的线段集 增加BEV鸟瞰图变换def bev_perspective(img):  h, w &#x3D; img.shape[:2]  src_points &#x3D; np.float32([  [w * 0.05, h * 0">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-10-18T21:19:14.000Z">
-<meta property="article:modified_time" content="2025-10-20T19:50:01.428Z">
+<meta property="article:modified_time" content="2025-11-18T11:57:43.450Z">
 <meta property="article:author" content="WANG Lixi">
 <meta property="article:tag" content="DonkeyCar">
 <meta property="article:tag" content="LaneDetection">
@@ -99,12 +99,27 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <hr>
-<h2 id="Day-2-霍夫变换车道线检测方法若干问题的改进"><a href="#Day-2-霍夫变换车道线检测方法若干问题的改进" class="headerlink" title="Day 2 - 霍夫变换车道线检测方法若干问题的改进"></a>Day 2 - 霍夫变换车道线检测方法若干问题的改进</h2><p>📝 持续更新……</p>
+<h2 id="Day-2-霍夫变换车道线检测方法若干问题的改进"><a href="#Day-2-霍夫变换车道线检测方法若干问题的改进" class="headerlink" title="Day 2 - 霍夫变换车道线检测方法若干问题的改进"></a>Day 2 - 霍夫变换车道线检测方法若干问题的改进</h2><h2 id="霍夫变换改进"><a href="#霍夫变换改进" class="headerlink" title="霍夫变换改进"></a>霍夫变换改进</h2><ol>
+<li>改变ROI从梯形到五边形</li>
+<li>预处理图像从HLS二值转换变成灰度值转换</li>
+<li>用K-means和DBSCAN算法处理霍夫变换得到的线段集</li>
+<li>增加BEV鸟瞰图变换<br><code>def bev_perspective(img):  h, w = img.shape[:2]  src_points = np.float32([  [w * 0.05, h * 0.7],  [w * 0.95, h * 0.7],  [w * 0.70, h * 0.45],  [w * 0.30, h * 0.45]  ])  dst_points = np.float32([  [w * 0.25, h],  [w * 0.75, h],  [w * 0.75, 0],  [w * 0.25, 0]  ])  M = cv2.getPerspectiveTransform(src_points, dst_points)  return cv2.warpPerspective(img, M, (w, h))</code><br> 本函数把原图中的梯形映射成矩形。</li>
+</ol>
+<h2 id="车道线相关Python内容"><a href="#车道线相关Python内容" class="headerlink" title="车道线相关Python内容"></a>车道线相关Python内容</h2><ol>
+<li><code>import pathlib as Path</code> 可以让我方便地自动处理不同操作系统的路径格式（如 Windows 的 \ 和 Linux 的 &#x2F;），即判断指定路径下的文件是否存在。</li>
+<li><code>Path</code>对象用来创建和保存文件非常方便 在我的程序中使用<code>Path</code>对象存放输入输出图片。</li>
+<li><code>gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</code>把图片从RGB换成灰度空间的函数。</li>
+<li><code>blur = cv2.GaussianBlur(gray, (GAUSS_KSIZE, GAUSS_KSIZE), 0)</code>对图片进行高斯滤波。</li>
+<li><code>v = np.median(blur)</code>median函数是对矩阵求中位数。</li>
+<li>将形如(x,y)的点集的x 和y提取出来的方法：首先有点集points<code>points = [(100, 720), (110, 680), (120, 640), (130, 600)]</code><br>对points进行处理：</li>
+</ol>
+<p><code>pts = np.array(points) ys = pts[:, 1] xs = pts[:, 0]</code> :代表矩阵里的所有元素 这里是所有行，0 和 1代表矩阵的第0列和第1列。</p>
+<p>📝 持续更新……</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" data-id="cuidxFh3-O05A_i1T0vlOYafV" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" data-id="cuidJIT0psi5e6LWfPkDKLsW9" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -116,7 +131,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
@@ -185,6 +200,10 @@
         
           <li>
             <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 学习日记</a>
           </li>
         
           <li>
