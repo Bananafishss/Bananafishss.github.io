@@ -73,197 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-GitLab使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2025-10-20T21:19:14.000Z" itemprop="datePublished">2025-10-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">GitLab使用教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="GitLab使用教程"><a href="#GitLab使用教程" class="headerlink" title="GitLab使用教程"></a>GitLab使用教程</h1><p>在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。</p>
-<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><h3 id="一、配置SSH-链接GitLab"><a href="#一、配置SSH-链接GitLab" class="headerlink" title="一、配置SSH 链接GitLab"></a>一、配置SSH 链接GitLab</h3><ol>
-<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#108;&#x69;&#120;&#105;&#46;&#x77;&#x61;&#x6e;&#x67;&#x40;&#105;&#x6d;&#x74;&#45;&#x61;&#116;&#x6c;&#x61;&#110;&#116;&#105;&#113;&#x75;&#x65;&#x2e;&#x6e;&#x65;&#116;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
-</li>
-<li><p>第二步，配置SSH key 这步对于每个账号只需要配置一次： <code>ssh-keygen -t ed25519 -C &quot;你的邮箱&quot;</code><br> ✅ -t ed25519 指定加密算法<br> ✅ -C 是备注信息（写邮箱）<br> ⛔ 不需要设置密码</p>
-</li>
-<li><p>对于Windows：启动 ssh-agent 并载入 key：</p>
-<p> <code>Start-Service ssh-agent </code><br> <code>ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></p>
-</li>
-<li><p>将key添加到GitLab: 复制在终端中生成的key，然后在网站的key选项那里手动添加。</p>
-</li>
-<li><p>测试key连接是否成功 <code>ssh -T git@gitlab.imt-atlantique.fr</code><br> 成功显示： <code>Welcome to GitLab, @l24wang!</code></p>
-</li>
-</ol>
-<h3 id="二、克隆-GitLab-仓库到本地"><a href="#二、克隆-GitLab-仓库到本地" class="headerlink" title="二、克隆 GitLab 仓库到本地"></a>二、克隆 GitLab 仓库到本地</h3><ol>
-<li>先 cd 到想要项目到本地的目的文件夹里</li>
-<li>用<code>git clone git@gitlab.imt-atlantique.fr:仓库路径.git</code><br> 我这里是 <code>git clone git@gitlab.imt-atlantique.fr:z23mahmo/2025-2026-ia-racing.git</code><br> git@…是使用 SSH 方式下载的意思</li>
-</ol>
-<h3 id="三、把自己的文件加入仓库（本地）"><a href="#三、把自己的文件加入仓库（本地）" class="headerlink" title="三、把自己的文件加入仓库（本地）"></a>三、把自己的文件加入仓库（本地）</h3><p>复制粘贴你的文件到仓库文件夹里，注意现在你的文件还没有更新到线上仓库和别人共享，只能在本地查看。</p>
-<h3 id="四、把自己的文件更新到线上仓库"><a href="#四、把自己的文件更新到线上仓库" class="headerlink" title="四、把自己的文件更新到线上仓库"></a>四、把自己的文件更新到线上仓库</h3><p><code>git add .</code><br><code>git commit -m &quot;Add my code&quot;</code><br><code>git push origin main</code></p>
-<p>📝 持续更新……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuidI8L1PCM_MOzqdDof9nmcV" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-DonkeyCar-学习日记-Day1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" class="article-date">
-  <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="Day-1-霍夫变换车道线检测方法"><a href="#Day-1-霍夫变换车道线检测方法" class="headerlink" title="Day 1 - 霍夫变换车道线检测方法"></a>Day 1 - 霍夫变换车道线检测方法</h2><h3 id="🚗-思路流程整理"><a href="#🚗-思路流程整理" class="headerlink" title="🚗 思路流程整理"></a>🚗 思路流程整理</h3><ol>
-<li>将 RGB 图像转换为 HLS 颜色空间，提取白色可能区域</li>
-<li>阈值过滤后得到黑白二值图</li>
-<li>设计 ROI 区域避免无关干扰</li>
-<li>使用 Canny 边缘检测提取道路边缘</li>
-<li>使用 HoughLinesP 检测直线</li>
-<li>根据斜率判断左右车道线</li>
-<li>根据路况选择拟合方式（直线&#x2F;曲线）</li>
-</ol>
-<hr>
-<h3 id="🔍-Canny-边缘检测"><a href="#🔍-Canny-边缘检测" class="headerlink" title="🔍 Canny 边缘检测"></a>🔍 Canny 边缘检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.Canny(image, threshold1, threshold2, apertureSize=<span class="number">3</span>, L2gradient=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
-
-<p>参数说明：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>image</td>
-<td>输入图像（单通道灰度图）</td>
-</tr>
-<tr>
-<td>threshold1</td>
-<td>Canny低阈值</td>
-</tr>
-<tr>
-<td>threshold2</td>
-<td>Canny高阈值</td>
-</tr>
-<tr>
-<td>apertureSize</td>
-<td>Sobel算子大小（3&#x2F;5&#x2F;7）</td>
-</tr>
-<tr>
-<td>L2gradient</td>
-<td>True 更精确但更慢</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="📐-Hough-直线检测"><a href="#📐-Hough-直线检测" class="headerlink" title="📐 Hough 直线检测"></a>📐 Hough 直线检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cv2.HoughLinesP(edges, RHO, THETA, HOUGH_TH,</span><br><span class="line">                minLineLength=MIN_LINE_LEN,</span><br><span class="line">                maxLineGap=MAX_LINE_GAP)</span><br></pre></td></tr></table></figure>
-
-<p>作用：霍夫变换将边缘点转为参数空间，用投票机制拟合出直线。</p>
-<hr>
-<h3 id="➗-区分左右车道线逻辑"><a href="#➗-区分左右车道线逻辑" class="headerlink" title="➗ 区分左右车道线逻辑"></a>➗ 区分左右车道线逻辑</h3><p>通过霍夫拟合出的直线斜率：</p>
-<ul>
-<li>斜率 &lt; 0 → 左车道线</li>
-<li>斜率 &gt; 0 → 右车道线</li>
-</ul>
-<hr>
-<h3 id="🛣️-判断直道还是弯道"><a href="#🛣️-判断直道还是弯道" class="headerlink" title="🛣️ 判断直道还是弯道"></a>🛣️ 判断直道还是弯道</h3><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>特征</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>直道</td>
-<td>霍夫线段斜率接近</td>
-</tr>
-<tr>
-<td>弯道</td>
-<td>拟合出的线段呈弧线，斜率变化大</td>
-</tr>
-</tbody></table>
-<p>若是弯道，需要使用二次曲线拟合。</p>
-<hr>
-<h3 id="❗-当前遇到的问题"><a href="#❗-当前遇到的问题" class="headerlink" title="❗ 当前遇到的问题"></a>❗ 当前遇到的问题</h3><ol>
-<li>很难准确区分真实白线与光照高亮区域</li>
-<li>强反光区域容易被当成车道线</li>
-<li>二值图噪声较多，导致霍夫检测不稳定</li>
-<li>由于前一步二值化不够稳定，Canny 检测受噪声干扰较大</li>
-</ol>
-<hr>
-<p>✅ 下一步我计划尝试：</p>
-<ul>
-<li>改进二值化方法，尝试转换到灰度空间</li>
-<li>修改ROI区域的形状使其更贴合实际形状</li>
-<li>尝试使用clustering，K聚簇，DBSCAN算法来进行曲线拟合</li>
-</ul>
-<hr>
-<p>📝 持续更新……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" data-id="cuidEwmz6GpkUYMFMYWIgIJgY" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-DonkeyCar-学习日记-Day3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" class="article-date">
-  <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
+    <a href="/2025/11/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" class="article-date">
+  <time class="dt-published" datetime="2025-11-18T22:19:14.000Z" itemprop="datePublished">2025-11-18</time>
 </a>
     
   </div>
@@ -274,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 学习日记</a>
+      <a class="p-name article-title" href="/2025/11/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 经典视觉检测总结</a>
     </h1>
   
 
@@ -405,11 +218,72 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" data-id="cuidbQYDGC1x8kU_4IYSdrUGc" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" data-id="cuid2yYrH8_4b3e5BiQ0AwDZx" data-title="DonkeyCar 经典视觉检测总结" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-GitLab使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2025-10-20T21:19:14.000Z" itemprop="datePublished">2025-10-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">GitLab使用教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="GitLab使用教程"><a href="#GitLab使用教程" class="headerlink" title="GitLab使用教程"></a>GitLab使用教程</h1><p>在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。</p>
+<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><h3 id="一、配置SSH-链接GitLab"><a href="#一、配置SSH-链接GitLab" class="headerlink" title="一、配置SSH 链接GitLab"></a>一、配置SSH 链接GitLab</h3><ol>
+<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#x6c;&#x69;&#120;&#105;&#46;&#x77;&#97;&#110;&#x67;&#x40;&#x69;&#109;&#x74;&#x2d;&#97;&#116;&#x6c;&#97;&#x6e;&#x74;&#105;&#113;&#117;&#101;&#46;&#110;&#101;&#x74;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
+</li>
+<li><p>第二步，配置SSH key 这步对于每个账号只需要配置一次： <code>ssh-keygen -t ed25519 -C &quot;你的邮箱&quot;</code><br> ✅ -t ed25519 指定加密算法<br> ✅ -C 是备注信息（写邮箱）<br> ⛔ 不需要设置密码</p>
+</li>
+<li><p>对于Windows：启动 ssh-agent 并载入 key：</p>
+<p> <code>Start-Service ssh-agent </code><br> <code>ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></p>
+</li>
+<li><p>将key添加到GitLab: 复制在终端中生成的key，然后在网站的key选项那里手动添加。</p>
+</li>
+<li><p>测试key连接是否成功 <code>ssh -T git@gitlab.imt-atlantique.fr</code><br> 成功显示： <code>Welcome to GitLab, @l24wang!</code></p>
+</li>
+</ol>
+<h3 id="二、克隆-GitLab-仓库到本地"><a href="#二、克隆-GitLab-仓库到本地" class="headerlink" title="二、克隆 GitLab 仓库到本地"></a>二、克隆 GitLab 仓库到本地</h3><ol>
+<li>先 cd 到想要项目到本地的目的文件夹里</li>
+<li>用<code>git clone git@gitlab.imt-atlantique.fr:仓库路径.git</code><br> 我这里是 <code>git clone git@gitlab.imt-atlantique.fr:z23mahmo/2025-2026-ia-racing.git</code><br> git@…是使用 SSH 方式下载的意思</li>
+</ol>
+<h3 id="三、把自己的文件加入仓库（本地）"><a href="#三、把自己的文件加入仓库（本地）" class="headerlink" title="三、把自己的文件加入仓库（本地）"></a>三、把自己的文件加入仓库（本地）</h3><p>复制粘贴你的文件到仓库文件夹里，注意现在你的文件还没有更新到线上仓库和别人共享，只能在本地查看。</p>
+<h3 id="四、把自己的文件更新到线上仓库"><a href="#四、把自己的文件更新到线上仓库" class="headerlink" title="四、把自己的文件更新到线上仓库"></a>四、把自己的文件更新到线上仓库</h3><p><code>git add .</code><br><code>git commit -m &quot;Add my code&quot;</code><br><code>git push origin main</code></p>
+<p>📝 持续更新……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuidSdTDd_viCWXSwe-8oHdjb" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li></ul>
 
     </footer>
   </div>
@@ -462,7 +336,133 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" data-id="cuidJIT0psi5e6LWfPkDKLsW9" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/" data-id="cuidT50piNuNYT5GQJ9Q04EHK" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-DonkeyCar-学习日记-Day1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" class="article-date">
+  <time class="dt-published" datetime="2025-10-18T21:19:14.000Z" itemprop="datePublished">2025-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<h2 id="Day-1-霍夫变换车道线检测方法"><a href="#Day-1-霍夫变换车道线检测方法" class="headerlink" title="Day 1 - 霍夫变换车道线检测方法"></a>Day 1 - 霍夫变换车道线检测方法</h2><h3 id="🚗-思路流程整理"><a href="#🚗-思路流程整理" class="headerlink" title="🚗 思路流程整理"></a>🚗 思路流程整理</h3><ol>
+<li>将 RGB 图像转换为 HLS 颜色空间，提取白色可能区域</li>
+<li>阈值过滤后得到黑白二值图</li>
+<li>设计 ROI 区域避免无关干扰</li>
+<li>使用 Canny 边缘检测提取道路边缘</li>
+<li>使用 HoughLinesP 检测直线</li>
+<li>根据斜率判断左右车道线</li>
+<li>根据路况选择拟合方式（直线&#x2F;曲线）</li>
+</ol>
+<hr>
+<h3 id="🔍-Canny-边缘检测"><a href="#🔍-Canny-边缘检测" class="headerlink" title="🔍 Canny 边缘检测"></a>🔍 Canny 边缘检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.Canny(image, threshold1, threshold2, apertureSize=<span class="number">3</span>, L2gradient=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>image</td>
+<td>输入图像（单通道灰度图）</td>
+</tr>
+<tr>
+<td>threshold1</td>
+<td>Canny低阈值</td>
+</tr>
+<tr>
+<td>threshold2</td>
+<td>Canny高阈值</td>
+</tr>
+<tr>
+<td>apertureSize</td>
+<td>Sobel算子大小（3&#x2F;5&#x2F;7）</td>
+</tr>
+<tr>
+<td>L2gradient</td>
+<td>True 更精确但更慢</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="📐-Hough-直线检测"><a href="#📐-Hough-直线检测" class="headerlink" title="📐 Hough 直线检测"></a>📐 Hough 直线检测</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cv2.HoughLinesP(edges, RHO, THETA, HOUGH_TH,</span><br><span class="line">                minLineLength=MIN_LINE_LEN,</span><br><span class="line">                maxLineGap=MAX_LINE_GAP)</span><br></pre></td></tr></table></figure>
+
+<p>作用：霍夫变换将边缘点转为参数空间，用投票机制拟合出直线。</p>
+<hr>
+<h3 id="➗-区分左右车道线逻辑"><a href="#➗-区分左右车道线逻辑" class="headerlink" title="➗ 区分左右车道线逻辑"></a>➗ 区分左右车道线逻辑</h3><p>通过霍夫拟合出的直线斜率：</p>
+<ul>
+<li>斜率 &lt; 0 → 左车道线</li>
+<li>斜率 &gt; 0 → 右车道线</li>
+</ul>
+<hr>
+<h3 id="🛣️-判断直道还是弯道"><a href="#🛣️-判断直道还是弯道" class="headerlink" title="🛣️ 判断直道还是弯道"></a>🛣️ 判断直道还是弯道</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直道</td>
+<td>霍夫线段斜率接近</td>
+</tr>
+<tr>
+<td>弯道</td>
+<td>拟合出的线段呈弧线，斜率变化大</td>
+</tr>
+</tbody></table>
+<p>若是弯道，需要使用二次曲线拟合。</p>
+<hr>
+<h3 id="❗-当前遇到的问题"><a href="#❗-当前遇到的问题" class="headerlink" title="❗ 当前遇到的问题"></a>❗ 当前遇到的问题</h3><ol>
+<li>很难准确区分真实白线与光照高亮区域</li>
+<li>强反光区域容易被当成车道线</li>
+<li>二值图噪声较多，导致霍夫检测不稳定</li>
+<li>由于前一步二值化不够稳定，Canny 检测受噪声干扰较大</li>
+</ol>
+<hr>
+<p>✅ 下一步我计划尝试：</p>
+<ul>
+<li>改进二值化方法，尝试转换到灰度空间</li>
+<li>修改ROI区域的形状使其更贴合实际形状</li>
+<li>尝试使用clustering，K聚簇，DBSCAN算法来进行曲线拟合</li>
+</ul>
+<hr>
+<p>📝 持续更新……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/" data-id="cuid-Up54wr2PvbTF1ws-etmX" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -515,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/18/hello-world/" data-id="cuidN1Jxkh2QF_a1gNINKoluH" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/10/18/hello-world/" data-id="cuid6nSrmsGj3gNc0_9G5lELc" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -559,7 +559,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
     </div>
   </div>
 
@@ -572,19 +572,19 @@
       <ul>
         
           <li>
+            <a href="/2025/11/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 经典视觉检测总结</a>
+          </li>
+        
+          <li>
             <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">GitLab使用教程</a>
           </li>
         
           <li>
-            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
-          </li>
-        
-          <li>
-            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 学习日记</a>
-          </li>
-        
-          <li>
             <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day2/">DonkeyCar 学习日记</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/18/DonkeyCar-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day1/">DonkeyCar 学习日记</a>
           </li>
         
           <li>
