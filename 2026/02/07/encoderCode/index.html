@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Bananafishss 的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="指针角度和计数器计数之间的转换的两个问题：  角度超出180 系统上电时初始角度不一致  指针旋转角度和马达计数器之间的转换“一个计数对应指针轴多少度”函数‘’’cstatic inline float degPerDriveCountOnShaft() {  return 360.0f &#x2F; (float)ONE_REV_COUNTS &#x2F; GEAR_RATIO;}‘’’指针轴每">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bananafishss 的小站">
+<meta property="og:url" content="http://example.com/2026/02/07/encoderCode/index.html">
+<meta property="og:site_name" content="Bananafishss 的小站">
+<meta property="og:description" content="指针角度和计数器计数之间的转换的两个问题：  角度超出180 系统上电时初始角度不一致  指针旋转角度和马达计数器之间的转换“一个计数对应指针轴多少度”函数‘’’cstatic inline float degPerDriveCountOnShaft() {  return 360.0f &#x2F; (float)ONE_REV_COUNTS &#x2F; GEAR_RATIO;}‘’’指针轴每">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-07T18:44:39.962Z">
+<meta property="article:modified_time" content="2026-01-21T16:53:15.176Z">
+<meta property="article:author" content="WANG Lixi">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bananafishss 的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-encoderCode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/07/encoderCode/" class="article-date">
+  <time class="dt-published" datetime="2026-02-07T18:44:39.962Z" itemprop="datePublished">2026-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>指针角度和计数器计数之间的转换的两个问题：</p>
+<ol>
+<li>角度超出180</li>
+<li>系统上电时初始角度不一致</li>
+</ol>
+<h1 id="指针旋转角度和马达计数器之间的转换"><a href="#指针旋转角度和马达计数器之间的转换" class="headerlink" title="指针旋转角度和马达计数器之间的转换"></a>指针旋转角度和马达计数器之间的转换</h1><h2 id="“一个计数对应指针轴多少度”函数"><a href="#“一个计数对应指针轴多少度”函数" class="headerlink" title="“一个计数对应指针轴多少度”函数"></a>“一个计数对应指针轴多少度”函数</h2><p>‘’’c<br>static inline float degPerDriveCountOnShaft() {<br>  return 360.0f &#x2F; (float)ONE_REV_COUNTS &#x2F; GEAR_RATIO;<br>}<br>‘’’<br>指针轴每个 count 转的角度 &#x3D; 360 &#x2F; 12 &#x2F; 52.734</p>
+<h2 id="wrap180-函数是将角度限制到-180-180"><a href="#wrap180-函数是将角度限制到-180-180" class="headerlink" title="wrap180 函数是将角度限制到-180 180"></a>wrap180 函数是将角度限制到-180 180</h2><h2 id="角度-→-计数上面的逆函数"><a href="#角度-→-计数上面的逆函数" class="headerlink" title="角度 → 计数上面的逆函数"></a>角度 → 计数上面的逆函数</h2><p>首先我们有 不含校准 offset<br>‘’’<br>static inline long shaftDegToDriveCount(float deg) {<br>  return lroundf(deg &#x2F; degPerDriveCountOnShaft());<br>}&#x2F;&#x2F;count &#x3D; 角度 &#x2F; (每个 count 对应的角度)<br>‘’’<br>然后 改进版 角度 → 目标计数（含校准 offset:<br>‘’’c<br>long expectedDegToTargetCount(float expDeg) {<br>  &#x2F;&#x2F; expDeg &#x3D;&#x3D; count*degPer + offset &#x3D;&gt; count &#x3D; (expDeg - offset)&#x2F;degPer<br>  float pure &#x3D; wrap180(expDeg - calibOffsetDeg);<br>  return lroundf(pure &#x2F; degPerDriveCountOnShaft());<br>}&#x2F;&#x2F;系统上电时，编码器的 0 点 ≠ 指针表盘的 0 度,所以引入了 calibOffsetDeg（校准角偏置）<br>‘’’</p>
+<ol>
+<li><p>先expDeg - calibOffsetDeg：把“表盘角度”换到“编码器坐标系”</p>
+</li>
+<li><p>然后用wrap180：避免角度跨 ±180 产生跳变</p>
+</li>
+<li><p>最后使用没校准的函数 除以 degPerDriveCountOnShaft() 得到 count（整数）</p>
+</li>
+</ol>
+<h1 id="驱动马达旋转到目标位置-也就是让count和目标计数targetCount之间的差值err为零"><a href="#驱动马达旋转到目标位置-也就是让count和目标计数targetCount之间的差值err为零" class="headerlink" title="驱动马达旋转到目标位置 也就是让count和目标计数targetCount之间的差值err为零"></a>驱动马达旋转到目标位置 也就是让count和目标计数targetCount之间的差值err为零</h1><ol>
+<li>先读编码器的计数得到当前count</li>
+<li>根据当前count 和目标count 之间的误差err 控制电机旋转 直到误差为0。</li>
+</ol>
+<h2 id="读取编码器“当前位置”的count"><a href="#读取编码器“当前位置”的count" class="headerlink" title="读取编码器“当前位置”的count"></a>读取编码器“当前位置”的count</h2><p>‘’’c<br>Encoder enc(PIN_ENC_A, PIN_ENC_B);<br>&#x2F;&#x2F;这个函数就是当前电机（或驱动轮）的“角度位置”用计数表示。<br>long readCountDrive() {<br>  long c &#x3D; enc.read();&#x2F;&#x2F;读出增量编码器累计计数（count）<br>  if (INVERT_ENCODER) c &#x3D; -c; &#x2F;&#x2F;如果转向&#x2F;计数方向反了，就翻转<br>  return c;<br>}<br>‘’’</p>
+<h2 id="设置-目标计数targetCount"><a href="#设置-目标计数targetCount" class="headerlink" title="设置 目标计数targetCount"></a>设置 目标计数targetCount</h2><p>目标计数targetCount根据温度传感器的当前值得到，付给变量long targetCountDrive 。</p>
+<h2 id="误差计算"><a href="#误差计算" class="headerlink" title="误差计算"></a>误差计算</h2><p>long err &#x3D; targetCountDrive - c;<br>err &gt; 0：说明还没转够，要往正方向转</p>
+<p>err &lt; 0：转过头了，要往反方向转</p>
+<p>err &#x3D; 0：刚好到位<br>最经典的闭环思路：控制误差趋近于 0</p>
+<h2 id="电机驱动"><a href="#电机驱动" class="headerlink" title="电机驱动"></a>电机驱动</h2><p>‘’’c<br>void setMotor(bool dirHigh, int pwm) {<br>  if (INVERT_MOTOR_DIR) dirHigh &#x3D; !dirHigh;<br>  digitalWrite(PIN_DIR, dirHigh ? HIGH : LOW);<br>  analogWrite(PIN_EN, pwm);<br>}<br>‘’’<br>PIN_DIR：方向（HIGH&#x2F;LOW）</p>
+<p>PIN_EN：PWM（0~255，越大越用力）</p>
+<p>INVERT_MOTOR_DIR：如果方向反了就翻转 由于无法确定旋转方向 所以在这里设置一个检验语句用来纠错</p>
+<h2 id="电机旋转矫正-控制律"><a href="#电机旋转矫正-控制律" class="headerlink" title="电机旋转矫正 控制律"></a>电机旋转矫正 控制律</h2><ol>
+<li>超时保护（防止卡住一直转）<br>‘’’c<br>if (mstate !&#x3D; M_IDLE &amp;&amp; now - moveStartMs &gt; TIMEOUT_MS) {<br>  mstate &#x3D; M_IDLE;<br>  stopMotor();<br>}<br>‘’’<br>如果 7 秒还没到位，强制停机</li>
+<li>“稳定到位”判定<br>误差为 0 稳定 500ms 才算到位：<br>‘’’c<br>if (err &#x3D;&#x3D; 0) {<br>  if (stableZeroT0 &#x3D;&#x3D; 0) stableZeroT0 &#x3D; now;<br>} else stableZeroT0 &#x3D; 0;</li>
+</ol>
+<p>if (stableZeroT0 !&#x3D; 0 &amp;&amp; now - stableZeroT0 &gt;&#x3D; STABLE_MS_ZERO) {<br>  mstate &#x3D; M_IDLE; stopMotor();<br>}</p>
+<p>‘’’<br>或者允许 ±1 误差稳定 800ms 也算到位（fallback）：<br>‘’’c<br>if (labs(err) &#x3D;&#x3D; 1) {<br>  if (stableOneT0 &#x3D;&#x3D; 0) stableOneT0 &#x3D; now;<br>} else stableOneT0 &#x3D; 0;</p>
+<p>else if (ALLOW_FALLBACK_PLUSMINUS1 &amp;&amp; stableOneT0 !&#x3D; 0 &amp;&amp; now - stableOneT0 &gt;&#x3D; STABLE_MS_ONE) {<br>  mstate &#x3D; M_IDLE; stopMotor();<br>}<br>‘’’<br>3. 状态机：远的时候快跑，近的时候慢跑，最后轻推<br>定义了状态: enum MotionState { M_IDLE, M_COARSE_FAST, M_COARSE_SLOW, M_NUDGE_OFF, M_NUDGE_ON };<br>距离判断（看误差绝对值 aerr）</p>
+<p>aerr &gt;&#x3D; FAR_ZONE(8)：离得远 → M_COARSE_FAST（大力）</p>
+<p>3~7：中等距离 → M_COARSE_SLOW（小力）</p>
+<p>&lt;&#x3D; FINE_ZONE(2)：很近 → 切到 NUDGE（一下一下点动）<br>‘’’c<br>if (aerr &lt;&#x3D; FINE_ZONE) { … NUDGE … }<br>else if (aerr &lt; FAR_ZONE) { mstate &#x3D; M_COARSE_SLOW; }<br>else { mstate &#x3D; M_COARSE_FAST; }<br>‘’’<br>4. 真正的控制律：P 控制 + PWM 限幅<br>1）粗调（coarse）：比例控制 u &#x3D; Kp * err<br>‘’’c<br>float u &#x3D; KP_COARSE * (float)err;<br>bool dirHigh &#x3D; (u &gt;&#x3D; 0);<br>int pwm &#x3D; (int)fabs(u);<br>‘’’<br>KP_COARSE&#x3D;7.0</p>
+<p>pwm 跟误差成正比：误差大 → PWM 大<br>2）PWM 限制（防止太大&#x2F;太小）</p>
+<p>FAST 模式：<br>if (pwm &gt; PWM_COARSE_MAX_FAST) pwm &#x3D; PWM_COARSE_MAX_FAST; &#x2F;&#x2F; 130<br>if (pwm &gt; 0 &amp;&amp; pwm &lt; PWM_COARSE_MIN_FAST) pwm &#x3D; PWM_COARSE_MIN_FAST; &#x2F;&#x2F; 60</p>
+<p>SLOW 模式：<br>if (pwm &gt; PWM_COARSE_MAX_SLOW) pwm &#x3D; PWM_COARSE_MAX_SLOW; &#x2F;&#x2F; 100<br>if (pwm &gt; 0 &amp;&amp; pwm &lt; PWM_COARSE_MIN_SLOW) pwm &#x3D; PWM_COARSE_MIN_SLOW; &#x2F;&#x2F; 55</p>
+<p>最小 PWM 是为了克服静摩擦（不然给太小动不了）。<br>最大 PWM 是为了别冲太猛、别过冲。<br>5）最后的精调：NUDGE 点动（避免来回震）</p>
+<p>当误差很小（&lt;&#x3D;2 counts），它不用 P 控制了，而是：</p>
+<p>先停一会儿 NUDGE_OFF_MS&#x3D;160ms</p>
+<p>再用固定 PWM&#x3D;55 推一下</p>
+<p>推的时间很短：</p>
+<p>误差 &lt;&#x3D;1：推 15ms</p>
+<p>否则推 35ms<br>‘’’c<br>else if (mstate &#x3D;&#x3D; M_NUDGE_ON) {<br>  unsigned long onMs &#x3D; (aerr &lt;&#x3D; 1) ? NUDGE_ON_MS_FINE : NUDGE_ON_MS_COARSE;<br>  bool dirHigh &#x3D; (err &gt; 0);<br>  setMotor(dirHigh, PWM_NUDGE);<br>  …<br>}<br>‘’’</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/07/encoderCode/" data-id="cuidiamY8JlEx-zSigp06U5_j" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/07/MicroControleur/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/01/09/C++_3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">C/C++ 学习日记 操作符重载</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino/" style="font-size: 10px;">Arduino</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/07/MicroControleur/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/07/encoderCode/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WANG Lixi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

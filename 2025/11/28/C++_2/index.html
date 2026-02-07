@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>C/C++ 学习日记 类，实例，属性和方法 | Bananafishss 的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="2.C++ 类，实例，属性和方法类的定义和结构体类似。声明如下：‘’’cppclass NomClasse {…};‘’’ 类的属性和方法简而言之，属性（Attributes）就是类里的变量，方法（Méthodes）就是类里的成员函数。声明一个类的方式如下：‘’’cppclass Student {public:    string name;&#x2F;&#x2F;属性    int age;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C&#x2F;C++ 学习日记 类，实例，属性和方法">
+<meta property="og:url" content="http://example.com/2025/11/28/C++_2/index.html">
+<meta property="og:site_name" content="Bananafishss 的小站">
+<meta property="og:description" content="2.C++ 类，实例，属性和方法类的定义和结构体类似。声明如下：‘’’cppclass NomClasse {…};‘’’ 类的属性和方法简而言之，属性（Attributes）就是类里的变量，方法（Méthodes）就是类里的成员函数。声明一个类的方式如下：‘’’cppclass Student {public:    string name;&#x2F;&#x2F;属性    int age;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-28T22:19:14.000Z">
+<meta property="article:modified_time" content="2026-02-06T10:53:33.617Z">
+<meta property="article:author" content="WANG Lixi">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bananafishss 的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-C++_2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/28/C++_2/" class="article-date">
+  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      C/C++ 学习日记 类，实例，属性和方法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="2-C-类，实例，属性和方法"><a href="#2-C-类，实例，属性和方法" class="headerlink" title="2.C++ 类，实例，属性和方法"></a>2.C++ 类，实例，属性和方法</h1><h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><p>和结构体类似。声明如下：<br>‘’’cpp<br>class NomClasse {…};<br>‘’’</p>
+<h2 id="类的属性和方法"><a href="#类的属性和方法" class="headerlink" title="类的属性和方法"></a>类的属性和方法</h2><p>简而言之，属性（Attributes）就是类里的变量，方法（Méthodes）就是类里的成员函数。<br>声明一个类的方式如下：<br>‘’’cpp<br>class Student {<br>public:<br>    string name;&#x2F;&#x2F;属性<br>    int age;<br>    int grade;</p>
+<pre><code>void introduce() {       // 方法
+    cout &lt;&lt; &quot;I am &quot; &lt;&lt; name &lt;&lt; &quot;, age &quot; &lt;&lt; age &lt;&lt; endl;
+}
+
+void study() {           // 方法
+    cout &lt;&lt; name &lt;&lt; &quot; is studying...&quot; &lt;&lt; endl;
+}
+</code></pre>
+<p>};<br>‘’’<br>调用：<br>‘’’cpp<br>s.introduce();<br>s.study();<br>‘’’<br>注意事项：</p>
+<ol>
+<li><p>属性不需要像参数一样写在方法括号里，因为方法已经自动能访问它们。<br> ‘’’cpp<br> class A {<br> public:<br> int x;<br> void print() const {  &#x2F;&#x2F; 直接访问属性,不需要另外在（）里写x<br>     cout &lt;&lt; x;<br> }<br> };’’’</p>
+</li>
+<li><p>为了结构清晰，最好把类的实现和类的声明分开，声明放在h文件，实现放在cpp文件里。</p>
+</li>
+<li><p>在类外写方法时，编译器不知道这个函数属于哪个类，要用 :: 来告诉它。比如：<br> ‘’’cpp<br> class Car {<br> public:<br> int surface(int w, int h);<br> };<br> &#x2F;&#x2F;&#x2F;然后在类外实现时加上”::”：<br> int Car::surface(int w, int h) {<br> return w * h;<br> }<br> ‘’’</p>
+</li>
+<li><p>有些方法会修改对象的属性，有些不会。不会修改属性的方法叫 const 方法。要写成： retour nomMethode(…) const. const 放在括号后面表示“我保证不改对象”。<br> ‘’’cpp<br> int getX() const;      &#x2F;&#x2F; const 方法（不改属性）<br> void setX(int x);      &#x2F;&#x2F; 普通方法（能改属性）<br> ‘’’</p>
+</li>
+</ol>
+<h2 id="const的四种用法"><a href="#const的四种用法" class="headerlink" title="const的四种用法"></a>const的四种用法</h2><ol>
+<li>‘’’cpp<br> const int i<br> ‘’’<br> 对于变对象或属性来讲，这个形式表示该变量不可被修改。</li>
+<li>对于方法来说，有三种情况：<br> ‘’’cpp<br> CONST1 type_de_retour methode(CONST2 parametre) CONST3;<br> ‘’’<br> CONST1表示锁返回方法，CONST2表示函数不能改变输入的参数值，CONST3表示该方法不能修改当前实例的属性。</li>
+</ol>
+<h2 id="类的成员的可见性"><a href="#类的成员的可见性" class="headerlink" title="类的成员的可见性"></a>类的成员的可见性</h2><ol>
+<li><p>public &#x3D; 大家都能用（公开的）</p>
+</li>
+<li><p>private 成员只能在类内部被访问（即：类自己的方法能用），类外面（包括实例化后的对象）不能直接访问。<br><strong>同一类的不同对象之间可以直接相互赋值，不需要借助getter，setter!</strong><br>举个例子：<br> ‘’’cpp<br> class A {<br> private:<br> int secret;      &#x2F;&#x2F; 私有属性<br> public:<br> void setSecret(int x) {<br>     secret &#x3D; x;   &#x2F;&#x2F; ✔ 可以，类内部访问 secret<br> }<br><br> int getSecret() const {<br>     return secret; &#x2F;&#x2F; ✔ 类内部访问 OK<br> }<br> };<br> &#x2F;&#x2F;Getter和Setter方法：从外部获取private成员</p>
+<p> int main() {<br> A obj;<br><br> obj.secret &#x3D; 10;   &#x2F;&#x2F; X 错误！外部不能访问 private<br> obj.setSecret(10); &#x2F;&#x2F; ✔ 正确，通过 public 方法间接操作 private<br> }<br> ‘’’</p>
+</li>
+</ol>
+<h2 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h2><ol>
+<li>Constructeur<h3 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h3><ol>
+<li>名字和类名完全一样：Rectangle::Rectangle(…)</li>
+<li>没有返回值（甚至不能写 void）。</li>
+<li>需要创建对象时调用：Rectangle rect1(3.0, 4.0);<br> 举例：<br> ‘’’cpp<br> class Rectangle {<br> public:<br> double largeur;<br> double hauteur;<br><br> Rectangle(double l, double h) {<br>     largeur &#x3D; l;<br>     hauteur &#x3D; h;<br>     cout &lt;&lt; “Constructeur appelé!” &lt;&lt; endl;<br> }<br> };<br> &#x2F;&#x2F;在类声明外写构造函数（大部分情况写在类里面的public部分 写在外面需要加Rectangle::）：<br> Rectangle::Rectangle(double hauteur, double largeur) {<br> this-&gt;largeur &#x3D; largeur;<br> this-&gt;hauteur &#x3D; hauteur ;<br> }<br> &#x2F;&#x2F;当我创建对象时：<br> Rectangle r(3.0, 4.0);<br> &#x2F;&#x2F;对象通过构造函数被自动创建。编译器内部会做：<br> &#x2F;&#x2F;1.创建一个 Rectangle 类型的对象 r.<br> &#x2F;&#x2F;2.把 r 的地址传给构造函数的 this 指针<br>  ‘’’</li>
+</ol>
+</li>
+<li>Destructeur<h3 id="析构函数的特点"><a href="#析构函数的特点" class="headerlink" title="析构函数的特点"></a>析构函数的特点</h3><ol>
+<li>名字是 ~类名</li>
+<li>没有返回值</li>
+<li>对象消失时自动调用<br> 举例：<br> ‘’’cpp<br> class Rectangle {<br> public:<br> ~Rectangle() {<br>     cout &lt;&lt; “Destructeur appelé!” &lt;&lt; endl;<br>     &#x2F;&#x2F;析构函数没有复杂功能时也可以不写 → 系统自动生成。<br> }<br> };</li>
+<li>注意：写析构函数时只有那些用new创建的指针(data&#x3D;nullptr;),数组(delete[] data;)需要初始化,那些int之类的变量存在栈里 自动被删除。</li>
+</ol>
+</li>
+</ol>
+<h2 id="构造函数里的初始化列表"><a href="#构造函数里的初始化列表" class="headerlink" title="构造函数里的初始化列表"></a>构造函数里的初始化列表</h2><dl><dt><strong>是函数里赋值的上位替代，速度更快，效率更高！</strong><br><strong>调用初始化列表的构造函数的方式和函数里赋值的方式完全一致如’Point(1, 0);’</strong><br>初始化列表 &#x3D; 在对象创建那一刻直接把属性初始化，而构造函数里赋值是将已经被初始化为随机值的值进行赋值，是第二次赋值。<br>必须用初始化列表的情况：遇到 const、引用、对象成员时。<br>模板：<br>    ‘’’cpp<br>    ClassName::ClassName(type a, type b)&#x2F;&#x2F;头文件里带参数的函数内初始化 和 初始列表初始化的声明都是这么写<br>        : attribute1(a), attribute2(b), attribute3(5)&#x2F;&#x2F;<br>    {<br>        &#x2F;&#x2F; 构造函数体<br>    }<br>    ‘’’<br>举例：<br>    ‘’’cpp<br>&#x2F;&#x2F;类里（只声明，不写初始化列表）：<br>class Rectangle {<br>public:<br>    Rectangle(double H, double L);  &#x2F;&#x2F; 这里只是声明<br>};<br>&#x2F;&#x2F;类外（真正定义 + 初始化列表）：<br>Rectangle::Rectangle(double H, double L)</dt><dd>hauteur(H), largeur(L)<br>{}<br>    ‘’’</dd></dl><h2 id="默认生成的构造函数"><a href="#默认生成的构造函数" class="headerlink" title="默认生成的构造函数"></a>默认生成的构造函数</h2><p>默认构造函数 &#x3D; 一个“没有参数”的构造函数或者所有参数都有默认值的构造函数。<br>当你声明对象但不给它初始值时，就会调用它。</p>
+<ol>
+<li><p>没有参数的构造函数：<br> ‘’’cpp<br> class Rectangle {<br> public:<br> Rectangle() {     &#x2F;&#x2F; ← 默认构造函数<br>     largeur &#x3D; 1;<br>     hauteur &#x3D; 1;<br> }<br> };<br> &#x2F;&#x2F;调用<br> Rectangle r;   &#x2F;&#x2F; ← 这里会自动调用 Rectangle()<br> ‘’’</p>
+</li>
+<li><p>所有参数都有默认值的构造函数、<br> ‘’’cpp<br> class Rectangle {<br> public:<br> Rectangle(double h &#x3D; 1, double l &#x3D; 1) {   &#x2F;&#x2F; 每个参数都有默认值<br>     hauteur &#x3D; h;<br>     largeur &#x3D; l;<br> }<br> };<br> &#x2F;&#x2F;调用<br> Rectangle r;        &#x2F;&#x2F; 调用 Rectangle(1,1)<br> Rectangle r2(5);    &#x2F;&#x2F; 调用 Rectangle(5,1)<br> Rectangle r3(3,4);  &#x2F;&#x2F; 调用 Rectangle(3,4)</p>
+<p> ‘’’</p>
+</li>
+<li><p>默认构造函数的作用：</p>
+<ol>
+<li><p>有时你想先创建对象，之后再设置属性</p>
+</li>
+<li><p>有时对象是另一个对象的成员，需要自动创建</p>
+</li>
+<li><p>有时你需要创建一个对象数组</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h2><p>复制构造函数 &#x3D; 用一个已经存在的对象，复制出一个新对象的“特殊构造函数”。<br>模板：<br>‘’’cpp<br>ClassName(const ClassName&amp; other){<br>    &#x2F;&#x2F; 用 other 的内容初始化当前对象<br>}<br>‘’’<br>举例:<br>‘’’cpp<br>Rectangle::Rectangle(const Rectangle&amp; r) {<br>    this-&gt;largeur &#x3D; r.largeur;<br>    this-&gt;hauteur &#x3D; r.hauteur;<br>}<br>‘’’</p>
+<h3 id="使用复制构造函数的场景："><a href="#使用复制构造函数的场景：" class="headerlink" title="使用复制构造函数的场景："></a>使用复制构造函数的场景：</h3><pre><code>1. 用一个对象初始化另一个对象
+2. 把对象作为参数传给函数（按值传递）
+3. 函数按值返回对象
+4. 容器操作（如 vector）
+</code></pre>
+<h3 id="必须自己写复制构造函数的场景："><a href="#必须自己写复制构造函数的场景：" class="headerlink" title="必须自己写复制构造函数的场景："></a>必须自己写复制构造函数的场景：</h3><pre><code>当类里面有“指针”或“动态内存”时！
+&#39;&#39;&#39;cpp
+    class A {
+    int* data;
+};
+//不能直接A a1;A a2 = a1;，会报错
+//必须：
+    A::A(const A&amp; other) {
+    data = new int(*other.data); // 深拷贝
+}
+&#39;&#39;&#39;
+</code></pre>
+<h2 id="static成员"><a href="#static成员" class="headerlink" title="static成员"></a>static成员</h2><p>static 成员对每个该类的对象共享同一份 static 数据或 static 方法。<br>换句话说，它是同类下所有对象的全局变量或函数。</p>
+<h3 id="静态成员变量-属性"><a href="#静态成员变量-属性" class="headerlink" title="静态成员变量&#x2F;属性"></a>静态成员变量&#x2F;属性</h3><p>static 属性是全类共享的，不属于某一个对象，所以不应该放在“对象出生时执行的构造函数”里初始化。<br>‘’’cpp<br>class A {<br>public:<br>    static int count;<br>};<br>&#x2F;&#x2F;本例子中所有 A 的对象共享 同一个 count，不管创建多少个对象，count 就那一份<br>‘’’</p>
+<h2 id="C-中的异常处理"><a href="#C-中的异常处理" class="headerlink" title="C++中的异常处理"></a>C++中的异常处理</h2><p>所谓的异常就是当发生特定事件时，程序执行被中断，并将控制权转移给名为管理器的特殊函数的过程。<br>异常处理分成两步：</p>
+<ol>
+<li>throw &#x3D; 抛出异常（告诉coder出错了）<br>‘’’cpp<br>throw “Erreur !”;<br>throw 404;<br>throw std::runtime_error(“Bad value”);<br>‘’’<br>当程序执行到 throw，它会:<br>停止当前代码<br>跳到最近的 try&#x2F;catch<br>把错误信息送给 catch</li>
+<li>try+catch &#x3D; 接住异常（怎么补救？）<br>try 表示“这里可能会出错，我要小心执行”。<br>catch 接住 throw 抛出的异常，并进行处理。<br>可以捕获各种类型：<br>字符串，int，自定义类对象，std::exception<br>‘’’cpp<br>try {<br> cout &lt;&lt; “Avant erreur” &lt;&lt; endl;<br> throw “Problème !”;     &#x2F;&#x2F; ← 抛出异常<br> cout &lt;&lt; “Après erreur” &lt;&lt; endl; &#x2F;&#x2F; 永远不会执行<br>}<br>catch(const char* e) {       &#x2F;&#x2F; ← 捕获异常<br> cout &lt;&lt; “Exception capturée : “ &lt;&lt; e &lt;&lt; endl;<br>}<br>‘’’<br>流程：</li>
+<li>try 内代码执行.</li>
+<li>遇到 throw → 直接跳到 catch.</li>
+<li>catch 接住错误并处理.</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/28/C++_2/" data-id="cuidGxCnDxK3prUDZtX8bdBkx" data-title="C/C++ 学习日记 类，实例，属性和方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/11/28/C++_1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          C/C++ 学习日记 基本语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/28/C%E6%8C%87%E9%92%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">C/C++ 学习日记 结构体</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino/" style="font-size: 10px;">Arduino</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/07/MicroControleur/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/07/encoderCode/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WANG Lixi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

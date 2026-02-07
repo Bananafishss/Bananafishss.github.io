@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Bananafishss 的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="微控制器基本架构：一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。 MCU端口结构(外设)GPIO 最简单的端口GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bananafishss 的小站">
+<meta property="og:url" content="http://example.com/2026/02/07/MicroControleur/index.html">
+<meta property="og:site_name" content="Bananafishss 的小站">
+<meta property="og:description" content="微控制器基本架构：一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。 MCU端口结构(外设)GPIO 最简单的端口GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/MCU%E6%9E%B6%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png">
+<meta property="article:published_time" content="2026-02-07T18:44:40.018Z">
+<meta property="article:modified_time" content="2026-02-04T08:16:20.332Z">
+<meta property="article:author" content="WANG Lixi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/MCU%E6%9E%B6%E6%9E%84.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bananafishss 的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-MicroControleur" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/07/MicroControleur/" class="article-date">
+  <time class="dt-published" datetime="2026-02-07T18:44:40.018Z" itemprop="datePublished">2026-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="微控制器基本架构："><a href="#微控制器基本架构：" class="headerlink" title="微控制器基本架构："></a>微控制器基本架构：</h1><p>一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。<br><img src="/MCU%E6%9E%B6%E6%9E%84.png" alt="MCU架构"></p>
+<h2 id="MCU端口结构-外设"><a href="#MCU端口结构-外设" class="headerlink" title="MCU端口结构(外设)"></a>MCU端口结构(外设)</h2><h3 id="GPIO-最简单的端口"><a href="#GPIO-最简单的端口" class="headerlink" title="GPIO 最简单的端口"></a>GPIO 最简单的端口</h3><p>GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：<br>DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA &#x3D; 0xFF &#x2F;&#x2F;将A组GPIO每一个端口全部设置为 1 也就是输出模式。DDRB &#x3D; 0x00&#x2F;&#x2F;B组设为 0 则是输入模式<br>接下来初始化A组的输出值和B组的输入值为0：<br>PORTA &#x3D; 0x00<br>PINB &#x3D; 0x00</p>
+<h3 id="Port-Serie-有通信协议的端口"><a href="#Port-Serie-有通信协议的端口" class="headerlink" title="Port Serie 有通信协议的端口"></a>Port Serie 有通信协议的端口</h3><p>不能自由设置每个端口的值，一般有tx和rx 它们的值电平由串口硬件自动控制。常用的端口类型有SPI &#x2F; I2C &#x2F; CAN</p>
+<ol>
+<li>I2C协议<br>I²C 有两根信号线：<br>SCL：时钟线（Clock），一般由主机（Master）输出<br>SDA：数据线（Data），双向传数据<br>GND 共地<br>下面展示一个通过I2C协议读传感器数据的例子：<br><img src="/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png" alt="MPL3115A2温度传感器"><br>‘’’c</li>
+</ol>
+<p>#include &lt;Wire.h&gt;&#x2F;&#x2F;引入 I2C 库<br>const uint8_t MPL3115A2_ADDR &#x3D; 0x60;&#x2F;&#x2F;传感器 I2C 端口地址<br>bool i2cWrite8(uint8_t addr, uint8_t reg, uint8_t val) {<br>  Wire.beginTransmission(addr);&#x2F;&#x2F;调用wire库里的开始函数来知道要操作的是哪个外设，这里的addr就是传感器地址<br>  Wire.write(reg);&#x2F;&#x2F;具体到传感器外设的地址为reg的寄存器<br>  Wire.write(val);&#x2F;&#x2F;往reg地址的寄存器里写val<br>  return (Wire.endTransmission() &#x3D;&#x3D; 0);&#x2F;&#x2F;结束<br>}&#x2F;&#x2F;这是一个修改外设指定的寄存器值的函数</p>
+<p>bool i2cReadBytes(uint8_t addr, uint8_t reg, uint8_t* buf, uint8_t len) {<br>  Wire.beginTransmission(addr);<br>  Wire.write(reg);<br>  if (Wire.endTransmission(false) !&#x3D; 0) return false;&#x2F;&#x2F;I2C里的repeated start</p>
+<p>  uint8_t got &#x3D; Wire.requestFrom(addr, len);&#x2F;&#x2F;从刚刚的寄存器里读len个字节。<br>  if (got !&#x3D; len) return false;</p>
+<p>  for (uint8_t i &#x3D; 0; i &lt; len; i++) buf[i] &#x3D; Wire.read();&#x2F;&#x2F;把刚才从寄存器收到的每一个字节，一个一个读出来，存进我给的数组 buf[] 里。<br>  return true;<br>}&#x2F;&#x2F;从外设连续读取 len 个字节的数据，并存进给它的缓冲区 buf 里</p>
+<p>bool mpl3115a2Init() {<br>  &#x2F;&#x2F; PT_DATA_CFG &#x3D; 0x07 (enable event flags)打开数据就绪 &#x2F; 覆盖 这些事件标志功能<br>  if (!i2cWrite8(MPL3115A2_ADDR, 0x13, 0x07)) return false;</p>
+<p>  &#x2F;&#x2F; CTRL_REG1 &#x3D; 0xB9 (ALT&#x3D;0 temp mode, OSR, active)进入温度模式 + 128x 过采样 + 开始工作<br>  if (!i2cWrite8(MPL3115A2_ADDR, 0x26, 0xB9)) return false;</p>
+<p>  delay(10);<br>  return true;<br>}&#x2F;&#x2F;初始化 </p>
+<p>bool readTemperatureC(float &amp;tempC) {<br>  uint8_t buf[2];<br>  if (!i2cReadBytes(MPL3115A2_ADDR, 0x04, buf, 2)) return false;<br>  int8_t msb &#x3D; (int8_t)buf[0];<br>  uint8_t lsb &#x3D; buf[1];<br>  float frac &#x3D; (float)(lsb &gt;&gt; 4) &#x2F; 16.0f; &#x2F;&#x2F;把 lsb 右移 4 位，只保留“高 4 位”。<br>  tempC &#x3D; (float)msb + ((msb &gt;&#x3D; 0) ? frac : -frac);&#x2F;&#x2F;把整数和小数部分拼接起来。<br>  return true;<br>}<br>&#x2F;&#x2F;读取温度（摄氏度）<br>‘’’</p>
+<ol start="2">
+<li>SPI 接口<br>SPI 即串行外围设备接口，是一种适用于短距离、设备到设备的高速全双工同步通信接口，通信结构为一主多从，硬件接口上通常由4根信号线组成，简单易用；<br>  通信模式：<br>  标准SPI接口一般使用4条线(4个信号)：</li>
+</ol>
+<p>  NSS&#x2F;CS：主机片选从机使能信号，通常低电平有效由主机控制；</p>
+<p>  SCLK：时钟信号，主机产生用于控制数据交换的时机以及速率；</p>
+<p>  MISO：主机数据输入，从机数据输出，主要用于SPI 设备接收数据；</p>
+<p>  MOSI：主机数据输出，从机数据输入，主要用于 SPI 设备发送数据。</p>
+<p>  具体流程：<br>  ① 主机拉低目标通信从机片选SS信号线，表示与该设备进行通信；</p>
+<p>  ② 主机产生SCLK时钟信号，告诉从机要交换数据；</p>
+<p>  ③ 主机(Master)把需要发送的数据写入到发送数据缓存区(Menory)后，再打入串行移位寄存器(一般为8位)，串行移位寄存器通过MOSI信号线将字节一位一位地移出传送到从机，同时，MISO接口接收到的数据经过串行移位寄存器一位一位的移到接收缓存区。</p>
+<p>  从机(Slave)也将其串行移位寄存器中的数据通过MISO信号线发送到主机，同时通过MOSI信号线接收主机发送的数据。</p>
+<p>  如此一来，两个移位寄存器中的数据就被交换。</p>
+<ol start="3">
+<li><p>CAN 协议<br>这是一个多主总线的协议，就想广播那样，一个发射端发出数据，所有的其他接收端都可以接收数据。<br>按 标识符长度 划分数据帧，分为标准帧和扩展帧两类：<br>  标准帧（Standard Frame）：使用 11 位标识符（ID）（共 44～108 位，取决于数据长度）<br>  [SOF] [11位ID] [RTR] [IDE&#x3D;0] [r0] [DLC(4位)] [Data(0～8字节)] [CRC] [ACK] [EOF]<br>  扩展帧（Extended Frame）：使用 29 位标识符（ID）<br>  [SOF] [11位基础ID] [SRR&#x3D;1] [IDE&#x3D;1] [18位扩展ID] [RTR] [r1][r0] [DLC(4位)] [Data(0～8字节)] [CRC] [ACK] [EOF]</p>
+</li>
+<li><p>[SOF] — Start of Frame（帧起始）<br>长度：1 位<br>电平：显性（0）<br>作用：标志一帧报文的开始，同步所有节点的位时序。<br>注意：所有 CAN 节点检测到总线空闲后，若看到 SOF（下降沿），即开始接收该帧。</p>
+</li>
+<li><p>[11位基础ID] — Base Identifier（基础标识符）<br>长度：11 位<br>作用：扩展帧 ID 的高 11 位，与标准帧 ID 格式兼容。<br>意义：用于仲裁优先级的前 11 位比较；也用于与标准帧共存时的优先级判定。</p>
+</li>
+<li><p>[SRR] — Substitute Remote Request（替代远程请求位）<br>长度：1 位<br>固定值：隐性（1）<br>作用：<br>在扩展帧中代替标准帧 RTR 的位置。<br>确保当标准帧与扩展帧使用相同 11 位 ID 前缀时，标准帧优先级更高（因为标准帧 RTR 可为 0，而 SRR&#x3D;1 是隐性，会被显性 0 覆盖而退出仲裁）。<br>仅存在于扩展帧中。</p>
+</li>
+<li><p>[IDE] — Identifier Extension Bit（标识符扩展位）<br>长度：1 位<br>值含义：<br>0（显性） → 标准帧<br>1（隐性） → 扩展帧<br>作用：区分标准帧与扩展帧的关键标志位。<br>位置：紧跟在 11 位基础 ID 之后。<br>在扩展帧中，IDE &#x3D; 1。</p>
+</li>
+<li><p>[18位扩展ID] — Extended Identifier（扩展标识符）<br>长度：18 位<br>作用：扩展帧 ID 的低 18 位，与前面 11 位组合成 29 位完整 ID。<br>总 ID 范围：0x00000000 ～ 0x1FFFFFFF（共 2²⁹ 个唯一标识符）<br>用途：支持更多设备或更细粒度的消息分类（如汽车中不同 ECU 的子功能）。</p>
+</li>
+<li><p>[RTR] — Remote Transmission Request（远程传输请求位）<br>长度：1 位<br>值含义：<br>0（显性） → 数据帧（包含 Data 字段）<br>1（隐性） → 远程帧（无 Data 字段，请求其他节点发送该 ID 的数据）<br>注意：在扩展帧中，RTR 位于扩展 ID 之后。</p>
+</li>
+<li><p>[r1][r0] — Reserved Bits（保留位）<br>长度：2 位（r1 和 r0）<br>当前值：必须发送为显性（0）（按 CAN 2.0 规范）<br>作用：为未来协议扩展预留。<br>接收方行为：若收到非 0 值，可能视为格式错误（取决于控制器实现）。<br>🔧 在 CAN FD 中，这些位被重新定义（例如 r0 变为 BRS 位），但在经典 CAN 中必须为 0。</p>
+</li>
+<li><p>[DLC] — Data Length Code（数据长度代码）<br>长度：4 位<br>取值范围：0 ～ 15（二进制 0000 ～ 1111）<br>实际数据长度映射（经典 CAN）：<br>表格<br>DLC 值	实际数据字节数<br>0～8	&#x3D; DLC 值</p>
+</li>
+</ol>
+<p>9～15	仍为 8 字节（但某些 CAN FD 控制器可能用 DLC 表示更大长度）<br>作用：告诉接收方本帧包含多少字节的有效数据。<br>9. [Data(0～8字节)] — 数据字段<br>长度：0 到 8 字节（由 DLC 决定）<br>发送顺序：先发送高字节（MSB），每个字节内先发高位（bit7 → bit0）<br>内容：应用层要传输的实际信息（如传感器值、控制命令等）<br>注意：远程帧中此字段不存在。<br>10. [CRC] — Cyclic Redundancy Check（循环冗余校验）<br>组成：<br>15 位 CRC 校验码：基于从 SOF 到 Data 的所有位（不含填充位）计算得出<br>1 位 CRC 界定符（Delimiter）：固定为 隐性（1）<br>总长：16 位<br>作用：检测传输过程中是否发生位错误。接收方重新计算 CRC 并比对，不一致则报错。<br>11. [ACK] — Acknowledgement（应答段）<br>组成：<br>ACK Slot（应答槽）：1 位<br>发送方发 隐性（1）<br>任一正确接收的节点必须在此位发 显性（0） 以确认<br>ACK Delimiter（应答界定符）：1 位，固定为 隐性（1）<br>总长：2 位<br>作用：至少一个接收者确认成功接收。若 ACK Slot 仍为 1，发送方认为传输失败。<br>12. [EOF] — End of Frame（帧结束）<br>长度：7 位<br>电平：全部为 隐性（1）<br>作用：<br>明确标识本帧结束<br>提供帧间间隔（IFS）的起点<br>不允许位填充（即使出现 6 个连续 1 也不插入 0）<br>之后：进入 IFS（Interframe Space，3 位隐性），然后总线才可被新帧占用。</p>
+<h2 id="MCU内存结构（非外设）"><a href="#MCU内存结构（非外设）" class="headerlink" title="MCU内存结构（非外设）"></a>MCU内存结构（非外设）</h2><h3 id="ROM-程序存储寄存器"><a href="#ROM-程序存储寄存器" class="headerlink" title="ROM 程序存储寄存器"></a>ROM 程序存储寄存器</h3><p>这个内存模块用来存储编译进去的所有对cpu的命令 比如加减操作，另外， 有一个PC（程序计数器，属于CPU的一个特殊寄存器）用来记录当前命令的执行进度 每一条命令执行之后，PC++。</p>
+<h3 id="RAM-数据存储寄存器"><a href="#RAM-数据存储寄存器" class="headerlink" title="RAM 数据存储寄存器"></a>RAM 数据存储寄存器</h3><p>这个内存模块用来存储 变量 &#x2F; 寄存器 &#x2F; 临时数据，cpu可以根据ROM的指令对它进行编辑。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/07/MicroControleur/" data-id="cuidOls_zsN7uFeTxkCK3PXZx" data-title="" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/02/07/encoderCode/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino/" style="font-size: 10px;">Arduino</a> <a href="/tags/C/" style="font-size: 15px;">C</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/07/MicroControleur/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/07/encoderCode/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WANG Lixi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
