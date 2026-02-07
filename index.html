@@ -4,15 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Bananafishss 的小站</title>
+  <title>home | Bananafishss 的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="窗外日光弹指过，席前花影座前移">
+  <meta name="description" content="欢迎 👋这是我的学习主页： 📚 学习方向 MCU &#x2F; Arduino C &#x2F; C++ DonkeyCar &#x2F; OpenCV  🧭 快速入口 博客文章 标签索引">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bananafishss 的小站">
+<meta property="og:title" content="home">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
-<meta property="og:description" content="窗外日光弹指过，席前花影座前移">
+<meta property="og:description" content="欢迎 👋这是我的学习主页： 📚 学习方向 MCU &#x2F; Arduino C &#x2F; C++ DonkeyCar &#x2F; OpenCV  🧭 快速入口 博客文章 标签索引">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-07T19:11:00.000Z">
+<meta property="article:modified_time" content="2026-02-07T19:14:27.608Z">
 <meta property="article:author" content="WANG Lixi">
 <meta name="twitter:card" content="summary">
   
@@ -53,7 +55,11 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
+          <a class="main-nav-link" href="/blog">Blog</a>
+        
           <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
         
       </nav>
       <nav id="sub-nav">
@@ -71,12 +77,10 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-C++_3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2026/01/09/C++_3/" class="article-date">
-  <time class="dt-published" datetime="2026-01-09T09:19:14.000Z" itemprop="datePublished">2026-01-09</time>
+    <a href="/index.html" class="article-date">
+  <time class="dt-published" datetime="2026-02-07T19:11:00.000Z" itemprop="datePublished">2026-02-07</time>
 </a>
     
   </div>
@@ -86,8 +90,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      home
     </h1>
   
 
@@ -95,825 +99,31 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="2-C-操作符重载"><a href="#2-C-操作符重载" class="headerlink" title="2.C++ 操作符重载"></a>2.C++ 操作符重载</h1><h2 id="重载的目的"><a href="#重载的目的" class="headerlink" title="重载的目的"></a>重载的目的</h2><p>对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类，<br>‘’’cpp<br>class Complexe{<br>    private:<br>    double x;<br>    double y;<br>};<br>‘’’<br>对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。</p>
-<h2 id="操作符重载的方法"><a href="#操作符重载的方法" class="headerlink" title="操作符重载的方法"></a>操作符重载的方法</h2><ol>
-<li>第一种重载是把操作符重载看作是classe的成员函数（方法）：<br>‘’’cpp<br>&#x2F;&#x2F;A Op B 写作 A.operatorOp(B)<br>t1 &#x3D;&#x3D; t2 &#x2F;&#x2F; 等价于: t1.operator&#x3D;&#x3D;(t2)<br>t1 +&#x3D; t2 &#x2F;&#x2F; 等价于: t1.operator+&#x3D;(t2)<br>‘’’</li>
-<li>第二种重载是把操作符重载当成一个类外的普通函数，然后将被运算的数据作为参数传进操作符函数里：<br>‘’’cpp<br>&#x2F;&#x2F;A Op B 写作 operatorOp(A,B)<br>t1 + t2 &#x2F;&#x2F; 等价于 : operator+(t1,t2)<br>t1 * t2 &#x2F;&#x2F; 等价于 : operator*(t1,t2)<br>‘’’</li>
-</ol>
-<h2 id="具体操作符的分类讨论"><a href="#具体操作符的分类讨论" class="headerlink" title="具体操作符的分类讨论"></a>具体操作符的分类讨论</h2><ol>
-<li>“&#x3D;”赋值运算符是一个把一个对象拷贝到另一个对象的运算符。当它用于自定义的classe中时，<br>如果被赋值的对象已经存在，<br>a &#x3D; b;&#x2F;&#x2F; 用 a.operator&#x3D;(b)<br>如果对象还没创建，那用的是拷贝构造函数（<a href="./C++_2.md">拷贝构造函数的写法</a>），不是 &#x3D;：</li>
-</ol>
+        <h1 id="欢迎-👋"><a href="#欢迎-👋" class="headerlink" title="欢迎 👋"></a>欢迎 👋</h1><p>这是我的学习主页：</p>
+<h2 id="📚-学习方向"><a href="#📚-学习方向" class="headerlink" title="📚 学习方向"></a>📚 学习方向</h2><ul>
+<li>MCU &#x2F; Arduino</li>
+<li>C &#x2F; C++</li>
+<li>DonkeyCar &#x2F; OpenCV</li>
+</ul>
+<h2 id="🧭-快速入口"><a href="#🧭-快速入口" class="headerlink" title="🧭 快速入口"></a>🧭 快速入口</h2><ul>
+<li><a href="/archives">博客文章</a></li>
+<li><a href="/tags">标签索引</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/C++_3/" data-id="cuidmL5mNU5fJuG_B3l4PC79Q" data-title="C/C++ 学习日记 操作符重载" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/index.html" data-id="cuidvo08aPx5xatIeTSCJ62Qc" data-title="home" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
     </footer>
   </div>
   
-</article>
-
-
-
-  
-    <article id="post-MicroControleur" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/09/MicroControleur/" class="article-date">
-  <time class="dt-published" datetime="2026-01-09T09:19:14.000Z" itemprop="datePublished">2026-01-09</time>
-</a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/09/MicroControleur/">微处理器 架构和接口协议</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="微控制器基本架构："><a href="#微控制器基本架构：" class="headerlink" title="微控制器基本架构："></a>微控制器基本架构：</h1><p>一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。<br><img src="/images/MCU%E6%9E%B6%E6%9E%84.png" alt="MCU架构"></p>
-<h2 id="MCU端口结构-外设"><a href="#MCU端口结构-外设" class="headerlink" title="MCU端口结构(外设)"></a>MCU端口结构(外设)</h2><h3 id="GPIO-最简单的端口"><a href="#GPIO-最简单的端口" class="headerlink" title="GPIO 最简单的端口"></a>GPIO 最简单的端口</h3><p>GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：<br>DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA &#x3D; 0xFF &#x2F;&#x2F;将A组GPIO每一个端口全部设置为 1 也就是输出模式。DDRB &#x3D; 0x00&#x2F;&#x2F;B组设为 0 则是输入模式<br>接下来初始化A组的输出值和B组的输入值为0：<br>PORTA &#x3D; 0x00<br>PINB &#x3D; 0x00</p>
-<h3 id="Port-Serie-有通信协议的端口"><a href="#Port-Serie-有通信协议的端口" class="headerlink" title="Port Serie 有通信协议的端口"></a>Port Serie 有通信协议的端口</h3><p>不能自由设置每个端口的值，一般有tx和rx 它们的值电平由串口硬件自动控制。常用的端口类型有SPI &#x2F; I2C &#x2F; CAN</p>
-<ol>
-<li>I2C协议<br>I²C 有两根信号线：<br>SCL：时钟线（Clock），一般由主机（Master）输出<br>SDA：数据线（Data），双向传数据<br>GND 共地<br>下面展示一个通过I2C协议读传感器数据的例子：<br><img src="/images/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png" alt="MPL3115A2温度传感器"><br>‘’’c</li>
-</ol>
-<p>#include &lt;Wire.h&gt;&#x2F;&#x2F;引入 I2C 库<br>const uint8_t MPL3115A2_ADDR &#x3D; 0x60;&#x2F;&#x2F;传感器 I2C 端口地址<br>bool i2cWrite8(uint8_t addr, uint8_t reg, uint8_t val) {<br>  Wire.beginTransmission(addr);&#x2F;&#x2F;调用wire库里的开始函数来知道要操作的是哪个外设，这里的addr就是传感器地址<br>  Wire.write(reg);&#x2F;&#x2F;具体到传感器外设的地址为reg的寄存器<br>  Wire.write(val);&#x2F;&#x2F;往reg地址的寄存器里写val<br>  return (Wire.endTransmission() &#x3D;&#x3D; 0);&#x2F;&#x2F;结束<br>}&#x2F;&#x2F;这是一个修改外设指定的寄存器值的函数</p>
-<p>bool i2cReadBytes(uint8_t addr, uint8_t reg, uint8_t* buf, uint8_t len) {<br>  Wire.beginTransmission(addr);<br>  Wire.write(reg);<br>  if (Wire.endTransmission(false) !&#x3D; 0) return false;&#x2F;&#x2F;I2C里的repeated start</p>
-<p>  uint8_t got &#x3D; Wire.requestFrom(addr, len);&#x2F;&#x2F;从刚刚的寄存器里读len个字节。<br>  if (got !&#x3D; len) return false;</p>
-<p>  for (uint8_t i &#x3D; 0; i &lt; len; i++) buf[i] &#x3D; Wire.read();&#x2F;&#x2F;把刚才从寄存器收到的每一个字节，一个一个读出来，存进我给的数组 buf[] 里。<br>  return true;<br>}&#x2F;&#x2F;从外设连续读取 len 个字节的数据，并存进给它的缓冲区 buf 里</p>
-<p>bool mpl3115a2Init() {<br>  &#x2F;&#x2F; PT_DATA_CFG &#x3D; 0x07 (enable event flags)打开数据就绪 &#x2F; 覆盖 这些事件标志功能<br>  if (!i2cWrite8(MPL3115A2_ADDR, 0x13, 0x07)) return false;</p>
-<p>  &#x2F;&#x2F; CTRL_REG1 &#x3D; 0xB9 (ALT&#x3D;0 temp mode, OSR, active)进入温度模式 + 128x 过采样 + 开始工作<br>  if (!i2cWrite8(MPL3115A2_ADDR, 0x26, 0xB9)) return false;</p>
-<p>  delay(10);<br>  return true;<br>}&#x2F;&#x2F;初始化 </p>
-<p>bool readTemperatureC(float &amp;tempC) {<br>  uint8_t buf[2];<br>  if (!i2cReadBytes(MPL3115A2_ADDR, 0x04, buf, 2)) return false;<br>  int8_t msb &#x3D; (int8_t)buf[0];<br>  uint8_t lsb &#x3D; buf[1];<br>  float frac &#x3D; (float)(lsb &gt;&gt; 4) &#x2F; 16.0f; &#x2F;&#x2F;把 lsb 右移 4 位，只保留“高 4 位”。<br>  tempC &#x3D; (float)msb + ((msb &gt;&#x3D; 0) ? frac : -frac);&#x2F;&#x2F;把整数和小数部分拼接起来。<br>  return true;<br>}<br>&#x2F;&#x2F;读取温度（摄氏度）<br>‘’’</p>
-<ol start="2">
-<li>SPI 接口<br>SPI 即串行外围设备接口，是一种适用于短距离、设备到设备的高速全双工同步通信接口，通信结构为一主多从，硬件接口上通常由4根信号线组成，简单易用；<br>  通信模式：<br>  标准SPI接口一般使用4条线(4个信号)：</li>
-</ol>
-<p>  NSS&#x2F;CS：主机片选从机使能信号，通常低电平有效由主机控制；</p>
-<p>  SCLK：时钟信号，主机产生用于控制数据交换的时机以及速率；</p>
-<p>  MISO：主机数据输入，从机数据输出，主要用于SPI 设备接收数据；</p>
-<p>  MOSI：主机数据输出，从机数据输入，主要用于 SPI 设备发送数据。</p>
-<p>  具体流程：<br>  ① 主机拉低目标通信从机片选SS信号线，表示与该设备进行通信；</p>
-<p>  ② 主机产生SCLK时钟信号，告诉从机要交换数据；</p>
-<p>  ③ 主机(Master)把需要发送的数据写入到发送数据缓存区(Menory)后，再打入串行移位寄存器(一般为8位)，串行移位寄存器通过MOSI信号线将字节一位一位地移出传送到从机，同时，MISO接口接收到的数据经过串行移位寄存器一位一位的移到接收缓存区。</p>
-<p>  从机(Slave)也将其串行移位寄存器中的数据通过MISO信号线发送到主机，同时通过MOSI信号线接收主机发送的数据。</p>
-<p>  如此一来，两个移位寄存器中的数据就被交换。</p>
-<ol start="3">
-<li><p>CAN 协议<br>这是一个多主总线的协议，就想广播那样，一个发射端发出数据，所有的其他接收端都可以接收数据。<br>按 标识符长度 划分数据帧，分为标准帧和扩展帧两类：<br>  标准帧（Standard Frame）：使用 11 位标识符（ID）（共 44～108 位，取决于数据长度）<br>  [SOF] [11位ID] [RTR] [IDE&#x3D;0] [r0] [DLC(4位)] [Data(0～8字节)] [CRC] [ACK] [EOF]<br>  扩展帧（Extended Frame）：使用 29 位标识符（ID）<br>  [SOF] [11位基础ID] [SRR&#x3D;1] [IDE&#x3D;1] [18位扩展ID] [RTR] [r1][r0] [DLC(4位)] [Data(0～8字节)] [CRC] [ACK] [EOF]</p>
-</li>
-<li><p>[SOF] — Start of Frame（帧起始）<br>长度：1 位<br>电平：显性（0）<br>作用：标志一帧报文的开始，同步所有节点的位时序。<br>注意：所有 CAN 节点检测到总线空闲后，若看到 SOF（下降沿），即开始接收该帧。</p>
-</li>
-<li><p>[11位基础ID] — Base Identifier（基础标识符）<br>长度：11 位<br>作用：扩展帧 ID 的高 11 位，与标准帧 ID 格式兼容。<br>意义：用于仲裁优先级的前 11 位比较；也用于与标准帧共存时的优先级判定。</p>
-</li>
-<li><p>[SRR] — Substitute Remote Request（替代远程请求位）<br>长度：1 位<br>固定值：隐性（1）<br>作用：<br>在扩展帧中代替标准帧 RTR 的位置。<br>确保当标准帧与扩展帧使用相同 11 位 ID 前缀时，标准帧优先级更高（因为标准帧 RTR 可为 0，而 SRR&#x3D;1 是隐性，会被显性 0 覆盖而退出仲裁）。<br>仅存在于扩展帧中。</p>
-</li>
-<li><p>[IDE] — Identifier Extension Bit（标识符扩展位）<br>长度：1 位<br>值含义：<br>0（显性） → 标准帧<br>1（隐性） → 扩展帧<br>作用：区分标准帧与扩展帧的关键标志位。<br>位置：紧跟在 11 位基础 ID 之后。<br>在扩展帧中，IDE &#x3D; 1。</p>
-</li>
-<li><p>[18位扩展ID] — Extended Identifier（扩展标识符）<br>长度：18 位<br>作用：扩展帧 ID 的低 18 位，与前面 11 位组合成 29 位完整 ID。<br>总 ID 范围：0x00000000 ～ 0x1FFFFFFF（共 2²⁹ 个唯一标识符）<br>用途：支持更多设备或更细粒度的消息分类（如汽车中不同 ECU 的子功能）。</p>
-</li>
-<li><p>[RTR] — Remote Transmission Request（远程传输请求位）<br>长度：1 位<br>值含义：<br>0（显性） → 数据帧（包含 Data 字段）<br>1（隐性） → 远程帧（无 Data 字段，请求其他节点发送该 ID 的数据）<br>注意：在扩展帧中，RTR 位于扩展 ID 之后。</p>
-</li>
-<li><p>[r1][r0] — Reserved Bits（保留位）<br>长度：2 位（r1 和 r0）<br>当前值：必须发送为显性（0）（按 CAN 2.0 规范）<br>作用：为未来协议扩展预留。<br>接收方行为：若收到非 0 值，可能视为格式错误（取决于控制器实现）。<br>🔧 在 CAN FD 中，这些位被重新定义（例如 r0 变为 BRS 位），但在经典 CAN 中必须为 0。</p>
-</li>
-<li><p>[DLC] — Data Length Code（数据长度代码）<br>长度：4 位<br>取值范围：0 ～ 15（二进制 0000 ～ 1111）<br>实际数据长度映射（经典 CAN）：<br>表格<br>DLC 值	实际数据字节数<br>0～8	&#x3D; DLC 值</p>
-</li>
-</ol>
-<p>9～15	仍为 8 字节（但某些 CAN FD 控制器可能用 DLC 表示更大长度）<br>作用：告诉接收方本帧包含多少字节的有效数据。<br>9. [Data(0～8字节)] — 数据字段<br>长度：0 到 8 字节（由 DLC 决定）<br>发送顺序：先发送高字节（MSB），每个字节内先发高位（bit7 → bit0）<br>内容：应用层要传输的实际信息（如传感器值、控制命令等）<br>注意：远程帧中此字段不存在。<br>10. [CRC] — Cyclic Redundancy Check（循环冗余校验）<br>组成：<br>15 位 CRC 校验码：基于从 SOF 到 Data 的所有位（不含填充位）计算得出<br>1 位 CRC 界定符（Delimiter）：固定为 隐性（1）<br>总长：16 位<br>作用：检测传输过程中是否发生位错误。接收方重新计算 CRC 并比对，不一致则报错。<br>11. [ACK] — Acknowledgement（应答段）<br>组成：<br>ACK Slot（应答槽）：1 位<br>发送方发 隐性（1）<br>任一正确接收的节点必须在此位发 显性（0） 以确认<br>ACK Delimiter（应答界定符）：1 位，固定为 隐性（1）<br>总长：2 位<br>作用：至少一个接收者确认成功接收。若 ACK Slot 仍为 1，发送方认为传输失败。<br>12. [EOF] — End of Frame（帧结束）<br>长度：7 位<br>电平：全部为 隐性（1）<br>作用：<br>明确标识本帧结束<br>提供帧间间隔（IFS）的起点<br>不允许位填充（即使出现 6 个连续 1 也不插入 0）<br>之后：进入 IFS（Interframe Space，3 位隐性），然后总线才可被新帧占用。</p>
-<h2 id="MCU内存结构（非外设）"><a href="#MCU内存结构（非外设）" class="headerlink" title="MCU内存结构（非外设）"></a>MCU内存结构（非外设）</h2><h3 id="ROM-程序存储寄存器"><a href="#ROM-程序存储寄存器" class="headerlink" title="ROM 程序存储寄存器"></a>ROM 程序存储寄存器</h3><p>这个内存模块用来存储编译进去的所有对cpu的命令 比如加减操作，另外， 有一个PC（程序计数器，属于CPU的一个特殊寄存器）用来记录当前命令的执行进度 每一条命令执行之后，PC++。</p>
-<h3 id="RAM-数据存储寄存器"><a href="#RAM-数据存储寄存器" class="headerlink" title="RAM 数据存储寄存器"></a>RAM 数据存储寄存器</h3><p>这个内存模块用来存储 变量 &#x2F; 寄存器 &#x2F; 临时数据，cpu可以根据ROM的指令对它进行编辑。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/MicroControleur/" data-id="cuidOxsX-sWHJINms4BOBw8LP" data-title="微处理器 架构和接口协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
-
-
-  
-    <article id="post-encoderCode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/01/09/encoderCode/" class="article-date">
-  <time class="dt-published" datetime="2026-01-09T09:19:14.000Z" itemprop="datePublished">2026-01-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/01/09/encoderCode/">微处理器 PWM控制机械指针</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>指针角度和计数器计数之间的转换的两个问题：</p>
-<ol>
-<li>角度超出180</li>
-<li>系统上电时初始角度不一致</li>
-</ol>
-<h1 id="指针旋转角度和马达计数器之间的转换"><a href="#指针旋转角度和马达计数器之间的转换" class="headerlink" title="指针旋转角度和马达计数器之间的转换"></a>指针旋转角度和马达计数器之间的转换</h1><h2 id="“一个计数对应指针轴多少度”函数"><a href="#“一个计数对应指针轴多少度”函数" class="headerlink" title="“一个计数对应指针轴多少度”函数"></a>“一个计数对应指针轴多少度”函数</h2><p>‘’’c<br>static inline float degPerDriveCountOnShaft() {<br>  return 360.0f &#x2F; (float)ONE_REV_COUNTS &#x2F; GEAR_RATIO;<br>}<br>‘’’<br>指针轴每个 count 转的角度 &#x3D; 360 &#x2F; 12 &#x2F; 52.734</p>
-<h2 id="wrap180-函数是将角度限制到-180-180"><a href="#wrap180-函数是将角度限制到-180-180" class="headerlink" title="wrap180 函数是将角度限制到-180 180"></a>wrap180 函数是将角度限制到-180 180</h2><h2 id="角度-→-计数上面的逆函数"><a href="#角度-→-计数上面的逆函数" class="headerlink" title="角度 → 计数上面的逆函数"></a>角度 → 计数上面的逆函数</h2><p>首先我们有 不含校准 offset<br>‘’’<br>static inline long shaftDegToDriveCount(float deg) {<br>  return lroundf(deg &#x2F; degPerDriveCountOnShaft());<br>}&#x2F;&#x2F;count &#x3D; 角度 &#x2F; (每个 count 对应的角度)<br>‘’’<br>然后 改进版 角度 → 目标计数（含校准 offset:<br>‘’’c<br>long expectedDegToTargetCount(float expDeg) {<br>  &#x2F;&#x2F; expDeg &#x3D;&#x3D; count*degPer + offset &#x3D;&gt; count &#x3D; (expDeg - offset)&#x2F;degPer<br>  float pure &#x3D; wrap180(expDeg - calibOffsetDeg);<br>  return lroundf(pure &#x2F; degPerDriveCountOnShaft());<br>}&#x2F;&#x2F;系统上电时，编码器的 0 点 ≠ 指针表盘的 0 度,所以引入了 calibOffsetDeg（校准角偏置）<br>‘’’</p>
-<ol>
-<li><p>先expDeg - calibOffsetDeg：把“表盘角度”换到“编码器坐标系”</p>
-</li>
-<li><p>然后用wrap180：避免角度跨 ±180 产生跳变</p>
-</li>
-<li><p>最后使用没校准的函数 除以 degPerDriveCountOnShaft() 得到 count（整数）</p>
-</li>
-</ol>
-<h1 id="驱动马达旋转到目标位置-也就是让count和目标计数targetCount之间的差值err为零"><a href="#驱动马达旋转到目标位置-也就是让count和目标计数targetCount之间的差值err为零" class="headerlink" title="驱动马达旋转到目标位置 也就是让count和目标计数targetCount之间的差值err为零"></a>驱动马达旋转到目标位置 也就是让count和目标计数targetCount之间的差值err为零</h1><ol>
-<li>先读编码器的计数得到当前count</li>
-<li>根据当前count 和目标count 之间的误差err 控制电机旋转 直到误差为0。</li>
-</ol>
-<h2 id="读取编码器“当前位置”的count"><a href="#读取编码器“当前位置”的count" class="headerlink" title="读取编码器“当前位置”的count"></a>读取编码器“当前位置”的count</h2><p>‘’’c<br>Encoder enc(PIN_ENC_A, PIN_ENC_B);<br>&#x2F;&#x2F;这个函数就是当前电机（或驱动轮）的“角度位置”用计数表示。<br>long readCountDrive() {<br>  long c &#x3D; enc.read();&#x2F;&#x2F;读出增量编码器累计计数（count）<br>  if (INVERT_ENCODER) c &#x3D; -c; &#x2F;&#x2F;如果转向&#x2F;计数方向反了，就翻转<br>  return c;<br>}<br>‘’’</p>
-<h2 id="设置-目标计数targetCount"><a href="#设置-目标计数targetCount" class="headerlink" title="设置 目标计数targetCount"></a>设置 目标计数targetCount</h2><p>目标计数targetCount根据温度传感器的当前值得到，付给变量long targetCountDrive 。</p>
-<h2 id="误差计算"><a href="#误差计算" class="headerlink" title="误差计算"></a>误差计算</h2><p>long err &#x3D; targetCountDrive - c;<br>err &gt; 0：说明还没转够，要往正方向转</p>
-<p>err &lt; 0：转过头了，要往反方向转</p>
-<p>err &#x3D; 0：刚好到位<br>最经典的闭环思路：控制误差趋近于 0</p>
-<h2 id="电机驱动"><a href="#电机驱动" class="headerlink" title="电机驱动"></a>电机驱动</h2><p>‘’’c<br>void setMotor(bool dirHigh, int pwm) {<br>  if (INVERT_MOTOR_DIR) dirHigh &#x3D; !dirHigh;<br>  digitalWrite(PIN_DIR, dirHigh ? HIGH : LOW);<br>  analogWrite(PIN_EN, pwm);<br>}<br>‘’’<br>PIN_DIR：方向（HIGH&#x2F;LOW）</p>
-<p>PIN_EN：PWM（0~255，越大越用力）</p>
-<p>INVERT_MOTOR_DIR：如果方向反了就翻转 由于无法确定旋转方向 所以在这里设置一个检验语句用来纠错</p>
-<h2 id="电机旋转矫正-控制律"><a href="#电机旋转矫正-控制律" class="headerlink" title="电机旋转矫正 控制律"></a>电机旋转矫正 控制律</h2><ol>
-<li>超时保护（防止卡住一直转）<br>‘’’c<br>if (mstate !&#x3D; M_IDLE &amp;&amp; now - moveStartMs &gt; TIMEOUT_MS) {<br>  mstate &#x3D; M_IDLE;<br>  stopMotor();<br>}<br>‘’’<br>如果 7 秒还没到位，强制停机</li>
-<li>“稳定到位”判定<br>误差为 0 稳定 500ms 才算到位：<br>‘’’c<br>if (err &#x3D;&#x3D; 0) {<br>  if (stableZeroT0 &#x3D;&#x3D; 0) stableZeroT0 &#x3D; now;<br>} else stableZeroT0 &#x3D; 0;</li>
-</ol>
-<p>if (stableZeroT0 !&#x3D; 0 &amp;&amp; now - stableZeroT0 &gt;&#x3D; STABLE_MS_ZERO) {<br>  mstate &#x3D; M_IDLE; stopMotor();<br>}</p>
-<p>‘’’<br>或者允许 ±1 误差稳定 800ms 也算到位（fallback）：<br>‘’’c<br>if (labs(err) &#x3D;&#x3D; 1) {<br>  if (stableOneT0 &#x3D;&#x3D; 0) stableOneT0 &#x3D; now;<br>} else stableOneT0 &#x3D; 0;</p>
-<p>else if (ALLOW_FALLBACK_PLUSMINUS1 &amp;&amp; stableOneT0 !&#x3D; 0 &amp;&amp; now - stableOneT0 &gt;&#x3D; STABLE_MS_ONE) {<br>  mstate &#x3D; M_IDLE; stopMotor();<br>}<br>‘’’<br>3. 状态机：远的时候快跑，近的时候慢跑，最后轻推<br>定义了状态: enum MotionState { M_IDLE, M_COARSE_FAST, M_COARSE_SLOW, M_NUDGE_OFF, M_NUDGE_ON };<br>距离判断（看误差绝对值 aerr）</p>
-<p>aerr &gt;&#x3D; FAR_ZONE(8)：离得远 → M_COARSE_FAST（大力）</p>
-<p>3~7：中等距离 → M_COARSE_SLOW（小力）</p>
-<p>&lt;&#x3D; FINE_ZONE(2)：很近 → 切到 NUDGE（一下一下点动）<br>‘’’c<br>if (aerr &lt;&#x3D; FINE_ZONE) { … NUDGE … }<br>else if (aerr &lt; FAR_ZONE) { mstate &#x3D; M_COARSE_SLOW; }<br>else { mstate &#x3D; M_COARSE_FAST; }<br>‘’’<br>4. 真正的控制律：P 控制 + PWM 限幅<br>1）粗调（coarse）：比例控制 u &#x3D; Kp * err<br>‘’’c<br>float u &#x3D; KP_COARSE * (float)err;<br>bool dirHigh &#x3D; (u &gt;&#x3D; 0);<br>int pwm &#x3D; (int)fabs(u);<br>‘’’<br>KP_COARSE&#x3D;7.0</p>
-<p>pwm 跟误差成正比：误差大 → PWM 大<br>2）PWM 限制（防止太大&#x2F;太小）</p>
-<p>FAST 模式：<br>if (pwm &gt; PWM_COARSE_MAX_FAST) pwm &#x3D; PWM_COARSE_MAX_FAST; &#x2F;&#x2F; 130<br>if (pwm &gt; 0 &amp;&amp; pwm &lt; PWM_COARSE_MIN_FAST) pwm &#x3D; PWM_COARSE_MIN_FAST; &#x2F;&#x2F; 60</p>
-<p>SLOW 模式：<br>if (pwm &gt; PWM_COARSE_MAX_SLOW) pwm &#x3D; PWM_COARSE_MAX_SLOW; &#x2F;&#x2F; 100<br>if (pwm &gt; 0 &amp;&amp; pwm &lt; PWM_COARSE_MIN_SLOW) pwm &#x3D; PWM_COARSE_MIN_SLOW; &#x2F;&#x2F; 55</p>
-<p>最小 PWM 是为了克服静摩擦（不然给太小动不了）。<br>最大 PWM 是为了别冲太猛、别过冲。<br>5）最后的精调：NUDGE 点动（避免来回震）</p>
-<p>当误差很小（&lt;&#x3D;2 counts），它不用 P 控制了，而是：</p>
-<p>先停一会儿 NUDGE_OFF_MS&#x3D;160ms</p>
-<p>再用固定 PWM&#x3D;55 推一下</p>
-<p>推的时间很短：</p>
-<p>误差 &lt;&#x3D;1：推 15ms</p>
-<p>否则推 35ms<br>‘’’c<br>else if (mstate &#x3D;&#x3D; M_NUDGE_ON) {<br>  unsigned long onMs &#x3D; (aerr &lt;&#x3D; 1) ? NUDGE_ON_MS_FINE : NUDGE_ON_MS_COARSE;<br>  bool dirHigh &#x3D; (err &gt; 0);<br>  setMotor(dirHigh, PWM_NUDGE);<br>  …<br>}<br>‘’’</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/encoderCode/" data-id="cuidOiQoqo2yaQ_1mabL3_rIT" data-title="微处理器 PWM控制机械指针" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-C++_1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/28/C++_1/" class="article-date">
-  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="1-C-基本语法"><a href="#1-C-基本语法" class="headerlink" title="1.C++ 基本语法"></a>1.C++ 基本语法</h1><h2 id="第一个C-程序"><a href="#第一个C-程序" class="headerlink" title="第一个C++程序"></a>第一个C++程序</h2><p>‘’’cpp<br>#include<iostream><br>int main(int argc, char <em><em>argv)<br>&#x2F;&#x2F;char：一个字母<br>&#x2F;&#x2F;char</em>：一句话<br>&#x2F;&#x2F;char</em>*：一组话<br>{<br>    int n;<br>    std::cout&lt;&lt;”Input a Entier: “&lt;&lt;std::endl;<br>    std::cin &gt;&gt; n;<br>    for(int i&#x3D;0; i&lt;n; i++){<br>        std::cout&lt;&lt;”hello world” &lt;&lt; std::endl;<br>    }<br>    return 0;<br>}<br>‘’’</p>
-<h2 id="C-的输入-输出"><a href="#C-的输入-输出" class="headerlink" title="C++的输入&#x2F;输出"></a>C++的输入&#x2F;输出</h2><p><strong>using namespace std;</strong></p>
-<ol>
-<li>std::cout&lt;&lt; “contenu” &lt;&lt; std::endl(换行符);<br>如:cout&lt;&lt;”&lt;”&lt;&lt; this-&gt;x &lt;&lt;”,”&lt;&lt; this-&gt;y &lt;&lt; “&gt;” &lt;&lt;endl; 输出结果为：&lt;x,y&gt;</li>
-<li>std::cin&gt;&gt;（相当于scanf） “input contenu”;</li>
-<li>多个输出可以相连：std::cout &lt;&lt; “A &#x3D; “ &lt;&lt; a &lt;&lt; “, B &#x3D; “ &lt;&lt; b &lt;&lt; std::endl;</li>
-<li>缩写方法：如果每次不想重复写std:: 可以在本文件开头写 using namespace std;</li>
-<li>cin 可以输入字符串如：<br> ‘’’cpp<br> string name;<br> cin &gt;&gt; name;     &#x2F;&#x2F; 只能读一段不带空格的<br> string line;<br> getline(cin, line);   &#x2F;&#x2F; 可以读空格<br> ‘’’</li>
-</ol>
-<h2 id="C-的命名空间"><a href="#C-的命名空间" class="headerlink" title="C++的命名空间"></a>C++的命名空间</h2><ol>
-<li>命名空间（namespace）相当于一个有独特名字的仓库，可以往里面不停的塞东西：<br> ‘’’cpp<br> namespace myspace{<br> int a &#x3D; 10;<br> void hello() {<br>     std::cout &lt;&lt; “Hi!” &lt;&lt; std::endl;<br> }<br> }<br> std::cout &lt;&lt; myspace::a;<br> myspace::hello();<br> ‘’’<br> 可以在不同文件、不同位置 不断往同一个 namespace 填东西。<br> ‘’’cpp<br> 在a文件中：<br> namespace x{<br> int a&#x3D;6;<br> }<br> 在b文件中：<br> namespace x{<br> int b &#x3D; 5;<br> }<br> 在c文件中我既可以使用a也可以是使用b。</li>
-<li>匿名namespace<br> 只能在本文件使用的namespace。</li>
-<li>嵌套的namespace 可以通过创建一个别名来使引用更方便：namespace N &#x3D; AReallyLongName::AnotherReallyLongName;<br> ‘’’cpp<br> namespace AReallyLongName {<br> namespace AnotherReallyLongName {<br> int f();<br> int g();<br> void bar(int x, int y);<br> }<br> }<br> void foo() {<br> namespace N &#x3D; AReallyLongName::AnotherReallyLongName;<br> N::bar(N::f(), N::g());<br> }<br> ‘’’</li>
-</ol>
-<h2 id="C-的引用机制"><a href="#C-的引用机制" class="headerlink" title="C++的引用机制"></a>C++的引用机制</h2><ol>
-<li>类似c中的指针 当定义一个变量a的引用是b后 b就是a的别名，修改b就是修改a本身。<br> ‘’’cpp<br> int a &#x3D; 10;<br> int &amp;b &#x3D; a;   &#x2F;&#x2F; b 是 a 的引用（外号）<br> b &#x3D; 20;       &#x2F;&#x2F; 其实就是把 a 改成 20<br> std::cout &lt;&lt; a;  &#x2F;&#x2F; 输出 20<br> ‘’’</li>
-<li>引用的用处<br> 和c指针的用法一样，用来给函数传递外部的值，告诉函数直接操作变量而不是创建变量的副本。</li>
-<li>和指针的区别<ol>
-<li>定义引用：<br> int &amp;b &#x3D; a; b &#x3D; a &#x3D; 20;<br>定义指针：<br> int *b &#x3D; &a; *b &#x3D; 20;&#x2F;&#x2F;b里面是a的地址</li>
-<li>引用的规则：<ol>
-<li>引用必须在声明时绑定对象：（int &amp;b &#x3D; a;对） （int &b;错）</li>
-<li>引用一旦绑定，就不能更换绑定对象，它不像指针那样能指来指去。</li>
-<li>引用永远不为 null（不像指针可能是空的）</li>
-<li>没有嵌套的引用，引用不是在内存中的对象。</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>常引用 const &amp;<br> 形如：<br> ‘’’cpp<br> void print(const int &amp;x);<br> ‘’’<br> 意思是：<br> 我不会改你的变量（const）<br> 但我也不想复制它（引用）<br> 适用于：string、vector 等大块对象。</li>
-</ol>
-<h2 id="内存管理操作符"><a href="#内存管理操作符" class="headerlink" title="内存管理操作符"></a>内存管理操作符</h2><p><strong>new就是一个特殊的指针！</strong></p>
-<ol>
-<li><p>在 C++ 中它们就是两个关键字：<br> new（向电脑要内存）<br> delete（把内存还给电脑）</p>
-</li>
-<li><p>功能与malloc相同，但是用法更简便：<br> malloc的用法：麻烦<br> int <em>p &#x3D; (int</em>)malloc(sizeof(int));<br> *p &#x3D; 5;   &#x2F;&#x2F; 你得自己赋值<br> new的用法：简单<br> int *p &#x3D; new int(5);  &#x2F;&#x2F; 自动创建 int 并赋值 5</p>
-</li>
-<li><p>用途更广：<br> 首先，new可以用来创建一个动态数组：<br>  data &#x3D; new int[tailleMax];&#x2F;&#x2F;用new新建一个名字为data 元素数据类型为int 元素个数为tailleMax的数组。<br>  其次，new可以用来创建class的对象：<br>  Point* p &#x3D; new Point(1.0, 2.0);<br>  &#x2F;&#x2F;等价于调用 Point 的构造函数的同时分配一块能放 Point 的内存。得到的是：一个对象和一个指向对象的指针</p>
-</li>
-<li><p>delete的用法：<br> int *p &#x3D; new int(5);<br> ip2 &#x3D; new int[10] ;&#x2F;&#x2F;变量的删除<br> delete p ;<br> delete [] ip2 ;&#x2F;&#x2F;数组的删除和内存释放</p>
-</li>
-</ol>
-<h2 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h2><ol>
-<li><p>在C++中我可以用相同的函数名写不同的函数，只要他们的参数不同（个数，类型，甚至顺序不同即可）。比如：<br> ‘’’cpp<br> void print(int x) {<br>     cout &lt;&lt; “整数: “ &lt;&lt; x &lt;&lt; endl;<br> }<br><br> void print(double x) {<br>     cout &lt;&lt; “小数: “ &lt;&lt; x &lt;&lt; endl;<br> }<br><br> void print(string s) {<br>     cout &lt;&lt; “字符串: “ &lt;&lt; s &lt;&lt; endl;<br> }<br> &#x2F;&#x2F;调用：<br> print(10);        &#x2F;&#x2F; 去找 print(int)<br> print(3.14);      &#x2F;&#x2F; 去找 print(double)<br> print(“hello”);   &#x2F;&#x2F; 去找 print(string)<br> ‘’’</p>
-</li>
-<li><p>但是返回值不同不能作为区分的标准！比如：<br> ‘’’cpp<br> int f(int a);<br> double f(int a);  &#x2F;&#x2F; 不行<br> ‘’’</p>
-</li>
-<li><p>有时调用函数机器会无法识别，比如：<br> ‘’’cpp<br> void print(double num)<br> {<br> std::cout &lt;&lt; “C’est un double: “ &lt;&lt; num &lt;&lt; std::endl;<br> }<br> void print_int(int num)<br> {<br> std::cout &lt;&lt; “C’est un int: “ &lt;&lt; num &lt;&lt; std::endl;<br> }</p>
-<p> print(5);&#x2F;&#x2F;X错误因为无法识别参数的类型！<br> ‘’’</p>
-</li>
-</ol>
-<h2 id="C-中的-const-关键字（常量）"><a href="#C-中的-const-关键字（常量）" class="headerlink" title="C++中的 const 关键字（常量）"></a>C++中的 const 关键字（常量）</h2><ol>
-<li><p>这是一个前缀可以加载任何量之前，表示这个量无法被修改。对于非指针的变量来说 const的顺序没有影响。<br> ‘’’cpp<br> void printValue(const int&amp; x) {<br> cout &lt;&lt; x;<br> }&#x2F;&#x2F;函数参数被const字保护，无法被修改。</p>
-<p> const int a &#x3D; 261;<br> int const a &#x3D; 261;<br>&#x2F;&#x2F; 没有区别，都是a变量不能被修改<br> ‘’’</p>
-</li>
-<li><p>const 用在指针时，在指针<em>左边就是修饰指针，指针的值不能变，在变量的左边，<em>的右边就是修饰变量，指针的地址不能变。<br> ‘’’cpp<br> const int</em> p;   &#x2F;&#x2F; 不能改 <em>p（值不能改）<br> int</em> const p;   &#x2F;&#x2F; 不能改 p（地址不能改）<br> const int</em> const p; &#x2F;&#x2F; 都不能改<br> ‘’’</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C++_1/" data-id="cuidxuQm74QmV4xcciXQxu4Gq" data-title="C/C++ 学习日记 基本语法" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-C++_2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/28/C++_2/" class="article-date">
-  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="2-C-类，实例，属性和方法"><a href="#2-C-类，实例，属性和方法" class="headerlink" title="2.C++ 类，实例，属性和方法"></a>2.C++ 类，实例，属性和方法</h1><h2 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h2><p>和结构体类似。声明如下：<br>‘’’cpp<br>class NomClasse {…};<br>‘’’</p>
-<h2 id="类的属性和方法"><a href="#类的属性和方法" class="headerlink" title="类的属性和方法"></a>类的属性和方法</h2><p>简而言之，属性（Attributes）就是类里的变量，方法（Méthodes）就是类里的成员函数。<br>声明一个类的方式如下：<br>‘’’cpp<br>class Student {<br>public:<br>    string name;&#x2F;&#x2F;属性<br>    int age;<br>    int grade;</p>
-<pre><code>void introduce() {       // 方法
-    cout &lt;&lt; &quot;I am &quot; &lt;&lt; name &lt;&lt; &quot;, age &quot; &lt;&lt; age &lt;&lt; endl;
-}
-
-void study() {           // 方法
-    cout &lt;&lt; name &lt;&lt; &quot; is studying...&quot; &lt;&lt; endl;
-}
-</code></pre>
-<p>};<br>‘’’<br>调用：<br>‘’’cpp<br>s.introduce();<br>s.study();<br>‘’’<br>注意事项：</p>
-<ol>
-<li><p>属性不需要像参数一样写在方法括号里，因为方法已经自动能访问它们。<br> ‘’’cpp<br> class A {<br> public:<br> int x;<br> void print() const {  &#x2F;&#x2F; 直接访问属性,不需要另外在（）里写x<br>     cout &lt;&lt; x;<br> }<br> };’’’</p>
-</li>
-<li><p>为了结构清晰，最好把类的实现和类的声明分开，声明放在h文件，实现放在cpp文件里。</p>
-</li>
-<li><p>在类外写方法时，编译器不知道这个函数属于哪个类，要用 :: 来告诉它。比如：<br> ‘’’cpp<br> class Car {<br> public:<br> int surface(int w, int h);<br> };<br> &#x2F;&#x2F;&#x2F;然后在类外实现时加上”::”：<br> int Car::surface(int w, int h) {<br> return w * h;<br> }<br> ‘’’</p>
-</li>
-<li><p>有些方法会修改对象的属性，有些不会。不会修改属性的方法叫 const 方法。要写成： retour nomMethode(…) const. const 放在括号后面表示“我保证不改对象”。<br> ‘’’cpp<br> int getX() const;      &#x2F;&#x2F; const 方法（不改属性）<br> void setX(int x);      &#x2F;&#x2F; 普通方法（能改属性）<br> ‘’’</p>
-</li>
-</ol>
-<h2 id="const的四种用法"><a href="#const的四种用法" class="headerlink" title="const的四种用法"></a>const的四种用法</h2><ol>
-<li>‘’’cpp<br> const int i<br> ‘’’<br> 对于变对象或属性来讲，这个形式表示该变量不可被修改。</li>
-<li>对于方法来说，有三种情况：<br> ‘’’cpp<br> CONST1 type_de_retour methode(CONST2 parametre) CONST3;<br> ‘’’<br> CONST1表示锁返回方法，CONST2表示函数不能改变输入的参数值，CONST3表示该方法不能修改当前实例的属性。</li>
-</ol>
-<h2 id="类的成员的可见性"><a href="#类的成员的可见性" class="headerlink" title="类的成员的可见性"></a>类的成员的可见性</h2><ol>
-<li><p>public &#x3D; 大家都能用（公开的）</p>
-</li>
-<li><p>private 成员只能在类内部被访问（即：类自己的方法能用），类外面（包括实例化后的对象）不能直接访问。<br><strong>同一类的不同对象之间可以直接相互赋值，不需要借助getter，setter!</strong><br>举个例子：<br> ‘’’cpp<br> class A {<br> private:<br> int secret;      &#x2F;&#x2F; 私有属性<br> public:<br> void setSecret(int x) {<br>     secret &#x3D; x;   &#x2F;&#x2F; ✔ 可以，类内部访问 secret<br> }<br><br> int getSecret() const {<br>     return secret; &#x2F;&#x2F; ✔ 类内部访问 OK<br> }<br> };<br> &#x2F;&#x2F;Getter和Setter方法：从外部获取private成员</p>
-<p> int main() {<br> A obj;<br><br> obj.secret &#x3D; 10;   &#x2F;&#x2F; X 错误！外部不能访问 private<br> obj.setSecret(10); &#x2F;&#x2F; ✔ 正确，通过 public 方法间接操作 private<br> }<br> ‘’’</p>
-</li>
-</ol>
-<h2 id="构造函数和析构函数"><a href="#构造函数和析构函数" class="headerlink" title="构造函数和析构函数"></a>构造函数和析构函数</h2><ol>
-<li>Constructeur<h3 id="构造函数的特点"><a href="#构造函数的特点" class="headerlink" title="构造函数的特点"></a>构造函数的特点</h3><ol>
-<li>名字和类名完全一样：Rectangle::Rectangle(…)</li>
-<li>没有返回值（甚至不能写 void）。</li>
-<li>需要创建对象时调用：Rectangle rect1(3.0, 4.0);<br> 举例：<br> ‘’’cpp<br> class Rectangle {<br> public:<br> double largeur;<br> double hauteur;<br><br> Rectangle(double l, double h) {<br>     largeur &#x3D; l;<br>     hauteur &#x3D; h;<br>     cout &lt;&lt; “Constructeur appelé!” &lt;&lt; endl;<br> }<br> };<br> &#x2F;&#x2F;在类声明外写构造函数（大部分情况写在类里面的public部分 写在外面需要加Rectangle::）：<br> Rectangle::Rectangle(double hauteur, double largeur) {<br> this-&gt;largeur &#x3D; largeur;<br> this-&gt;hauteur &#x3D; hauteur ;<br> }<br> &#x2F;&#x2F;当我创建对象时：<br> Rectangle r(3.0, 4.0);<br> &#x2F;&#x2F;对象通过构造函数被自动创建。编译器内部会做：<br> &#x2F;&#x2F;1.创建一个 Rectangle 类型的对象 r.<br> &#x2F;&#x2F;2.把 r 的地址传给构造函数的 this 指针<br>  ‘’’</li>
-</ol>
-</li>
-<li>Destructeur<h3 id="析构函数的特点"><a href="#析构函数的特点" class="headerlink" title="析构函数的特点"></a>析构函数的特点</h3><ol>
-<li>名字是 ~类名</li>
-<li>没有返回值</li>
-<li>对象消失时自动调用<br> 举例：<br> ‘’’cpp<br> class Rectangle {<br> public:<br> ~Rectangle() {<br>     cout &lt;&lt; “Destructeur appelé!” &lt;&lt; endl;<br>     &#x2F;&#x2F;析构函数没有复杂功能时也可以不写 → 系统自动生成。<br> }<br> };</li>
-<li>注意：写析构函数时只有那些用new创建的指针(data&#x3D;nullptr;),数组(delete[] data;)需要初始化,那些int之类的变量存在栈里 自动被删除。</li>
-</ol>
-</li>
-</ol>
-<h2 id="构造函数里的初始化列表"><a href="#构造函数里的初始化列表" class="headerlink" title="构造函数里的初始化列表"></a>构造函数里的初始化列表</h2><dl><dt><strong>是函数里赋值的上位替代，速度更快，效率更高！</strong><br><strong>调用初始化列表的构造函数的方式和函数里赋值的方式完全一致如’Point(1, 0);’</strong><br>初始化列表 &#x3D; 在对象创建那一刻直接把属性初始化，而构造函数里赋值是将已经被初始化为随机值的值进行赋值，是第二次赋值。<br>必须用初始化列表的情况：遇到 const、引用、对象成员时。<br>模板：<br>    ‘’’cpp<br>    ClassName::ClassName(type a, type b)&#x2F;&#x2F;头文件里带参数的函数内初始化 和 初始列表初始化的声明都是这么写<br>        : attribute1(a), attribute2(b), attribute3(5)&#x2F;&#x2F;<br>    {<br>        &#x2F;&#x2F; 构造函数体<br>    }<br>    ‘’’<br>举例：<br>    ‘’’cpp<br>&#x2F;&#x2F;类里（只声明，不写初始化列表）：<br>class Rectangle {<br>public:<br>    Rectangle(double H, double L);  &#x2F;&#x2F; 这里只是声明<br>};<br>&#x2F;&#x2F;类外（真正定义 + 初始化列表）：<br>Rectangle::Rectangle(double H, double L)</dt><dd>hauteur(H), largeur(L)<br>{}<br>    ‘’’</dd></dl><h2 id="默认生成的构造函数"><a href="#默认生成的构造函数" class="headerlink" title="默认生成的构造函数"></a>默认生成的构造函数</h2><p>默认构造函数 &#x3D; 一个“没有参数”的构造函数或者所有参数都有默认值的构造函数。<br>当你声明对象但不给它初始值时，就会调用它。</p>
-<ol>
-<li><p>没有参数的构造函数：<br> ‘’’cpp<br> class Rectangle {<br> public:<br> Rectangle() {     &#x2F;&#x2F; ← 默认构造函数<br>     largeur &#x3D; 1;<br>     hauteur &#x3D; 1;<br> }<br> };<br> &#x2F;&#x2F;调用<br> Rectangle r;   &#x2F;&#x2F; ← 这里会自动调用 Rectangle()<br> ‘’’</p>
-</li>
-<li><p>所有参数都有默认值的构造函数、<br> ‘’’cpp<br> class Rectangle {<br> public:<br> Rectangle(double h &#x3D; 1, double l &#x3D; 1) {   &#x2F;&#x2F; 每个参数都有默认值<br>     hauteur &#x3D; h;<br>     largeur &#x3D; l;<br> }<br> };<br> &#x2F;&#x2F;调用<br> Rectangle r;        &#x2F;&#x2F; 调用 Rectangle(1,1)<br> Rectangle r2(5);    &#x2F;&#x2F; 调用 Rectangle(5,1)<br> Rectangle r3(3,4);  &#x2F;&#x2F; 调用 Rectangle(3,4)</p>
-<p> ‘’’</p>
-</li>
-<li><p>默认构造函数的作用：</p>
-<ol>
-<li><p>有时你想先创建对象，之后再设置属性</p>
-</li>
-<li><p>有时对象是另一个对象的成员，需要自动创建</p>
-</li>
-<li><p>有时你需要创建一个对象数组</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h2><p>复制构造函数 &#x3D; 用一个已经存在的对象，复制出一个新对象的“特殊构造函数”。<br>模板：<br>‘’’cpp<br>ClassName(const ClassName&amp; other){<br>    &#x2F;&#x2F; 用 other 的内容初始化当前对象<br>}<br>‘’’<br>举例:<br>‘’’cpp<br>Rectangle::Rectangle(const Rectangle&amp; r) {<br>    this-&gt;largeur &#x3D; r.largeur;<br>    this-&gt;hauteur &#x3D; r.hauteur;<br>}<br>‘’’</p>
-<h3 id="使用复制构造函数的场景："><a href="#使用复制构造函数的场景：" class="headerlink" title="使用复制构造函数的场景："></a>使用复制构造函数的场景：</h3><pre><code>1. 用一个对象初始化另一个对象
-2. 把对象作为参数传给函数（按值传递）
-3. 函数按值返回对象
-4. 容器操作（如 vector）
-</code></pre>
-<h3 id="必须自己写复制构造函数的场景："><a href="#必须自己写复制构造函数的场景：" class="headerlink" title="必须自己写复制构造函数的场景："></a>必须自己写复制构造函数的场景：</h3><pre><code>当类里面有“指针”或“动态内存”时！
-&#39;&#39;&#39;cpp
-    class A {
-    int* data;
-};
-//不能直接A a1;A a2 = a1;，会报错
-//必须：
-    A::A(const A&amp; other) {
-    data = new int(*other.data); // 深拷贝
-}
-&#39;&#39;&#39;
-</code></pre>
-<h2 id="static成员"><a href="#static成员" class="headerlink" title="static成员"></a>static成员</h2><p>static 成员对每个该类的对象共享同一份 static 数据或 static 方法。<br>换句话说，它是同类下所有对象的全局变量或函数。</p>
-<h3 id="静态成员变量-属性"><a href="#静态成员变量-属性" class="headerlink" title="静态成员变量&#x2F;属性"></a>静态成员变量&#x2F;属性</h3><p>static 属性是全类共享的，不属于某一个对象，所以不应该放在“对象出生时执行的构造函数”里初始化。<br>‘’’cpp<br>class A {<br>public:<br>    static int count;<br>};<br>&#x2F;&#x2F;本例子中所有 A 的对象共享 同一个 count，不管创建多少个对象，count 就那一份<br>‘’’</p>
-<h2 id="C-中的异常处理"><a href="#C-中的异常处理" class="headerlink" title="C++中的异常处理"></a>C++中的异常处理</h2><p>所谓的异常就是当发生特定事件时，程序执行被中断，并将控制权转移给名为管理器的特殊函数的过程。<br>异常处理分成两步：</p>
-<ol>
-<li>throw &#x3D; 抛出异常（告诉coder出错了）<br>‘’’cpp<br>throw “Erreur !”;<br>throw 404;<br>throw std::runtime_error(“Bad value”);<br>‘’’<br>当程序执行到 throw，它会:<br>停止当前代码<br>跳到最近的 try&#x2F;catch<br>把错误信息送给 catch</li>
-<li>try+catch &#x3D; 接住异常（怎么补救？）<br>try 表示“这里可能会出错，我要小心执行”。<br>catch 接住 throw 抛出的异常，并进行处理。<br>可以捕获各种类型：<br>字符串，int，自定义类对象，std::exception<br>‘’’cpp<br>try {<br> cout &lt;&lt; “Avant erreur” &lt;&lt; endl;<br> throw “Problème !”;     &#x2F;&#x2F; ← 抛出异常<br> cout &lt;&lt; “Après erreur” &lt;&lt; endl; &#x2F;&#x2F; 永远不会执行<br>}<br>catch(const char* e) {       &#x2F;&#x2F; ← 捕获异常<br> cout &lt;&lt; “Exception capturée : “ &lt;&lt; e &lt;&lt; endl;<br>}<br>‘’’<br>流程：</li>
-<li>try 内代码执行.</li>
-<li>遇到 throw → 直接跳到 catch.</li>
-<li>catch 接住错误并处理.</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C++_2/" data-id="cuidW0wg9cY00b4F_fSCAsugZ" data-title="C/C++ 学习日记 类，实例，属性和方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-C指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/28/C%E6%8C%87%E9%92%88/" class="article-date">
-  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/28/C%E6%8C%87%E9%92%88/">C/C++ 学习日记 结构体</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h1 id="C指针以及结构体，内存空间"><a href="#C指针以及结构体，内存空间" class="headerlink" title="C指针以及结构体，内存空间"></a>C指针以及结构体，内存空间</h1><h2 id="内存的类型"><a href="#内存的类型" class="headerlink" title="内存的类型"></a>内存的类型</h2><p>要理解指针的用途 首先要理解内存的类型，总的来说分为全局区，栈，堆。每种内存区域都对应专门的功能：</p>
-<ol>
-<li>全局区，最常用的内存区域，全局变量，结构体等在此处储存，声明周期到程序结束为止。</li>
-<li>栈，快存快销的区域，用于即时计算，最典型的就是函数内部声明的变量或者结构体，在函数结束后一同被销毁，无法传出函数外部。</li>
-<li>堆，由coder自己决定它的生命周期，用malloc创建 用free释放。它与全局区创建的结构体的区别在于：全局区声明即确定它的内存大小而malloc创建的内存空间是在运行时才被决定的，，这为链表等方法的实现提供了可能。</li>
-</ol>
-<h2 id="用途及用法"><a href="#用途及用法" class="headerlink" title="用途及用法"></a>用途及用法</h2><pre><code>1. 由于C语言函数不能改变函数外面的变量，所有在需要函数对全局的某个变量进行处理时，需要用指向该变量的指针作为参数（就是传入地址而不是变量的值）传入函数。例如：
-&#39;&#39;&#39;void add1(int *x) {
-    *x = *x + 1;
-}&#39;&#39;&#39;
-2. 一个函数只能return 一个值，在需要返回多个值时，需要在参数中加入传出时的指针，然后无需return，用指针指向需要被返回的值即可。例如：
-&#39;&#39;&#39; void div_mod(int a, int b, int *quot, int *rem) {
-    *quot = a / b;
-    *rem  = a % b;
-}&#39;&#39;&#39;
-3. 传递结构体时，结构体内存占用很大，使用指针避免内存大量消耗。例如：&#39;&#39;&#39;void process(struct Data *d);&#39;&#39;&#39;
-4. 传递数组时，数组本质上就是指针，所以外部数组可以在函数内部直接修改。例如：&#39;&#39;&#39;void process(struct Data *d);&#39;&#39;&#39;
-</code></pre>
-<h1 id="结构体的初始化方法"><a href="#结构体的初始化方法" class="headerlink" title="结构体的初始化方法"></a>结构体的初始化方法</h1><ol>
-<li>用于在函数内部使用，不能把本结构体的地址传到函数外部。</li>
-<li>对函数外面的结构体初始化，可以将元素挨个赋值或者将一个结构体变量赋给它。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C%E6%8C%87%E9%92%88/" data-id="cuidchRNMP39BWl0HmenMLF6y" data-title="C/C++ 学习日记 结构体" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Timer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/28/Timer/" class="article-date">
-  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/28/Timer/">微控制器 Timer</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Timer"><a href="#Timer" class="headerlink" title="Timer"></a>Timer</h1><p>一个微控制器中自动记数的硬件模块，它的结构依次由分频器 Prescaler，计数器 counter, 比较单元  Compare Unit  最后从比较单元输出一个 1.标志位Flag(TOV或OCF)给CPU 或 2.输出中断请求（Interrupt）给CPU 3.输出电平信号（PWM &#x2F; 翻转 IO）给外部电路。</p>
-<h2 id="Timer的初始化"><a href="#Timer的初始化" class="headerlink" title="Timer的初始化"></a>Timer的初始化</h2><p>下面是Adruino MEGA 2560的Timer：<br>Timer0：Arduino 核心用来做 millis()&#x2F;delay()，一般不用。</p>
-<p>Timer1&#x2F;3&#x2F;4&#x2F;5：16 位，一般用来做PWM&#x2F;精确定时。</p>
-<p>Timer2：8 位，也能用，但分辨率低一些。</p>
-<p>用 Timer1 的 OC1A 引脚输出 PWM：<br>‘’’C<br>void timer1_pwm_init_20kHz_oc1a() {<br>  pinMode(11, OUTPUT);  &#x2F;&#x2F; OC1A</p>
-<p>  &#x2F;&#x2F; 1) 停止 Timer1<br>  TCCR1A &#x3D; 0;<br>  &#x2F;*Timer1 的“控制面板 A”<br>    ❌不输出 PWM<br>    ❌ OC1A &#x2F; OC1B 引脚不被 Timer 控制<br>    ❌ 不启用任何比较输出<br>    ❌ WGM10 &#x2F; WGM11（PWM 模式） &#x3D; 0<br>  <em>&#x2F;<br>  TCCR1B &#x3D; 0;<br>  &#x2F;</em>❌ Timer1 不跑（CS&#x3D;000）<br>    ❌ 没有时钟输入<br>    ❌ WGM12 &#x2F; WGM13 &#x3D; 0<br>  *&#x2F;<br>  TCNT1  &#x3D; 0;<br>  &#x2F;&#x2F;计数器从 0 开始数，不带“上一次残留的值”</p>
-<p>  &#x2F;&#x2F; 2) Fast PWM, TOP &#x3D; ICR1  (WGM13:0 &#x3D; 14 &#x3D;&gt; 1110)<br>  TCCR1A |&#x3D; (1 &lt;&lt; WGM11);<br>  TCCR1B |&#x3D; (1 &lt;&lt; WGM13) | (1 &lt;&lt; WGM12);</p>
-<p>  &#x2F;&#x2F; 3) 非反相输出：Clear OC1A on compare match, set at BOTTOM<br>  TCCR1A |&#x3D; (1 &lt;&lt; COM1A1);</p>
-<p>  &#x2F;&#x2F; 4) 设定频率：f_pwm &#x3D; F_CPU &#x2F; (N * (1 + TOP))<br>  &#x2F;&#x2F; 20kHz &#x3D;&gt; TOP &#x3D; F_CPU&#x2F;(N<em>f) - 1<br>  &#x2F;&#x2F; 16MHz, N&#x3D;1 &#x3D;&gt; TOP &#x3D; 16e6&#x2F;(1</em>20e3) - 1 &#x3D; 799<br>  ICR1 &#x3D; 799;</p>
-<p>  &#x2F;&#x2F; 5) 初始占空比 0%<br>  OCR1A &#x3D; 0;</p>
-<p>  &#x2F;&#x2F; 6) 启动：分频 N&#x3D;1<br>  TCCR1B |&#x3D; (1 &lt;&lt; CS10);<br>}</p>
-<p>&#x2F;&#x2F; 设置占空比：0~100<br>void timer1_set_duty_oc1a(uint8_t duty_percent) {<br>  if (duty_percent &gt; 100) duty_percent &#x3D; 100;<br>  OCR1A &#x3D; (uint16_t)((uint32_t)(ICR1 + 1) * duty_percent &#x2F; 100) - 1;<br>}<br>‘’’<br>ICR决定</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/Timer/" data-id="cuid1rAAsZzzEhbWHx3viIVfZ" data-title="微控制器 Timer" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-DonkeyCar-里程碑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/18/DonkeyCar-%E9%87%8C%E7%A8%8B%E7%A2%91/" class="article-date">
-  <time class="dt-published" datetime="2025-11-18T22:19:14.000Z" itemprop="datePublished">2025-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/18/DonkeyCar-%E9%87%8C%E7%A8%8B%E7%A2%91/">DonkeyCar 经典视觉检测总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="Day-3-霍夫变换车道线检测方法若干问题的改进"><a href="#Day-3-霍夫变换车道线检测方法若干问题的改进" class="headerlink" title="Day 3 - 霍夫变换车道线检测方法若干问题的改进"></a>Day 3 - 霍夫变换车道线检测方法若干问题的改进</h2><h2 id="1-实验流程"><a href="#1-实验流程" class="headerlink" title="1. 实验流程"></a>1. 实验流程</h2><p>本章介绍整个感知算法流水线（pipeline）的技术细节，包括透视变换、颜色过滤、ROI、聚类、拟合和几何计算。</p>
-<h3 id="1-1-BEV-透视变换（Bird’s-Eye-View）"><a href="#1-1-BEV-透视变换（Bird’s-Eye-View）" class="headerlink" title="1.1 BEV 透视变换（Bird’s Eye View）"></a>1.1 BEV 透视变换（Bird’s Eye View）</h3><p>摄像头存在透视畸变：近处宽、远处窄</p>
-<p>使用 单应性矩阵 Homography Matrix 将图像从原始视角映射到 鸟瞰视角 BEV</p>
-<p>需要四个 Source Points（梯形）与四个 Destination Points（矩形）</p>
-<p>得到转换矩阵 M &#x3D; cv2.getPerspectiveTransform(src, dst)</p>
-<p>cv2.warpPerspective(img, M, size) 得到 BEV 图像</p>
-<p>效果： BEV 图像中的左右车道线趋于平行，更适合后续几何分析。</p>
-<h3 id="1-2-颜色过滤（HSV-Filtering）"><a href="#1-2-颜色过滤（HSV-Filtering）" class="headerlink" title="1.2 颜色过滤（HSV Filtering）"></a>1.2 颜色过滤（HSV Filtering）</h3><p>将 BGR → HSV 空间（Hue、Saturation、Value）</p>
-<p>HSV 过滤比灰度阈值法更不受光照影响</p>
-<p>本实验主要保留白色线条，同时剔除黄色线条与反光区域</p>
-<p>过滤逻辑：</p>
-<p>白色：低饱和度 + 高亮度</p>
-<p>黄色：中等饱和度 + 特定 Hue 范围，直接剔除</p>
-<p>最终得到仅包含白色车道线的二值图像。</p>
-<h3 id="1-3-ROI-掩膜（Region-of-Interest）"><a href="#1-3-ROI-掩膜（Region-of-Interest）" class="headerlink" title="1.3 ROI 掩膜（Region of Interest）"></a>1.3 ROI 掩膜（Region of Interest）</h3><p>去除天空、桌椅、道路外区域</p>
-<p>使用五边形 ROI，上窄下宽，符合车辆视野形状</p>
-<p>ROI 顶点根据图像比例动态计算</p>
-<p>与二值图像做按位与 → 仅保留小车前方区域</p>
-<p>好处：</p>
-<p>大幅减少误检</p>
-<p>降低计算量</p>
-<p>提高左右车道的提取精度</p>
-<h3 id="1-4-车道区域筛选（Lane-Region-Filtering）"><a href="#1-4-车道区域筛选（Lane-Region-Filtering）" class="headerlink" title="1.4 车道区域筛选（Lane Region Filtering）"></a>1.4 车道区域筛选（Lane Region Filtering）</h3><p>即便经过 ROI，仍可能有噪声或非车道区域</p>
-<p>对每一行（y）统计横向亮度分布</p>
-<p>自动估计车道的大致横向范围</p>
-<p>动态带宽掩膜：</p>
-<p>底部窄，上部宽</p>
-<p>模拟透视变化，让算法能捕捉远处细小车道线</p>
-<p>最终只保留主要车道区域，提高后续聚类成功率。</p>
-<h3 id="1-5-温和清理与线段拼接（Soft-Cleaning-Merging）"><a href="#1-5-温和清理与线段拼接（Soft-Cleaning-Merging）" class="headerlink" title="1.5 温和清理与线段拼接（Soft Cleaning &amp; Merging）"></a>1.5 温和清理与线段拼接（Soft Cleaning &amp; Merging）</h3><p>(1) 温和清理</p>
-<p>使用连通域分析</p>
-<p>删除：</p>
-<p>面积太小的噪点</p>
-<p>横向过宽的块</p>
-<p>保留：</p>
-<p>合理纵向线条</p>
-<p>(2) 拼接断裂线段</p>
-<p>对左右两半图像进行形态学闭操作（closing）</p>
-<p>补全车道线间的小断裂</p>
-<p>结果为：干净、连续、可检测的左右两条车道线。</p>
-<h3 id="1-6-骨架化-DBSCAN-聚类"><a href="#1-6-骨架化-DBSCAN-聚类" class="headerlink" title="1.6 骨架化 + DBSCAN 聚类"></a>1.6 骨架化 + DBSCAN 聚类</h3><p>处理流程：</p>
-<p>Canny 边缘检测</p>
-<p>闭操作</p>
-<p>骨架化（Thinning） → 得到单像素宽度的主干线</p>
-<p>DBSCAN 聚类 → 自动区分左右车道线</p>
-<p>不需要指定簇数</p>
-<p>噪声（label &#x3D; -1）自动剔除</p>
-<p>小簇（&lt;50点）过滤</p>
-<p>Silhouette Score 评估聚类质量</p>
-<p>优点：</p>
-<p>抗噪能力强</p>
-<p>能适应车道线断裂、光照变化</p>
-<p>自动找到左右两条主干线</p>
-<h3 id="1-7-曲线拟合（Curve-Fitting）"><a href="#1-7-曲线拟合（Curve-Fitting）" class="headerlink" title="1.7 曲线拟合（Curve Fitting）"></a>1.7 曲线拟合（Curve Fitting）</h3><p>对每个簇的点集进行二次多项式拟合：</p>
-<p>x &#x3D; a·y² + b·y + c</p>
-<p>为什么不用 y &#x3D; f(x)？</p>
-<p>在弯道可能出现“一条 y 对应多个 x”的多值问题</p>
-<p>而 y 始终单调递增，更适合建模 BEV 中的纵向车道结构</p>
-<p>输出：</p>
-<p>左车道拟合曲线</p>
-<p>右车道拟合曲线</p>
-<p>在 BEV 图像上叠加可视化</p>
-<h3 id="1-8-坐标生成、偏向角、中心偏移量（Lane-Point-Generation）"><a href="#1-8-坐标生成、偏向角、中心偏移量（Lane-Point-Generation）" class="headerlink" title="1.8 坐标生成、偏向角、中心偏移量（Lane Point Generation）"></a>1.8 坐标生成、偏向角、中心偏移量（Lane Point Generation）</h3><p>完成拟合后，需要将连续曲线离散化成像素点：</p>
-<p>从 y &#x3D; ymin → ymax 均匀采样</p>
-<p>根据函数计算 x</p>
-<p>得到结构化点集（按 y 递增排序）</p>
-<p>额外计算：</p>
-<p>两条车道线的方向角（朝向角）</p>
-<p>左右车道线与中线之间的距离</p>
-<p>小车相对中心线的偏移量</p>
-<p>所有结果存储到 JSON，用于控制模块。</p>
-<p>未来可通过真实赛道标定：</p>
-<p>将 pixel → meter 转换为真实距离</p>
-<h2 id="2-结果分析（Results）"><a href="#2-结果分析（Results）" class="headerlink" title="2. 结果分析（Results）"></a>2. 结果分析（Results）</h2><p>基于 111 张模拟器图像的测试结果：</p>
-<p>a) 时间性能</p>
-<p>平均耗时：0.015 s&#x2F;帧</p>
-<p>标准差：0.00725 s</p>
-<p>最快：0.009 s</p>
-<p>最慢：0.0397 s</p>
-<p>➡ 支持高刷新率实时控制</p>
-<p>b) 鲁棒性</p>
-<p>识别准确率：93.69%</p>
-<p>c) 混淆情况</p>
-<p>在仅看到一条车道线时仍可保持区域识别</p>
-<p>左右簇未混淆比例：98.19%</p>
-<p>聚类数量：</p>
-<p>平均：2.1</p>
-<p>标准差：0.3</p>
-<p>最优：2</p>
-<p>最差：3</p>
-<h2 id="3-结论（Conclusion）"><a href="#3-结论（Conclusion）" class="headerlink" title="3. 结论（Conclusion）"></a>3. 结论（Conclusion）</h2><p>整体算法在模拟器测试中表现稳定：</p>
-<p>实时性强：支持高频控制循环</p>
-<p>准确率高：93.69%</p>
-<p>左右车道分离效果良好：98.19% 未混淆</p>
-<p>能够处理车道丢失、部分遮挡等情况</p>
-<p>适用于真实环境和模拟环境的车道检测任务。</p>
-<h2 id="4-展望（Perspectives）"><a href="#4-展望（Perspectives）" class="headerlink" title="4. 展望（Perspectives）"></a>4. 展望（Perspectives）</h2><p>当前方案的局限：</p>
-<p>对光照（阴影、反光）较敏感</p>
-<p>参数（阈值、ROI等）依赖人工调整</p>
-<p>在复杂环境的泛化能力有限</p>
-<p>未来改进方向：</p>
-<p>引入深度学习车道检测模型</p>
-<p>社区成熟模型丰富</p>
-<p>更强的抗光照、抗噪声鲁棒性</p>
-<p>泛化能力明显优于传统方法</p>
-<p>自适应阈值 &#x2F; 滤波方法（但计算量较大）</p>
-<p>深度模型 + 当前几何管线结合</p>
-<p>进一步提高稳定性与实时性能</p>
-<h2 id="附录（Appendix）"><a href="#附录（Appendix）" class="headerlink" title="附录（Appendix）"></a>附录（Appendix）</h2><p>GitLab 项目资源（Perception_Groupe 分支）链接：<a target="_blank" rel="noopener" href="https://gitlab.imt-atlantique.fr/z23mahmo/2025-2026-ia-racing/-/tree/Perception_Groupe/Perception">https://gitlab.imt-atlantique.fr/z23mahmo/2025-2026-ia-racing/-/tree/Perception_Groupe/Perception</a></p>
-<p>包含内容：</p>
-<p>hough_final_fr.py</p>
-<p>可视化调试版本</p>
-<p>realtime_fr.py</p>
-<p>无 GUI，最高运行速度版本</p>
-<p>test.zip</p>
-<p>111 张模拟器图像数据集</p>
-<p>output_test.zip</p>
-<p>使用 hough_final 的检测结果集</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/18/DonkeyCar-%E9%87%8C%E7%A8%8B%E7%A2%91/" data-id="cuid1zlVyArWGOOQd0kWy5f61" data-title="DonkeyCar 经典视觉检测总结" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-DonkeyCar学习日记-Day3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/12/DonkeyCar%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" class="article-date">
-  <time class="dt-published" datetime="2025-11-12T22:19:14.000Z" itemprop="datePublished">2025-11-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/12/DonkeyCar%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/">DonkeyCar 学习日记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="霍夫变换改进"><a href="#霍夫变换改进" class="headerlink" title="霍夫变换改进"></a>霍夫变换改进</h2><ol>
-<li>改变ROI从梯形到五边形</li>
-<li>预处理图像从HLS二值转换变成灰度值转换</li>
-<li>用K-means和DBSCAN算法处理霍夫变换得到的线段集 —正在做</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/12/DonkeyCar%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" data-id="cuidsEMAa8YiKgLeAP273ZXR3" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-GitLab使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2025-10-20T21:19:14.000Z" itemprop="datePublished">2025-10-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">GitLab使用教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="GitLab使用教程"><a href="#GitLab使用教程" class="headerlink" title="GitLab使用教程"></a>GitLab使用教程</h1><p>在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。</p>
-<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><h3 id="一、配置SSH-链接GitLab"><a href="#一、配置SSH-链接GitLab" class="headerlink" title="一、配置SSH 链接GitLab"></a>一、配置SSH 链接GitLab</h3><ol>
-<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#108;&#105;&#x78;&#105;&#46;&#119;&#97;&#110;&#x67;&#64;&#x69;&#x6d;&#x74;&#x2d;&#x61;&#x74;&#x6c;&#x61;&#x6e;&#x74;&#x69;&#113;&#x75;&#101;&#46;&#x6e;&#x65;&#116;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
-</li>
-<li><p>第二步，配置SSH key 这步对于每个账号只需要配置一次： <code>ssh-keygen -t ed25519 -C &quot;你的邮箱&quot;</code><br> ✅ -t ed25519 指定加密算法<br> ✅ -C 是备注信息（写邮箱）<br> ⛔ 不需要设置密码</p>
-</li>
-<li><p>对于Windows：启动 ssh-agent 并载入 key：</p>
-<p> <code>Start-Service ssh-agent </code><br> <code>ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></p>
-</li>
-<li><p>将key添加到GitLab: 复制在终端中生成的key，然后在网站的key选项那里手动添加。</p>
-</li>
-<li><p>测试key连接是否成功 <code>ssh -T git@gitlab.imt-atlantique.fr</code><br> 成功显示： <code>Welcome to GitLab, @l24wang!</code></p>
-</li>
-</ol>
-<h3 id="二、克隆-GitLab-仓库到本地"><a href="#二、克隆-GitLab-仓库到本地" class="headerlink" title="二、克隆 GitLab 仓库到本地"></a>二、克隆 GitLab 仓库到本地</h3><ol>
-<li>先 cd 到想要项目到本地的目的文件夹里</li>
-<li>用<code>git clone git@gitlab.imt-atlantique.fr:仓库路径.git</code><br> 我这里是 <code>git clone git@gitlab.imt-atlantique.fr:z23mahmo/2025-2026-ia-racing.git</code><br> git@…是使用 SSH 方式下载的意思</li>
-</ol>
-<h3 id="三、把自己的文件加入仓库（本地）"><a href="#三、把自己的文件加入仓库（本地）" class="headerlink" title="三、把自己的文件加入仓库（本地）"></a>三、把自己的文件加入仓库（本地）</h3><p>复制粘贴你的文件到仓库文件夹里，注意现在你的文件还没有更新到线上仓库和别人共享，只能在本地查看。</p>
-<h3 id="四、把自己的文件更新到线上仓库"><a href="#四、把自己的文件更新到线上仓库" class="headerlink" title="四、把自己的文件更新到线上仓库"></a>四、把自己的文件更新到线上仓库</h3><p><code>git add .</code><br><code>git commit -m &quot;Add my code&quot;</code><br><code>git push origin main</code></p>
-<p>📝 持续更新……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuidkq8GzRVtxvPXIHUAIqotl" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
 
 </section>
         
@@ -1001,7 +211,11 @@ void study() {           // 方法
   
     <a href="/" class="mobile-nav-link">Home</a>
   
+    <a href="/blog" class="mobile-nav-link">Blog</a>
+  
     <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
   
 </nav>
     

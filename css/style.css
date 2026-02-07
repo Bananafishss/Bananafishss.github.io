@@ -300,6 +300,47 @@ body {
 .widget dt {
   font-weight: bold;
 }
+.tags-page .tag-list,
+.tags-page .tags-page-list {
+  display: block !important;
+  list-style: none;
+  margin: 0;
+  padding: 14px 16px;
+  background: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+}
+.tags-page .tag-list li,
+.tags-page .tags-page-list li {
+  display: inline-block;
+  margin: 6px 10px 6px 0;
+  white-space: nowrap;
+}
+.tags-page .tag-list a,
+.tags-page .tags-page-list a {
+  color: #258fb8;
+  text-decoration: none;
+}
+.tags-page .tag-list a:hover,
+.tags-page .tags-page-list a:hover {
+  text-decoration: underline;
+}
+.tags-page .tag-list span,
+.tags-page .tags-page-list span {
+  margin-left: 6px;
+  color: #999;
+}
+#main .article-entry .tag-list {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+#main .article-entry .tag-list li {
+  display: inline-block !important;
+  float: none !important;
+  margin: 6px 10px 6px 0 !important;
+}
 #header {
   height: 300px;
   position: relative;
