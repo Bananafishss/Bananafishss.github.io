@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Bananafishss 的小站">
 <meta property="og:description" content="微控制器基本架构：一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。 MCU端口结构(外设)GPIO 最简单的端口GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/MCU%E6%9E%B6%E6%9E%84.png">
-<meta property="og:image" content="http://example.com/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png">
+<meta property="og:image" content="http://example.com/images/MCU%E6%9E%B6%E6%9E%84.png">
+<meta property="og:image" content="http://example.com/images/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png">
 <meta property="article:published_time" content="2026-01-09T09:19:14.000Z">
-<meta property="article:modified_time" content="2026-02-07T19:00:57.524Z">
+<meta property="article:modified_time" content="2026-02-07T19:05:23.004Z">
 <meta property="article:author" content="WANG Lixi">
 <meta property="article:tag" content="Arduino">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/MCU%E6%9E%B6%E6%9E%84.png">
+<meta name="twitter:image" content="http://example.com/images/MCU%E6%9E%B6%E6%9E%84.png">
   
     <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
   
@@ -99,11 +99,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="微控制器基本架构："><a href="#微控制器基本架构：" class="headerlink" title="微控制器基本架构："></a>微控制器基本架构：</h1><p>一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。<br><img src="/MCU%E6%9E%B6%E6%9E%84.png" alt="MCU架构"></p>
+        <h1 id="微控制器基本架构："><a href="#微控制器基本架构：" class="headerlink" title="微控制器基本架构："></a>微控制器基本架构：</h1><p>一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。<br><img src="/images/MCU%E6%9E%B6%E6%9E%84.png" alt="MCU架构"></p>
 <h2 id="MCU端口结构-外设"><a href="#MCU端口结构-外设" class="headerlink" title="MCU端口结构(外设)"></a>MCU端口结构(外设)</h2><h3 id="GPIO-最简单的端口"><a href="#GPIO-最简单的端口" class="headerlink" title="GPIO 最简单的端口"></a>GPIO 最简单的端口</h3><p>GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：<br>DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA &#x3D; 0xFF &#x2F;&#x2F;将A组GPIO每一个端口全部设置为 1 也就是输出模式。DDRB &#x3D; 0x00&#x2F;&#x2F;B组设为 0 则是输入模式<br>接下来初始化A组的输出值和B组的输入值为0：<br>PORTA &#x3D; 0x00<br>PINB &#x3D; 0x00</p>
 <h3 id="Port-Serie-有通信协议的端口"><a href="#Port-Serie-有通信协议的端口" class="headerlink" title="Port Serie 有通信协议的端口"></a>Port Serie 有通信协议的端口</h3><p>不能自由设置每个端口的值，一般有tx和rx 它们的值电平由串口硬件自动控制。常用的端口类型有SPI &#x2F; I2C &#x2F; CAN</p>
 <ol>
-<li>I2C协议<br>I²C 有两根信号线：<br>SCL：时钟线（Clock），一般由主机（Master）输出<br>SDA：数据线（Data），双向传数据<br>GND 共地<br>下面展示一个通过I2C协议读传感器数据的例子：<br><img src="/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png" alt="MPL3115A2温度传感器"><br>‘’’c</li>
+<li>I2C协议<br>I²C 有两根信号线：<br>SCL：时钟线（Clock），一般由主机（Master）输出<br>SDA：数据线（Data），双向传数据<br>GND 共地<br>下面展示一个通过I2C协议读传感器数据的例子：<br><img src="/images/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png" alt="MPL3115A2温度传感器"><br>‘’’c</li>
 </ol>
 <p>#include &lt;Wire.h&gt;&#x2F;&#x2F;引入 I2C 库<br>const uint8_t MPL3115A2_ADDR &#x3D; 0x60;&#x2F;&#x2F;传感器 I2C 端口地址<br>bool i2cWrite8(uint8_t addr, uint8_t reg, uint8_t val) {<br>  Wire.beginTransmission(addr);&#x2F;&#x2F;调用wire库里的开始函数来知道要操作的是哪个外设，这里的addr就是传感器地址<br>  Wire.write(reg);&#x2F;&#x2F;具体到传感器外设的地址为reg的寄存器<br>  Wire.write(val);&#x2F;&#x2F;往reg地址的寄存器里写val<br>  return (Wire.endTransmission() &#x3D;&#x3D; 0);&#x2F;&#x2F;结束<br>}&#x2F;&#x2F;这是一个修改外设指定的寄存器值的函数</p>
 <p>bool i2cReadBytes(uint8_t addr, uint8_t reg, uint8_t* buf, uint8_t len) {<br>  Wire.beginTransmission(addr);<br>  Wire.write(reg);<br>  if (Wire.endTransmission(false) !&#x3D; 0) return false;&#x2F;&#x2F;I2C里的repeated start</p>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/MicroControleur/" data-id="cuidEGUgQ9OV7Z5xRQiuh6v3G" data-title="微处理器 架构和接口协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2026/01/09/MicroControleur/" data-id="cuidOxsX-sWHJINms4BOBw8LP" data-title="微处理器 架构和接口协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -244,7 +244,7 @@
           </li>
         
           <li>
-            <a href="/2025/11/28/C%E6%8C%87%E9%92%88/">C/C++ 学习日记 结构体</a>
+            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
           </li>
         
       </ul>

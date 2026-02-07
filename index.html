@@ -107,7 +107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/C++_3/" data-id="cuidJmTohhYWG671c_gkJYSEb" data-title="C/C++ 学习日记 操作符重载" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2026/01/09/C++_3/" data-id="cuidmL5mNU5fJuG_B3l4PC79Q" data-title="C/C++ 学习日记 操作符重载" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -143,11 +143,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="微控制器基本架构："><a href="#微控制器基本架构：" class="headerlink" title="微控制器基本架构："></a>微控制器基本架构：</h1><p>一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。<br><img src="/MCU%E6%9E%B6%E6%9E%84.png" alt="MCU架构"></p>
+        <h1 id="微控制器基本架构："><a href="#微控制器基本架构：" class="headerlink" title="微控制器基本架构："></a>微控制器基本架构：</h1><p>一个完整的工程系统包括：传感器 → 信号处理 → 控制 &#x2F; 显示 → 执行器，MCU负责处理来自传感器和信号处理等外设（ADC模数转换器）的信号后发出指令给输出端口的外设。<br><img src="/images/MCU%E6%9E%B6%E6%9E%84.png" alt="MCU架构"></p>
 <h2 id="MCU端口结构-外设"><a href="#MCU端口结构-外设" class="headerlink" title="MCU端口结构(外设)"></a>MCU端口结构(外设)</h2><h3 id="GPIO-最简单的端口"><a href="#GPIO-最简单的端口" class="headerlink" title="GPIO 最简单的端口"></a>GPIO 最简单的端口</h3><p>GPIO是一组16个可以自由配置每一位电平的端口，有输入输出两种模式，配置代码如下：<br>DDRx ：用来配置一个端口的输入&#x2F;输出方向。举例：DDRA &#x3D; 0xFF &#x2F;&#x2F;将A组GPIO每一个端口全部设置为 1 也就是输出模式。DDRB &#x3D; 0x00&#x2F;&#x2F;B组设为 0 则是输入模式<br>接下来初始化A组的输出值和B组的输入值为0：<br>PORTA &#x3D; 0x00<br>PINB &#x3D; 0x00</p>
 <h3 id="Port-Serie-有通信协议的端口"><a href="#Port-Serie-有通信协议的端口" class="headerlink" title="Port Serie 有通信协议的端口"></a>Port Serie 有通信协议的端口</h3><p>不能自由设置每个端口的值，一般有tx和rx 它们的值电平由串口硬件自动控制。常用的端口类型有SPI &#x2F; I2C &#x2F; CAN</p>
 <ol>
-<li>I2C协议<br>I²C 有两根信号线：<br>SCL：时钟线（Clock），一般由主机（Master）输出<br>SDA：数据线（Data），双向传数据<br>GND 共地<br>下面展示一个通过I2C协议读传感器数据的例子：<br><img src="/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png" alt="MPL3115A2温度传感器"><br>‘’’c</li>
+<li>I2C协议<br>I²C 有两根信号线：<br>SCL：时钟线（Clock），一般由主机（Master）输出<br>SDA：数据线（Data），双向传数据<br>GND 共地<br>下面展示一个通过I2C协议读传感器数据的例子：<br><img src="/images/MPL3115A2%E6%B8%A9%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8.png" alt="MPL3115A2温度传感器"><br>‘’’c</li>
 </ol>
 <p>#include &lt;Wire.h&gt;&#x2F;&#x2F;引入 I2C 库<br>const uint8_t MPL3115A2_ADDR &#x3D; 0x60;&#x2F;&#x2F;传感器 I2C 端口地址<br>bool i2cWrite8(uint8_t addr, uint8_t reg, uint8_t val) {<br>  Wire.beginTransmission(addr);&#x2F;&#x2F;调用wire库里的开始函数来知道要操作的是哪个外设，这里的addr就是传感器地址<br>  Wire.write(reg);&#x2F;&#x2F;具体到传感器外设的地址为reg的寄存器<br>  Wire.write(val);&#x2F;&#x2F;往reg地址的寄存器里写val<br>  return (Wire.endTransmission() &#x3D;&#x3D; 0);&#x2F;&#x2F;结束<br>}&#x2F;&#x2F;这是一个修改外设指定的寄存器值的函数</p>
 <p>bool i2cReadBytes(uint8_t addr, uint8_t reg, uint8_t* buf, uint8_t len) {<br>  Wire.beginTransmission(addr);<br>  Wire.write(reg);<br>  if (Wire.endTransmission(false) !&#x3D; 0) return false;&#x2F;&#x2F;I2C里的repeated start</p>
@@ -196,7 +196,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/MicroControleur/" data-id="cuidEGUgQ9OV7Z5xRQiuh6v3G" data-title="微处理器 架构和接口协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2026/01/09/MicroControleur/" data-id="cuidOxsX-sWHJINms4BOBw8LP" data-title="微处理器 架构和接口协议" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -283,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/encoderCode/" data-id="cuidiE8xO1EcWI3bi8XTAlQXq" data-title="微处理器 PWM控制机械指针" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2026/01/09/encoderCode/" data-id="cuidOiQoqo2yaQ_1mabL3_rIT" data-title="微处理器 PWM控制机械指针" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -380,70 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C++_1/" data-id="cuidnaM7YNQEKX8WNy22bxemf" data-title="C/C++ 学习日记 基本语法" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-C指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/11/28/C%E6%8C%87%E9%92%88/" class="article-date">
-  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/11/28/C%E6%8C%87%E9%92%88/">C/C++ 学习日记 结构体</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<h1 id="C指针以及结构体，内存空间"><a href="#C指针以及结构体，内存空间" class="headerlink" title="C指针以及结构体，内存空间"></a>C指针以及结构体，内存空间</h1><h2 id="内存的类型"><a href="#内存的类型" class="headerlink" title="内存的类型"></a>内存的类型</h2><p>要理解指针的用途 首先要理解内存的类型，总的来说分为全局区，栈，堆。每种内存区域都对应专门的功能：</p>
-<ol>
-<li>全局区，最常用的内存区域，全局变量，结构体等在此处储存，声明周期到程序结束为止。</li>
-<li>栈，快存快销的区域，用于即时计算，最典型的就是函数内部声明的变量或者结构体，在函数结束后一同被销毁，无法传出函数外部。</li>
-<li>堆，由coder自己决定它的生命周期，用malloc创建 用free释放。它与全局区创建的结构体的区别在于：全局区声明即确定它的内存大小而malloc创建的内存空间是在运行时才被决定的，，这为链表等方法的实现提供了可能。</li>
-</ol>
-<h2 id="用途及用法"><a href="#用途及用法" class="headerlink" title="用途及用法"></a>用途及用法</h2><pre><code>1. 由于C语言函数不能改变函数外面的变量，所有在需要函数对全局的某个变量进行处理时，需要用指向该变量的指针作为参数（就是传入地址而不是变量的值）传入函数。例如：
-&#39;&#39;&#39;void add1(int *x) {
-    *x = *x + 1;
-}&#39;&#39;&#39;
-2. 一个函数只能return 一个值，在需要返回多个值时，需要在参数中加入传出时的指针，然后无需return，用指针指向需要被返回的值即可。例如：
-&#39;&#39;&#39; void div_mod(int a, int b, int *quot, int *rem) {
-    *quot = a / b;
-    *rem  = a % b;
-}&#39;&#39;&#39;
-3. 传递结构体时，结构体内存占用很大，使用指针避免内存大量消耗。例如：&#39;&#39;&#39;void process(struct Data *d);&#39;&#39;&#39;
-4. 传递数组时，数组本质上就是指针，所以外部数组可以在函数内部直接修改。例如：&#39;&#39;&#39;void process(struct Data *d);&#39;&#39;&#39;
-</code></pre>
-<h1 id="结构体的初始化方法"><a href="#结构体的初始化方法" class="headerlink" title="结构体的初始化方法"></a>结构体的初始化方法</h1><ol>
-<li>用于在函数内部使用，不能把本结构体的地址传到函数外部。</li>
-<li>对函数外面的结构体初始化，可以将元素挨个赋值或者将一个结构体变量赋给它。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C%E6%8C%87%E9%92%88/" data-id="cuidsKxReMiFmJ_6MNzx3jakS" data-title="C/C++ 学习日记 结构体" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/28/C++_1/" data-id="cuidxuQm74QmV4xcciXQxu4Gq" data-title="C/C++ 学习日记 基本语法" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -576,7 +513,70 @@ void study() {           // 方法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C++_2/" data-id="cuid3hQTIXSmde0bBKn_nviY7" data-title="C/C++ 学习日记 类，实例，属性和方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/28/C++_2/" data-id="cuidW0wg9cY00b4F_fSCAsugZ" data-title="C/C++ 学习日记 类，实例，属性和方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-C指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/28/C%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2025-11-28T22:19:14.000Z" itemprop="datePublished">2025-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/11/28/C%E6%8C%87%E9%92%88/">C/C++ 学习日记 结构体</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="C指针以及结构体，内存空间"><a href="#C指针以及结构体，内存空间" class="headerlink" title="C指针以及结构体，内存空间"></a>C指针以及结构体，内存空间</h1><h2 id="内存的类型"><a href="#内存的类型" class="headerlink" title="内存的类型"></a>内存的类型</h2><p>要理解指针的用途 首先要理解内存的类型，总的来说分为全局区，栈，堆。每种内存区域都对应专门的功能：</p>
+<ol>
+<li>全局区，最常用的内存区域，全局变量，结构体等在此处储存，声明周期到程序结束为止。</li>
+<li>栈，快存快销的区域，用于即时计算，最典型的就是函数内部声明的变量或者结构体，在函数结束后一同被销毁，无法传出函数外部。</li>
+<li>堆，由coder自己决定它的生命周期，用malloc创建 用free释放。它与全局区创建的结构体的区别在于：全局区声明即确定它的内存大小而malloc创建的内存空间是在运行时才被决定的，，这为链表等方法的实现提供了可能。</li>
+</ol>
+<h2 id="用途及用法"><a href="#用途及用法" class="headerlink" title="用途及用法"></a>用途及用法</h2><pre><code>1. 由于C语言函数不能改变函数外面的变量，所有在需要函数对全局的某个变量进行处理时，需要用指向该变量的指针作为参数（就是传入地址而不是变量的值）传入函数。例如：
+&#39;&#39;&#39;void add1(int *x) {
+    *x = *x + 1;
+}&#39;&#39;&#39;
+2. 一个函数只能return 一个值，在需要返回多个值时，需要在参数中加入传出时的指针，然后无需return，用指针指向需要被返回的值即可。例如：
+&#39;&#39;&#39; void div_mod(int a, int b, int *quot, int *rem) {
+    *quot = a / b;
+    *rem  = a % b;
+}&#39;&#39;&#39;
+3. 传递结构体时，结构体内存占用很大，使用指针避免内存大量消耗。例如：&#39;&#39;&#39;void process(struct Data *d);&#39;&#39;&#39;
+4. 传递数组时，数组本质上就是指针，所以外部数组可以在函数内部直接修改。例如：&#39;&#39;&#39;void process(struct Data *d);&#39;&#39;&#39;
+</code></pre>
+<h1 id="结构体的初始化方法"><a href="#结构体的初始化方法" class="headerlink" title="结构体的初始化方法"></a>结构体的初始化方法</h1><ol>
+<li>用于在函数内部使用，不能把本结构体的地址传到函数外部。</li>
+<li>对函数外面的结构体初始化，可以将元素挨个赋值或者将一个结构体变量赋给它。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/28/C%E6%8C%87%E9%92%88/" data-id="cuidchRNMP39BWl0HmenMLF6y" data-title="C/C++ 学习日记 结构体" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -628,7 +628,7 @@ void study() {           // 方法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/Timer/" data-id="cuidDFWkUfvKo-5BIEhgy4PV0" data-title="微控制器 Timer" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/28/Timer/" data-id="cuid1rAAsZzzEhbWHx3viIVfZ" data-title="微控制器 Timer" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -787,7 +787,7 @@ void study() {           // 方法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/18/DonkeyCar-%E9%87%8C%E7%A8%8B%E7%A2%91/" data-id="cuidlwTpXokJ0s_YDISeUIfpz" data-title="DonkeyCar 经典视觉检测总结" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/18/DonkeyCar-%E9%87%8C%E7%A8%8B%E7%A2%91/" data-id="cuid1zlVyArWGOOQd0kWy5f61" data-title="DonkeyCar 经典视觉检测总结" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -833,7 +833,7 @@ void study() {           // 方法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/12/DonkeyCar%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" data-id="cuidawAbdLitDnRxz3i6tjZ1L" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/12/DonkeyCar%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" data-id="cuidsEMAa8YiKgLeAP273ZXR3" data-title="DonkeyCar 学习日记" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -871,7 +871,7 @@ void study() {           // 方法
       
         <h1 id="GitLab使用教程"><a href="#GitLab使用教程" class="headerlink" title="GitLab使用教程"></a>GitLab使用教程</h1><p>在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。</p>
 <h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><h3 id="一、配置SSH-链接GitLab"><a href="#一、配置SSH-链接GitLab" class="headerlink" title="一、配置SSH 链接GitLab"></a>一、配置SSH 链接GitLab</h3><ol>
-<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#x6c;&#105;&#x78;&#105;&#x2e;&#x77;&#97;&#110;&#103;&#64;&#105;&#x6d;&#x74;&#x2d;&#97;&#116;&#108;&#97;&#x6e;&#116;&#105;&#113;&#x75;&#x65;&#46;&#x6e;&#101;&#x74;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
+<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#108;&#105;&#x78;&#105;&#46;&#119;&#97;&#110;&#x67;&#64;&#x69;&#x6d;&#x74;&#x2d;&#x61;&#x74;&#x6c;&#x61;&#x6e;&#x74;&#x69;&#113;&#x75;&#101;&#46;&#x6e;&#x65;&#116;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
 </li>
 <li><p>第二步，配置SSH key 这步对于每个账号只需要配置一次： <code>ssh-keygen -t ed25519 -C &quot;你的邮箱&quot;</code><br> ✅ -t ed25519 指定加密算法<br> ✅ -C 是备注信息（写邮箱）<br> ⛔ 不需要设置密码</p>
 </li>
@@ -894,7 +894,7 @@ void study() {           // 方法
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuidrWZiwov4YtaSpNHMjHWb-" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuidkq8GzRVtxvPXIHUAIqotl" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -974,7 +974,7 @@ void study() {           // 方法
           </li>
         
           <li>
-            <a href="/2025/11/28/C%E6%8C%87%E9%92%88/">C/C++ 学习日记 结构体</a>
+            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
           </li>
         
       </ul>
