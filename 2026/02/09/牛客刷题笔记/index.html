@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>牛客刷题笔记 | Bananafishss 的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="第一部分 基本数据类型#include &lt;bits&#x2F;stdc++.h&gt; 一次性把几乎所有常用 C++ 标准库都包含进来。 浮点数的输出在 C++ 里，控制浮点数输出的小数点位数，最常用、最规范的方式是用  里的格式控制器。 123456789101112#include &lt;iostream&gt;#include &lt;iomanip&gt;&#x2F;&#x2F;*******usin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客刷题笔记">
+<meta property="og:url" content="http://example.com/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Bananafishss 的小站">
+<meta property="og:description" content="第一部分 基本数据类型#include &lt;bits&#x2F;stdc++.h&gt; 一次性把几乎所有常用 C++ 标准库都包含进来。 浮点数的输出在 C++ 里，控制浮点数输出的小数点位数，最常用、最规范的方式是用  里的格式控制器。 123456789101112#include &lt;iostream&gt;#include &lt;iomanip&gt;&#x2F;&#x2F;*******usin">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-09T11:30:17.000Z">
+<meta property="article:modified_time" content="2026-04-14T13:20:35.002Z">
+<meta property="article:author" content="WANG Lixi">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bananafishss 的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/blog">Blog</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-牛客刷题笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2026-02-09T11:30:17.000Z" itemprop="datePublished">2026-02-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      牛客刷题笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第一部分-基本数据类型"><a href="#第一部分-基本数据类型" class="headerlink" title="第一部分 基本数据类型"></a>第一部分 基本数据类型</h1><p>#include &lt;bits&#x2F;stdc++.h&gt; 一次性把几乎所有常用 C++ 标准库都包含进来。</p>
+<h2 id="浮点数的输出"><a href="#浮点数的输出" class="headerlink" title="浮点数的输出"></a>浮点数的输出</h2><p>在 C++ 里，控制浮点数输出的小数点位数，最常用、最规范的方式是用 <iomanip> 里的格式控制器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;iomanip&gt;//*******</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    double x = 3.1415926;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; fixed &lt;&lt; setprecision(2) &lt;&lt; x &lt;&lt; endl;  // 3.14</span><br><span class="line">    cout &lt;&lt; fixed &lt;&lt; setprecision(4) &lt;&lt; x &lt;&lt; endl;  // 3.1416（四舍五入）</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符串的输出"><a href="#字符串的输出" class="headerlink" title="字符串的输出"></a>字符串的输出</h2><p>输入一个只包含字母和数字、不含空格的字符串 s，最常用 <string> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cin &gt;&gt; s;//输出s字符串 遇到空格就停止</span><br><span class="line"></span><br><span class="line">getline(cin, s);//输出s的全部内容，包含空格</span><br><span class="line">cout &lt;&lt; s;</span><br></pre></td></tr></table></figure>
+
+<h2 id="换行输入，输出的方法"><a href="#换行输入，输出的方法" class="headerlink" title="换行输入，输出的方法"></a>换行输入，输出的方法</h2><p>当需要输入多行数据时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">Alice</span><br><span class="line">95.5</span><br><span class="line">Hello world</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int n;</span><br><span class="line">cin &gt;&gt; n;</span><br><span class="line">cin.ignore();          // 关键:用来忽略cin中的换行符，也就是说 不把输入的enter键作为结束标志</span><br><span class="line"></span><br><span class="line">string name;</span><br><span class="line">getline(cin, name);</span><br><span class="line"></span><br><span class="line">double score;</span><br><span class="line">cin &gt;&gt; score;</span><br><span class="line">cin.ignore();          // 再忽略一次换行</span><br><span class="line"></span><br><span class="line">string sentence;</span><br><span class="line">getline(cin, sentence);</span><br></pre></td></tr></table></figure>
+
+<h2 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h2><p>‘(double)d’属于 C&#x2F;C++ 的显式类型转换（强制类型转换，C-style cast）。意思是把 d 当前这个值“临时当成 double 来用”。它不会改变 d 本身的类型，只影响这一次表达式计算。<br><strong>这种转换方式是向下取整 也就是舍弃低位</strong><br>通常在两个int数计算时 需要得到double类型的结果时使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = 1, b = 2;</span><br><span class="line">double x = a / b;   // 结果是 0,错误 </span><br><span class="line">double x = (double)a / b;   // 0.5，正确</span><br></pre></td></tr></table></figure>
+
+<h2 id="求一个int的余数"><a href="#求一个int的余数" class="headerlink" title="求一个int的余数"></a>求一个int的余数</h2><p><strong>abs是求int的绝对值，fabs是求浮点数（float double long double）的绝对值</strong><br>abs求绝对值然后%10， 同理，求一个数的个位数是多少其实就是求这个数对10的余数：res &#x3D; abs(a)%10;<br>求一个数的十位数就是把这个数除以10再求它对10的余数： res &#x3D; (a&#x2F;10)%10;以此类推。。。</p>
+<h2 id="数组和向量的区别"><a href="#数组和向量的区别" class="headerlink" title="数组和向量的区别"></a>数组和向量的区别</h2><p>数组（array）是“固定大小的盒子”，向量（vector）是“会自己变大的盒子”。</p>
+<ol>
+<li>vector有push_back(x)函数可以<strong>把一个元素x加到 vector 的末尾。</strong></li>
+<li>size()可以测出向量的元素个数。</li>
+<li>a.back()可以得出向量a最后一个值。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int a[3] = &#123;3, 1, 2&#125;;</span><br><span class="line">sort(a, a + 3);///这是数组</span><br><span class="line"></span><br><span class="line">vector&lt;int&gt; v;</span><br><span class="line">sort(v.begin(), v.end());</span><br><span class="line">v.push_back(3);//将3加到v向量的末尾。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="将一个数组-向量的元素从小到大排序的神器：sort"><a href="#将一个数组-向量的元素从小到大排序的神器：sort" class="headerlink" title="将一个数组&#x2F;向量的元素从小到大排序的神器：sort();"></a>将一个数组&#x2F;向量的元素从小到大排序的神器：sort();</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort(a, a + n);          // 数组</span><br><span class="line">sort(v.begin(), v.end()); // 将vector从头到尾排序</span><br><span class="line">////下面是个例子</span><br><span class="line">int a[5] = &#123;4, 1, 3, 2, 5&#125;;</span><br><span class="line">sort(a, a + 5);//将a数组前五个排序</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断一个数是否为素数的函数写法："><a href="#判断一个数是否为素数的函数写法：" class="headerlink" title="判断一个数是否为素数的函数写法："></a>判断一个数是否为素数的函数写法：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime(int n)&#123;</span><br><span class="line">    if(n &lt; 2) return false;   // 0 和 1 不是质数</span><br><span class="line"></span><br><span class="line">    for(int i = 2; i*i &lt;= n; i++)&#123;</span><br><span class="line">        if(n % i == 0)&#123;</span><br><span class="line">            return false;     // 能整除，说明不是质数</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="写递归函数的时候注意要先写初始条件，也就是注意先表达出一个函数的依赖。"><a href="#写递归函数的时候注意要先写初始条件，也就是注意先表达出一个函数的依赖。" class="headerlink" title="写递归函数的时候注意要先写初始条件，也就是注意先表达出一个函数的依赖。"></a>写递归函数的时候注意要先写初始条件，也就是注意先表达出一个函数的依赖。</h2><h2 id="科学计数法"><a href="#科学计数法" class="headerlink" title="科学计数法"></a>科学计数法</h2><p>1000000007 &#x3D;&#x3D; 1e9 + 7 &#x2F;&#x2F;表示10的9次方+7 但注意：这是 double（浮点数），不是整数。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" data-id="cuidd-s49fyNqoXTyCPKBX4PG" data-title="牛客刷题笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/20/ROS_1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          ROS 学习日记 基本语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/01/09/C++_3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">C/C++ 学习日记 操作符重载 继承</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 16.67px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 16.67px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/24/C++_4/">C/C++ 学习日记 继承</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/24/C++_5/">C/C++ 学习日记 多态</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/20/ROS_1/">ROS 学习日记 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">牛客刷题笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载 继承</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WANG Lixi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog" class="mobile-nav-link">Blog</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

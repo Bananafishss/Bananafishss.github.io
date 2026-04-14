@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>C/C++ 学习日记 操作符重载 | Bananafishss 的小站</title>
+  <title>C/C++ 学习日记 操作符重载 继承 | Bananafishss 的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="2.C++ 操作符重载重载的目的对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类，‘’’cppclass Complexe{    private:    double x;    double y;};‘’’对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。 操作符重载的方法 第一种重载是把操作符重载看作是classe的成员函">
+  <meta name="description" content="2.C++ 操作符重载重载的目的对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类， 12345class Complexe&#123;    private:    double x;    double y;&#125;; 对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。 操作符重载的方法 第一种重载是把操作符重载看作是cl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C&#x2F;C++ 学习日记 操作符重载">
+<meta property="og:title" content="C&#x2F;C++ 学习日记 操作符重载 继承">
 <meta property="og:url" content="http://example.com/2026/01/09/C++_3/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
-<meta property="og:description" content="2.C++ 操作符重载重载的目的对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类，‘’’cppclass Complexe{    private:    double x;    double y;};‘’’对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。 操作符重载的方法 第一种重载是把操作符重载看作是classe的成员函">
+<meta property="og:description" content="2.C++ 操作符重载重载的目的对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类， 12345class Complexe&#123;    private:    double x;    double y;&#125;; 对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。 操作符重载的方法 第一种重载是把操作符重载看作是cl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-09T09:19:14.000Z">
-<meta property="article:modified_time" content="2026-01-09T10:29:15.862Z">
+<meta property="article:modified_time" content="2026-04-14T13:23:02.317Z">
 <meta property="article:author" content="WANG Lixi">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="C++">
@@ -93,7 +93,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      C/C++ 学习日记 操作符重载
+      C/C++ 学习日记 操作符重载 继承
     </h1>
   
 
@@ -101,19 +101,42 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="2-C-操作符重载"><a href="#2-C-操作符重载" class="headerlink" title="2.C++ 操作符重载"></a>2.C++ 操作符重载</h1><h2 id="重载的目的"><a href="#重载的目的" class="headerlink" title="重载的目的"></a>重载的目的</h2><p>对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类，<br>‘’’cpp<br>class Complexe{<br>    private:<br>    double x;<br>    double y;<br>};<br>‘’’<br>对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。</p>
+        <h1 id="2-C-操作符重载"><a href="#2-C-操作符重载" class="headerlink" title="2.C++ 操作符重载"></a>2.C++ 操作符重载</h1><h2 id="重载的目的"><a href="#重载的目的" class="headerlink" title="重载的目的"></a>重载的目的</h2><p>对于一个自定义的类变量（对象）来说，无法直接使用操作符运算，比如对于自定义的 Complexe 类，</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Complexe</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="type">double</span> y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>对于Complexe a,b; 无法：a+b；所以需要重新定义操作符。</p>
 <h2 id="操作符重载的方法"><a href="#操作符重载的方法" class="headerlink" title="操作符重载的方法"></a>操作符重载的方法</h2><ol>
-<li>第一种重载是把操作符重载看作是classe的成员函数（方法）：<br>‘’’cpp<br>&#x2F;&#x2F;A Op B 写作 A.operatorOp(B)<br>t1 &#x3D;&#x3D; t2 &#x2F;&#x2F; 等价于: t1.operator&#x3D;&#x3D;(t2)<br>t1 +&#x3D; t2 &#x2F;&#x2F; 等价于: t1.operator+&#x3D;(t2)<br>‘’’</li>
-<li>第二种重载是把操作符重载当成一个类外的普通函数，然后将被运算的数据作为参数传进操作符函数里：<br>‘’’cpp<br>&#x2F;&#x2F;A Op B 写作 operatorOp(A,B)<br>t1 + t2 &#x2F;&#x2F; 等价于 : operator+(t1,t2)<br>t1 * t2 &#x2F;&#x2F; 等价于 : operator*(t1,t2)<br>‘’’</li>
+<li>第一种重载是把操作符重载看作是classe的成员函数（方法）：</li>
 </ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A Op B 写作 A.operatorOp(B)</span></span><br><span class="line">t1 == t2 <span class="comment">// 等价于: t1.operator==(t2)</span></span><br><span class="line">t1 += t2 <span class="comment">// 等价于: t1.operator+=(t2)</span></span><br></pre></td></tr></table></figure>
+<p>赋值操作符声明模板：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Traveler&amp; operator=(const Traveler&amp; t);//声明</span><br><span class="line"></span><br><span class="line">Traveler&amp; Traveler::operator=(const Traveler&amp; t);&#123;//实现</span><br><span class="line">    if(this != &amp;t)&#123;</span><br><span class="line">        s = t.s;</span><br><span class="line">    &#125;</span><br><span class="line">    return *this;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>第二种重载是把操作符重载当成一个类外的普通函数，然后将被运算的数据作为参数传进操作符函数里：</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A Op B 写作 operatorOp(A,B)</span></span><br><span class="line">t1 + t2 <span class="comment">// 等价于 : operator+(t1,t2)</span></span><br><span class="line">t1 * t2 <span class="comment">// 等价于 : operator*(t1,t2)</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>这两种写法的适用范围：</li>
+</ol>
+<ul>
+<li>适合写成成员函数的（左操作数必须是本类）</li>
+</ul>
+<p>例如：+&#x3D;，&#x3D;，++，–，[]，()</p>
+<p>因为左边必须是对象：a +&#x3D; b   → a.operator+&#x3D;(b)</p>
+<ul>
+<li>适合写成外部函数的（特别是算术）</li>
+</ul>
+<p>例如：+，-，*，&#x2F;，&lt;&lt;，&gt;&gt;<br>为什么？<br>因为可能希望：1.0 + complex<br>如果写成员函数：complex.operator+(1.0)左边必须是 complex，就不行。<br><strong>总结</strong><br>修改自身状态的运算符 → 成员函数<br>产生新对象的运算符 → 外部函数</p>
 <h2 id="具体操作符的分类讨论"><a href="#具体操作符的分类讨论" class="headerlink" title="具体操作符的分类讨论"></a>具体操作符的分类讨论</h2><ol>
-<li>“&#x3D;”赋值运算符是一个把一个对象拷贝到另一个对象的运算符。当它用于自定义的classe中时，<br>如果被赋值的对象已经存在，<br>a &#x3D; b;&#x2F;&#x2F; 用 a.operator&#x3D;(b)<br>如果对象还没创建，那用的是拷贝构造函数（<a href="./C++_2.md">拷贝构造函数的写法</a>），不是 &#x3D;：</li>
+<li>“&#x3D;”赋值运算符是一个把一个对象拷贝到另一个对象的运算符。当它用于自定义的class中时，<br>如果被赋值的对象已经存在，<br>a &#x3D; b;&#x2F;&#x2F; 用 a.operator&#x3D;(b)<br>如果对象还没创建，那用的是拷贝构造函数（<a href="/2025/11/28/C++_2/" title="C&#x2F;C++ 学习日记 类，实例，属性和方法">拷贝构造函数的写法</a>），不是 &#x3D;：</li>
 </ol>
+<h1 id="3-用一个栈结构的类来实践操作符重载"><a href="#3-用一个栈结构的类来实践操作符重载" class="headerlink" title="3.用一个栈结构的类来实践操作符重载"></a>3.用一个栈结构的类来实践操作符重载</h1><h2 id="friend-伙伴函数-在某个类里使用这一字段的函数-拥有这个类的访问权限-但却不属于此类也就是调用时为function（a，b）；而不是a-function-b"><a href="#friend-伙伴函数-在某个类里使用这一字段的函数-拥有这个类的访问权限-但却不属于此类也就是调用时为function（a，b）；而不是a-function-b" class="headerlink" title="friend  伙伴函数 在某个类里使用这一字段的函数 拥有这个类的访问权限 但却不属于此类也就是调用时为function（a，b）；而不是a.function(b);"></a>friend  伙伴函数 在某个类里使用这一字段的函数 拥有这个类的访问权限 但却不属于此类也就是调用时为function（a，b）；而不是a.function(b);</h2><h2 id="动态数组的创建：使用new"><a href="#动态数组的创建：使用new" class="headerlink" title="动态数组的创建：使用new"></a>动态数组的创建：使用new</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int * v;</span><br><span class="line">v = new int[常数];</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/09/C++_3/" data-id="cuidQWSH9ULKwTVqHDHW0kjGv" data-title="C/C++ 学习日记 操作符重载" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2026/01/09/C++_3/" data-id="cuidyW7eoo3Aat_Ub_Nm1aoYp" data-title="C/C++ 学习日记 操作符重载 继承" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -124,6 +147,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          牛客刷题笔记
+        
+      </div>
+    </a>
   
   
     <a href="/2026/01/09/MicroControleur/" id="article-nav-older" class="article-nav-link-wrap">
@@ -148,7 +180,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
     </div>
   </div>
 
@@ -158,7 +190,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 16.67px;">C</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 16.67px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 16.67px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a>
     </div>
   </div>
 
@@ -167,7 +199,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
     </div>
   </div>
 
@@ -180,23 +212,23 @@
       <ul>
         
           <li>
-            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+            <a href="/2026/02/24/C++_4/">C/C++ 学习日记 继承</a>
           </li>
         
           <li>
-            <a href="/2026/01/09/MicroControleur/">微处理器 架构和接口协议</a>
+            <a href="/2026/02/24/C++_5/">C/C++ 学习日记 多态</a>
           </li>
         
           <li>
-            <a href="/2026/01/09/encoderCode/">微处理器 PWM控制机械指针</a>
+            <a href="/2026/02/20/ROS_1/">ROS 学习日记 基本语法</a>
           </li>
         
           <li>
-            <a href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
+            <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">牛客刷题笔记</a>
           </li>
         
           <li>
-            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载 继承</a>
           </li>
         
       </ul>

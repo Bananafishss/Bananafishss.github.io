@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>ROS 学习日记 基本语法 | Bananafishss 的小站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="ROS 前置 在进行 ROS 开发前先要创建相关的项目文件夹，使用以下命令：  123cd ~&#x2F;projet_namecatkin init catkin build&#x2F;&#x2F;build命令使得每个pkg可以单独编译，相对 catkin make 来说灵活不少。  进入&#x2F;src 创建 各种包（消息包，节点包）  12catkin_create_pkg &lt;包名&gt; &lt;依赖1&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ROS 学习日记 基本语法">
+<meta property="og:url" content="http://example.com/2026/02/20/ROS_1/index.html">
+<meta property="og:site_name" content="Bananafishss 的小站">
+<meta property="og:description" content="ROS 前置 在进行 ROS 开发前先要创建相关的项目文件夹，使用以下命令：  123cd ~&#x2F;projet_namecatkin init catkin build&#x2F;&#x2F;build命令使得每个pkg可以单独编译，相对 catkin make 来说灵活不少。  进入&#x2F;src 创建 各种包（消息包，节点包）  12catkin_create_pkg &lt;包名&gt; &lt;依赖1&amp;gt">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-20T22:19:14.000Z">
+<meta property="article:modified_time" content="2026-04-14T13:24:04.915Z">
+<meta property="article:author" content="WANG Lixi">
+<meta property="article:tag" content="ROS">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Bananafishss 的小站</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/blog">Blog</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ROS_1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/02/20/ROS_1/" class="article-date">
+  <time class="dt-published" datetime="2026-02-20T22:19:14.000Z" itemprop="datePublished">2026-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      ROS 学习日记 基本语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="ROS-前置"><a href="#ROS-前置" class="headerlink" title="ROS 前置"></a>ROS 前置</h1><ol>
+<li>在进行 ROS 开发前先要创建相关的项目文件夹，使用以下命令：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/projet_name</span><br><span class="line">catkin init </span><br><span class="line">catkin build//build命令使得每个pkg可以单独编译，相对 catkin make 来说灵活不少。</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>进入&#x2F;src 创建 各种包（消息包，节点包）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">catkin_create_pkg &lt;包名&gt; &lt;依赖1&gt; &lt;依赖2&gt; &lt;依赖3&gt; ...</span><br><span class="line">catkin build</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="ROS-基本语法"><a href="#ROS-基本语法" class="headerlink" title="ROS 基本语法"></a>ROS 基本语法</h1><p>环境说明：环境是wsl-ubuntu-20.04的ROS1。工作的文件夹在根目录的TPn里如TP1.为 ‘TP1&#x2F;catkin_ws’。<br><em>source setup.bash</em> 使用’source &#x2F;opt&#x2F;ros&#x2F;noetic&#x2F;setup.bash  source ~&#x2F;TP1&#x2F;catkin_ws&#x2F;devel&#x2F;setup.bash’初始化ROS环境，包括定义<em>ROS库路径</em>和<em>TP1自定义包</em>的路径。</p>
+<h2 id="ROS-Master"><a href="#ROS-Master" class="headerlink" title="ROS Master"></a>ROS Master</h2><p>ROS1里负责 记录所有 node，管理 topic &#x2F; service 的连接关系，让节点互相找到对方。在启动任何项目包或者节点之前，都要先使用’roscore’ 来启动 master , rosout , Parameter Server.<br><em>注意：</em><br>    Master 不转发数据<br>    Master 不参与通信<br>    数据是 节点 ↔ 节点直连</p>
+<h2 id="节点（Node）"><a href="#节点（Node）" class="headerlink" title="节点（Node）"></a>节点（Node）</h2><p>一个节点 ≈ 一个最小的程序，如：读摄像头，算里程计，控制电机，发布激光数据。<br>创建节点流程：</p>
+<ol>
+<li>在 ‘src&#x2F;对应的package名’ 下创建.cpp文件：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;ros/ros.h&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv)</span><br><span class="line">&#123;</span><br><span class="line">    // 1. 初始化 ROS</span><br><span class="line">    ros::init(argc（参数个数）, argv（参数数组）, &quot;node_name&quot;);</span><br><span class="line"></span><br><span class="line">    // 2. 创建节点句柄（NodeHandle 的作用：把节点程序接入 ROS 网络）</span><br><span class="line">    ros::NodeHandle nh;</span><br><span class="line"></span><br><span class="line">    // 3. 创建通信对象（Publisher / Subscriber / Service / Action）</span><br><span class="line">    //    —— 这里写逻辑</span><br><span class="line"></span><br><span class="line">    // 4. 进入循环（等待回调）</span><br><span class="line">    ros::spin();//，等待 ROS 通信事件发生，被唤醒并调用回调函数</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>赋予执行权限：’chmod +x hello_node.py’</li>
+<li>编译 workspace: ‘catkin_make’</li>
+<li>运行该node：’rosrun my_pkg hello_node.cpp __name:&#x3D;robot1’ 这里的第三个参数是对节点重命名。</li>
+</ol>
+<p>下面是一个经典的Talker &#x2F; Listener 示例：<br>    Talker<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line">#include &quot;std_msgs/String.h&quot;</span><br><span class="line">#include &lt;sstream&gt;</span><br><span class="line">int main(int argc, char **argv)</span><br><span class="line">&#123;</span><br><span class="line">ros::init(argc, argv, &quot;talker&quot;) ; // Lancer un nouveau nœud ROS nommé &quot;talker&quot;.</span><br><span class="line">ros:: NodeHandle node; //创建node对象，提供「当前节点 ↔ ROS 系统（roscore）」之间的接口。</span><br><span class="line">ros::Publisher chatter_pub = node.advertise&lt; std_msgs::String&gt;(&quot;chatter&quot;, 1000) ;</span><br><span class="line">//ros::Publisher 是ROS 提供的 发布者对象类型。</span><br><span class="line">//node对象是talker节点的与外界通信的总对象（包括发布和订阅），chatter_pub是被特化专注于发布的从对象。</span><br><span class="line">//换句话说ros::NodeHandle node 是 talker 节点内部用来创建和管理所有 ROS 通信接口的“统一句柄”（发布、订阅、参数等）；</span><br><span class="line">//ros::Publisher chatter_pub 是通过该句柄创建的、专门用于向某个 topic 发布消息的对象。</span><br><span class="line">ros::Rate loop_rate(10) ;</span><br><span class="line">int count = 0 ;</span><br><span class="line">while (ros::ok()) // ros::ok用来判断用户有没有按下ctrl+c</span><br><span class="line">&#123;</span><br><span class="line">std_msgs::String msg ;</span><br><span class="line">std::stringstream ss ;</span><br><span class="line">ss &lt;&lt; &quot;hello world&quot; &lt;&lt; count;//把右边的hello world“写进”左边的流对象ss里</span><br><span class="line">msg.data = ss.str() ;</span><br><span class="line">ROS_INFO(&quot;%s&quot;, msg.data.c_str());// msg.data.c_str()类型转换函数将std_msgs::String转换成const char*指向msg.data的字符串内容。</span><br><span class="line">chatter_pub.publish(msg);</span><br><span class="line">ros::spinOnce(); // 处理一次当前回调队列中的 ROS 回调函数，然后立刻返回。</span><br><span class="line">loop_rate.sleep() ; // 在处理完所有上面的程序后 10hz周期剩余的时间休眠。</span><br><span class="line">count++ ;</span><br><span class="line">&#125;</span><br><span class="line">return 0 ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>    Listener<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;ros/ros.h&quot;</span><br><span class="line">#include &quot;std_msgs/String.h&quot; </span><br><span class="line">void chatterCallback(const std_msgs::String::ConstPtr&amp; msg)</span><br><span class="line">    //从右往左 msg是变量名， &amp;是引用（不复制值，不希望copy点云这类大数据），**ConstPtr**常量智能指针（ROS 定义的）相当于多人可以共享这个msg，但只能看不能改。</span><br><span class="line">&#123;</span><br><span class="line">    ROS_INFO(&quot;我听见了：%s \n&quot;,msg-&gt;data.c_str());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">    ros::init(argc,argv,&quot;lestener&quot;);</span><br><span class="line">    ros::NodeHandle node;</span><br><span class="line">    ros::subscriber lestener = node.recieve&lt;std_msgs::String&gt;(&quot;chatter&quot;,1000,chatterCallback);</span><br><span class="line">    ros::spin();</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>常用查看所有节点的命令：’rosnode list’</p>
+<h2 id="话题-Topic"><a href="#话题-Topic" class="headerlink" title="话题(Topic)"></a>话题(Topic)</h2><p>话题是ROS系统消息（message）传递时的中转区，Publisher往里发数据，Subscriber从里读数据,<em>发布者和订阅者必须用同一种消息类型</em>。常用查看当前正在通信的 Topic的命令：’rostopic list’.</p>
+<pre><code>Publisher  ---&gt;  Topic  ---&gt;  Subscriber(单向 异步 无确认)。
+</code></pre>
+<p>Message：ROS里信息传递的固定格式，写在一个包里的.msg文件中，就好像c++里面的class的属性：</p>
+<p>常用查看msg命令：</p>
+<ol>
+<li>‘rosmsg show 包名&#x2F;Message名’比如查看geometry_msgs&#x2F;Twist 这个包的Twist.msg文件定义：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float64 linear.x</span><br><span class="line">float64 angular.z</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>‘rosmsg list’ 列出当前 ROS 环境中「所有可见的 message 类型」。</li>
+</ol>
+<h2 id="服务-Service"><a href="#服务-Service" class="headerlink" title="服务(Service)"></a>服务(Service)</h2><p>服务是一种同步 一问一答 的信息传递方式，但不适合高频调用，适用于一次性命令，如：查询参数<br>常用查看所有 Service 的命令：’rosservice list’.</p>
+<h2 id="动作-Action"><a href="#动作-Action" class="headerlink" title="动作(Action)"></a>动作(Action)</h2><p>动作是长时间带进度条版的 Service，因为运行时间长，所以可以被*中断，异步，有Goal,Feedback，Result，可中途取消。*适用于 导航到某个点 之类的任务。</p>
+<h2 id="包-Package"><a href="#包-Package" class="headerlink" title="包(Package)"></a>包(Package)</h2><p>是ROS的“工程目录”，里面包含 数个同类的节点源码，消息定义，服务定义，启动文件，配置文件。<br>常用命令：’roslaunch package file.launch’ 按.launch文件的配置启动多个节点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;launch&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 启动一个 turtlesim 节点 --&gt;</span><br><span class="line">  &lt;node pkg=&quot;turtlesim&quot;</span><br><span class="line">        type=&quot;turtlesim_node&quot;</span><br><span class="line">        name=&quot;my_turtle&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;/launch&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/02/20/ROS_1/" data-id="cuidZoxee83kpQIn-aTAVF-PP" data-title="ROS 学习日记 基本语法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2026/02/24/C++_5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          C/C++ 学习日记 多态
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">牛客刷题笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 16.67px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 16.67px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/02/24/C++_4/">C/C++ 学习日记 继承</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/24/C++_5/">C/C++ 学习日记 多态</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/20/ROS_1/">ROS 学习日记 基本语法</a>
+          </li>
+        
+          <li>
+            <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">牛客刷题笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载 继承</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 WANG Lixi<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog" class="mobile-nav-link">Blog</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

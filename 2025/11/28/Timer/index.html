@@ -14,7 +14,7 @@
 <meta property="og:description" content="Timer一个微控制器中自动记数的硬件模块，它的结构依次由分频器 Prescaler，计数器 counter, 比较单元  Compare Unit  最后从比较单元输出一个 1.标志位Flag(TOV或OCF)给CPU 或 2.输出中断请求（Interrupt）给CPU 3.输出电平信号（PWM &#x2F; 翻转 IO）给外部电路。 Timer的初始化下面是Adruino MEGA 2560的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-28T22:19:14.000Z">
-<meta property="article:modified_time" content="2026-02-07T18:52:03.563Z">
+<meta property="article:modified_time" content="2026-04-14T13:20:35.000Z">
 <meta property="article:author" content="WANG Lixi">
 <meta property="article:tag" content="Arduino">
 <meta name="twitter:card" content="summary">
@@ -104,19 +104,14 @@
 <h2 id="Timer的初始化"><a href="#Timer的初始化" class="headerlink" title="Timer的初始化"></a>Timer的初始化</h2><p>下面是Adruino MEGA 2560的Timer：<br>Timer0：Arduino 核心用来做 millis()&#x2F;delay()，一般不用。</p>
 <p>Timer1&#x2F;3&#x2F;4&#x2F;5：16 位，一般用来做PWM&#x2F;精确定时。</p>
 <p>Timer2：8 位，也能用，但分辨率低一些。</p>
-<p>用 Timer1 的 OC1A 引脚输出 PWM：<br>‘’’C<br>void timer1_pwm_init_20kHz_oc1a() {<br>  pinMode(11, OUTPUT);  &#x2F;&#x2F; OC1A</p>
-<p>  &#x2F;&#x2F; 1) 停止 Timer1<br>  TCCR1A &#x3D; 0;<br>  &#x2F;*Timer1 的“控制面板 A”<br>    ❌不输出 PWM<br>    ❌ OC1A &#x2F; OC1B 引脚不被 Timer 控制<br>    ❌ 不启用任何比较输出<br>    ❌ WGM10 &#x2F; WGM11（PWM 模式） &#x3D; 0<br>  <em>&#x2F;<br>  TCCR1B &#x3D; 0;<br>  &#x2F;</em>❌ Timer1 不跑（CS&#x3D;000）<br>    ❌ 没有时钟输入<br>    ❌ WGM12 &#x2F; WGM13 &#x3D; 0<br>  *&#x2F;<br>  TCNT1  &#x3D; 0;<br>  &#x2F;&#x2F;计数器从 0 开始数，不带“上一次残留的值”</p>
-<p>  &#x2F;&#x2F; 2) Fast PWM, TOP &#x3D; ICR1  (WGM13:0 &#x3D; 14 &#x3D;&gt; 1110)<br>  TCCR1A |&#x3D; (1 &lt;&lt; WGM11);<br>  TCCR1B |&#x3D; (1 &lt;&lt; WGM13) | (1 &lt;&lt; WGM12);</p>
-<p>  &#x2F;&#x2F; 3) 非反相输出：Clear OC1A on compare match, set at BOTTOM<br>  TCCR1A |&#x3D; (1 &lt;&lt; COM1A1);</p>
-<p>  &#x2F;&#x2F; 4) 设定频率：f_pwm &#x3D; F_CPU &#x2F; (N * (1 + TOP))<br>  &#x2F;&#x2F; 20kHz &#x3D;&gt; TOP &#x3D; F_CPU&#x2F;(N<em>f) - 1<br>  &#x2F;&#x2F; 16MHz, N&#x3D;1 &#x3D;&gt; TOP &#x3D; 16e6&#x2F;(1</em>20e3) - 1 &#x3D; 799<br>  ICR1 &#x3D; 799;</p>
-<p>  &#x2F;&#x2F; 5) 初始占空比 0%<br>  OCR1A &#x3D; 0;</p>
-<p>  &#x2F;&#x2F; 6) 启动：分频 N&#x3D;1<br>  TCCR1B |&#x3D; (1 &lt;&lt; CS10);<br>}</p>
-<p>&#x2F;&#x2F; 设置占空比：0~100<br>void timer1_set_duty_oc1a(uint8_t duty_percent) {<br>  if (duty_percent &gt; 100) duty_percent &#x3D; 100;<br>  OCR1A &#x3D; (uint16_t)((uint32_t)(ICR1 + 1) * duty_percent &#x2F; 100) - 1;<br>}<br>‘’’<br>ICR决定</p>
+<p>用 Timer1 的 OC1A 引脚输出 PWM：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">timer1_pwm_init_20kHz_oc1a</span><span class="params">()</span> &#123;</span><br><span class="line">  pinMode(<span class="number">11</span>, OUTPUT);  <span class="comment">// OC1A</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1) 停止 Timer1</span></span><br><span class="line">  TCCR1A = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">/*Timer1 的“控制面板 A”</span></span><br><span class="line"><span class="comment">    ❌不输出 PWM</span></span><br><span class="line"><span class="comment">    ❌ OC1A / OC1B 引脚不被 Timer 控制</span></span><br><span class="line"><span class="comment">    ❌ 不启用任何比较输出</span></span><br><span class="line"><span class="comment">    ❌ WGM10 / WGM11（PWM 模式） = 0</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  TCCR1B = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">/*❌ Timer1 不跑（CS=000）</span></span><br><span class="line"><span class="comment">    ❌ 没有时钟输入</span></span><br><span class="line"><span class="comment">    ❌ WGM12 / WGM13 = 0</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  TCNT1  = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//计数器从 0 开始数，不带“上一次残留的值”</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 2) Fast PWM, TOP = ICR1  (WGM13:0 = 14 =&gt; 1110)</span></span><br><span class="line">  TCCR1A |= (<span class="number">1</span> &lt;&lt; WGM11);</span><br><span class="line">  TCCR1B |= (<span class="number">1</span> &lt;&lt; WGM13) | (<span class="number">1</span> &lt;&lt; WGM12);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 3) 非反相输出：Clear OC1A on compare match, set at BOTTOM</span></span><br><span class="line">  TCCR1A |= (<span class="number">1</span> &lt;&lt; COM1A1);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 4) 设定频率：f_pwm = F_CPU / (N * (1 + TOP))</span></span><br><span class="line">  <span class="comment">// 20kHz =&gt; TOP = F_CPU/(N*f) - 1</span></span><br><span class="line">  <span class="comment">// 16MHz, N=1 =&gt; TOP = 16e6/(1*20e3) - 1 = 799</span></span><br><span class="line">  ICR1 = <span class="number">799</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 5) 初始占空比 0%</span></span><br><span class="line">  OCR1A = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 6) 启动：分频 N=1</span></span><br><span class="line">  TCCR1B |= (<span class="number">1</span> &lt;&lt; CS10);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置占空比：0~100</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">timer1_set_duty_oc1a</span><span class="params">(<span class="type">uint8_t</span> duty_percent)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (duty_percent &gt; <span class="number">100</span>) duty_percent = <span class="number">100</span>;</span><br><span class="line">  OCR1A = (<span class="type">uint16_t</span>)((<span class="type">uint32_t</span>)(ICR1 + <span class="number">1</span>) * duty_percent / <span class="number">100</span>) - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ICR决定</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/Timer/" data-id="cuidKloGrw5nBi4TfTCZfsroZ" data-title="微控制器 Timer" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/28/Timer/" data-id="cuidk3pMfCU7-YAAQcHoo6t5n" data-title="微控制器 Timer" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -160,7 +155,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
     </div>
   </div>
 
@@ -170,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 16.67px;">C</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 16.67px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 16.67px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a>
     </div>
   </div>
 
@@ -179,7 +174,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
     </div>
   </div>
 
@@ -192,23 +187,23 @@
       <ul>
         
           <li>
-            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+            <a href="/2026/02/24/C++_4/">C/C++ 学习日记 继承</a>
           </li>
         
           <li>
-            <a href="/2026/01/09/MicroControleur/">微处理器 架构和接口协议</a>
+            <a href="/2026/02/24/C++_5/">C/C++ 学习日记 多态</a>
           </li>
         
           <li>
-            <a href="/2026/01/09/encoderCode/">微处理器 PWM控制机械指针</a>
+            <a href="/2026/02/20/ROS_1/">ROS 学习日记 基本语法</a>
           </li>
         
           <li>
-            <a href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
+            <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">牛客刷题笔记</a>
           </li>
         
           <li>
-            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载 继承</a>
           </li>
         
       </ul>

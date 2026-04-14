@@ -4,19 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>GitLab使用教程 | Bananafishss 的小站</title>
+  <title>C/C++ 学习日记 多态 | Bananafishss 的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="GitLab使用教程在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。 基本流程一、配置SSH 链接GitLab 首先使用学校邮箱创建个人账户 我的邮箱是lixi.wang@imt-atlantique.net 用户名是l24wang 这步很简单就暂且不提。  第二步，配置SSH key 这步对于每个账号只需要配置一次： ssh-k">
+  <meta name="description" content="多态解决的问题多态（Polymorphisme）是系统能够根据对象的真实类型，在运行时选择要调用的方法的能力。若没有多态：举例： 1234567891011121314151617181920212223242526272829class Forme &#123;public:    void dessiner() &#123;        cout &lt;&lt; &quot;je dess">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitLab使用教程">
-<meta property="og:url" content="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:title" content="C&#x2F;C++ 学习日记 多态">
+<meta property="og:url" content="http://example.com/2026/02/24/C++_5/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
-<meta property="og:description" content="GitLab使用教程在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。 基本流程一、配置SSH 链接GitLab 首先使用学校邮箱创建个人账户 我的邮箱是lixi.wang@imt-atlantique.net 用户名是l24wang 这步很简单就暂且不提。  第二步，配置SSH key 这步对于每个账号只需要配置一次： ssh-k">
+<meta property="og:description" content="多态解决的问题多态（Polymorphisme）是系统能够根据对象的真实类型，在运行时选择要调用的方法的能力。若没有多态：举例： 1234567891011121314151617181920212223242526272829class Forme &#123;public:    void dessiner() &#123;        cout &lt;&lt; &quot;je dess">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-20T21:19:14.000Z">
-<meta property="article:modified_time" content="2026-04-14T13:20:34.992Z">
+<meta property="article:published_time" content="2026-02-24T09:19:14.000Z">
+<meta property="article:modified_time" content="2026-04-14T13:20:34.972Z">
 <meta property="article:author" content="WANG Lixi">
-<meta property="article:tag" content="Gitlab">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Bananafishss 的小站" type="application/atom+xml">
@@ -78,10 +79,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-GitLab使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-C++_5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2025-10-20T21:19:14.000Z" itemprop="datePublished">2025-10-20</time>
+    <a href="/2026/02/24/C++_5/" class="article-date">
+  <time class="dt-published" datetime="2026-02-24T09:19:14.000Z" itemprop="datePublished">2026-02-24</time>
 </a>
     
   </div>
@@ -92,7 +93,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      GitLab使用教程
+      C/C++ 学习日记 多态
     </h1>
   
 
@@ -100,36 +101,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="GitLab使用教程"><a href="#GitLab使用教程" class="headerlink" title="GitLab使用教程"></a>GitLab使用教程</h1><p>在将DonkeyCar项目推进到小组进行整合时，要用到学校的GitLab，所以今天就来顺便学习一下Git的基本用法。</p>
-<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><h3 id="一、配置SSH-链接GitLab"><a href="#一、配置SSH-链接GitLab" class="headerlink" title="一、配置SSH 链接GitLab"></a>一、配置SSH 链接GitLab</h3><ol>
-<li><p>首先使用学校邮箱创建个人账户 我的邮箱是<a href="mailto:&#x6c;&#105;&#120;&#x69;&#x2e;&#119;&#x61;&#110;&#103;&#x40;&#105;&#109;&#x74;&#x2d;&#97;&#116;&#x6c;&#x61;&#x6e;&#116;&#x69;&#x71;&#117;&#x65;&#x2e;&#x6e;&#101;&#116;">lixi.wang@imt-atlantique.net</a> 用户名是l24wang 这步很简单就暂且不提。</p>
-</li>
-<li><p>第二步，配置SSH key 这步对于每个账号只需要配置一次： <code>ssh-keygen -t ed25519 -C &quot;你的邮箱&quot;</code><br> ✅ -t ed25519 指定加密算法<br> ✅ -C 是备注信息（写邮箱）<br> ⛔ 不需要设置密码</p>
-</li>
-<li><p>对于Windows：启动 ssh-agent 并载入 key：</p>
-<p> <code>Start-Service ssh-agent </code><br> <code>ssh-add $env:USERPROFILE\.ssh\id_ed25519</code></p>
-</li>
-<li><p>将key添加到GitLab: 复制在终端中生成的key，然后在网站的key选项那里手动添加。</p>
-</li>
-<li><p>测试key连接是否成功 <code>ssh -T git@gitlab.imt-atlantique.fr</code><br> 成功显示： <code>Welcome to GitLab, @l24wang!</code></p>
-</li>
-</ol>
-<h3 id="二、克隆-GitLab-仓库到本地"><a href="#二、克隆-GitLab-仓库到本地" class="headerlink" title="二、克隆 GitLab 仓库到本地"></a>二、克隆 GitLab 仓库到本地</h3><ol>
-<li>先 cd 到想要项目到本地的目的文件夹里</li>
-<li>用<code>git clone git@gitlab.imt-atlantique.fr:仓库路径.git</code><br> 我这里是 <code>git clone git@gitlab.imt-atlantique.fr:z23mahmo/2025-2026-ia-racing.git</code><br> git@…是使用 SSH 方式下载的意思</li>
-</ol>
-<h3 id="三、把自己的文件加入仓库（本地）"><a href="#三、把自己的文件加入仓库（本地）" class="headerlink" title="三、把自己的文件加入仓库（本地）"></a>三、把自己的文件加入仓库（本地）</h3><p>复制粘贴你的文件到仓库文件夹里，注意现在你的文件还没有更新到线上仓库和别人共享，只能在本地查看。</p>
-<h3 id="四、把自己的文件更新到线上仓库"><a href="#四、把自己的文件更新到线上仓库" class="headerlink" title="四、把自己的文件更新到线上仓库"></a>四、把自己的文件更新到线上仓库</h3><p><code>git add .</code><br><code>git commit -m &quot;Add my code&quot;</code><br><code>git push origin main</code></p>
-<p>📝 持续更新……</p>
+        <h2 id="多态解决的问题"><a href="#多态解决的问题" class="headerlink" title="多态解决的问题"></a>多态解决的问题</h2><p>多态（Polymorphisme）是系统能够根据对象的真实类型，在运行时选择要调用的方法的能力。若没有多态：<br>举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">class Forme &#123;</span><br><span class="line">public:</span><br><span class="line">    void dessiner() &#123;</span><br><span class="line">        cout &lt;&lt; &quot;je dessine ... une forme ?\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Cercle : public Forme &#123;</span><br><span class="line">public:</span><br><span class="line">    void dessiner() &#123;</span><br><span class="line">        cout &lt;&lt; &quot;je dessine un Cercle !\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class Triangle : public Forme &#123;</span><br><span class="line">public:</span><br><span class="line">    void dessiner() &#123;</span><br><span class="line">        cout &lt;&lt; &quot;je dessine un Triangle !\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void faireQuelqueChose(Forme &amp;f) &#123;</span><br><span class="line">f.dessiner();</span><br><span class="line">&#125;</span><br><span class="line">Cercle c;</span><br><span class="line">Triangle t;</span><br><span class="line"></span><br><span class="line">faireQuelqueChose(c);</span><br><span class="line">faireQuelqueChose(t);</span><br></pre></td></tr></table></figure>
+<p>写 Cercle::dessiner()，Triangle::dessiner()但是永远调用基类版本输出：je dessine … une forme ? </p>
+<h2 id="多态-virtual函数"><a href="#多态-virtual函数" class="headerlink" title="多态 virtual函数"></a>多态 virtual函数</h2><p>在上面例子的基类void dessiner()前加 virtuel，输出将变为je dessine un Cercle !je dessine un Triangle !</p>
+<p><em>多态 virtual 真正生效的两个前提</em><br>1️⃣ 函数是 virtual<br>2️⃣ 通过引用或指针调用</p>
+<h2 id="纯虚函数"><a href="#纯虚函数" class="headerlink" title="纯虚函数"></a>纯虚函数</h2><p>有时候，在类层级的最顶层，我们无法为某个函数写出具体实现，但又希望：所有子类必须实现这个函数。<br>‘virtual Type nom_methode(…) &#x3D; 0;’&#x2F;&#x2F;&#x3D;0代表这是一个抽象函数，没有实现<br>特点：<br>在基类中 没有函数体<br>子类必须实现，否则不能实例化。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/GitLab%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cuid5HpcscdEnuKojayq_ImdY" data-title="GitLab使用教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2026/02/24/C++_5/" data-id="cuidPmgBcQocG6S7H2jCv8_f-" data-title="C/C++ 学习日记 多态" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +123,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/11/12/DonkeyCar%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0-Day3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2026/02/24/C++_4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
-          DonkeyCar 学习日记
+          C/C++ 学习日记 继承
         
       </div>
     </a>
   
   
-    <a href="/2025/10/18/DonkeyCar-GONet/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2026/02/20/ROS_1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">DonkeyCar 学习日记</div>
+      <div class="article-nav-title">ROS 学习日记 基本语法</div>
     </a>
   
 </nav>

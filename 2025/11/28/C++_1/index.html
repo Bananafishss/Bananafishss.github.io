@@ -6,15 +6,15 @@
   
   <title>C/C++ 学习日记 基本语法 | Bananafishss 的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1.C++ 基本语法第一个C++程序‘’’cpp#includeint main(int argc, char argv)&#x2F;&#x2F;char：一个字母&#x2F;&#x2F;char：一句话&#x2F;&#x2F;char*：一组话{    int n;    std::cout&lt;&lt;”Input a Entier: “&lt;&lt;std::endl;    std::">
+  <meta name="description" content="1.C++ 基本语法第一个C++程序1234567891011121314#include&lt;iostream&gt;int main(int argc, char **argv)&#x2F;&#x2F;char：一个字母&#x2F;&#x2F;char*：一句话&#x2F;&#x2F;char**：一组话&#123;    int n;    std::cout&lt;&lt;&quot;Input a Entier: &quot;&lt;&lt;s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++ 学习日记 基本语法">
 <meta property="og:url" content="http://example.com/2025/11/28/C++_1/index.html">
 <meta property="og:site_name" content="Bananafishss 的小站">
-<meta property="og:description" content="1.C++ 基本语法第一个C++程序‘’’cpp#includeint main(int argc, char argv)&#x2F;&#x2F;char：一个字母&#x2F;&#x2F;char：一句话&#x2F;&#x2F;char*：一组话{    int n;    std::cout&lt;&lt;”Input a Entier: “&lt;&lt;std::endl;    std::">
+<meta property="og:description" content="1.C++ 基本语法第一个C++程序1234567891011121314#include&lt;iostream&gt;int main(int argc, char **argv)&#x2F;&#x2F;char：一个字母&#x2F;&#x2F;char*：一句话&#x2F;&#x2F;char**：一组话&#123;    int n;    std::cout&lt;&lt;&quot;Input a Entier: &quot;&lt;&lt;s">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-28T22:19:14.000Z">
-<meta property="article:modified_time" content="2026-02-06T10:55:25.814Z">
+<meta property="article:modified_time" content="2026-04-14T13:20:34.968Z">
 <meta property="article:author" content="WANG Lixi">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="C++">
@@ -101,22 +101,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="1-C-基本语法"><a href="#1-C-基本语法" class="headerlink" title="1.C++ 基本语法"></a>1.C++ 基本语法</h1><h2 id="第一个C-程序"><a href="#第一个C-程序" class="headerlink" title="第一个C++程序"></a>第一个C++程序</h2><p>‘’’cpp<br>#include<iostream><br>int main(int argc, char <em><em>argv)<br>&#x2F;&#x2F;char：一个字母<br>&#x2F;&#x2F;char</em>：一句话<br>&#x2F;&#x2F;char</em>*：一组话<br>{<br>    int n;<br>    std::cout&lt;&lt;”Input a Entier: “&lt;&lt;std::endl;<br>    std::cin &gt;&gt; n;<br>    for(int i&#x3D;0; i&lt;n; i++){<br>        std::cout&lt;&lt;”hello world” &lt;&lt; std::endl;<br>    }<br>    return 0;<br>}<br>‘’’</p>
+        <h1 id="1-C-基本语法"><a href="#1-C-基本语法" class="headerlink" title="1.C++ 基本语法"></a>1.C++ 基本语法</h1><h2 id="第一个C-程序"><a href="#第一个C-程序" class="headerlink" title="第一个C++程序"></a>第一个C++程序</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span></span></span><br><span class="line"><span class="function"><span class="comment">//char：一个字母</span></span></span><br><span class="line"><span class="function"><span class="comment">//char*：一句话</span></span></span><br><span class="line"><span class="function"><span class="comment">//char**：一组话</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    std::cout&lt;&lt;<span class="string">&quot;Input a Entier: &quot;</span>&lt;&lt;std::endl;</span><br><span class="line">    std::cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">        std::cout&lt;&lt;<span class="string">&quot;hello world&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="C-的输入-输出"><a href="#C-的输入-输出" class="headerlink" title="C++的输入&#x2F;输出"></a>C++的输入&#x2F;输出</h2><p><strong>using namespace std;</strong></p>
 <ol>
 <li>std::cout&lt;&lt; “contenu” &lt;&lt; std::endl(换行符);<br>如:cout&lt;&lt;”&lt;”&lt;&lt; this-&gt;x &lt;&lt;”,”&lt;&lt; this-&gt;y &lt;&lt; “&gt;” &lt;&lt;endl; 输出结果为：&lt;x,y&gt;</li>
 <li>std::cin&gt;&gt;（相当于scanf） “input contenu”;</li>
 <li>多个输出可以相连：std::cout &lt;&lt; “A &#x3D; “ &lt;&lt; a &lt;&lt; “, B &#x3D; “ &lt;&lt; b &lt;&lt; std::endl;</li>
 <li>缩写方法：如果每次不想重复写std:: 可以在本文件开头写 using namespace std;</li>
-<li>cin 可以输入字符串如：<br> ‘’’cpp<br> string name;<br> cin &gt;&gt; name;     &#x2F;&#x2F; 只能读一段不带空格的<br> string line;<br> getline(cin, line);   &#x2F;&#x2F; 可以读空格<br> ‘’’</li>
+<li>cin 可以输入字符串如： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string name;</span><br><span class="line">cin &gt;&gt; name;     <span class="comment">// 只能读一段不带空格的</span></span><br><span class="line">string line;</span><br><span class="line"><span class="built_in">getline</span>(cin, line);   <span class="comment">// 可以读空格</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="C-的命名空间"><a href="#C-的命名空间" class="headerlink" title="C++的命名空间"></a>C++的命名空间</h2><ol>
-<li>命名空间（namespace）相当于一个有独特名字的仓库，可以往里面不停的塞东西：<br> ‘’’cpp<br> namespace myspace{<br> int a &#x3D; 10;<br> void hello() {<br>     std::cout &lt;&lt; “Hi!” &lt;&lt; std::endl;<br> }<br> }<br> std::cout &lt;&lt; myspace::a;<br> myspace::hello();<br> ‘’’<br> 可以在不同文件、不同位置 不断往同一个 namespace 填东西。<br> ‘’’cpp<br> 在a文件中：<br> namespace x{<br> int a&#x3D;6;<br> }<br> 在b文件中：<br> namespace x{<br> int b &#x3D; 5;<br> }<br> 在c文件中我既可以使用a也可以是使用b。</li>
-<li>匿名namespace<br> 只能在本文件使用的namespace。</li>
-<li>嵌套的namespace 可以通过创建一个别名来使引用更方便：namespace N &#x3D; AReallyLongName::AnotherReallyLongName;<br> ‘’’cpp<br> namespace AReallyLongName {<br> namespace AnotherReallyLongName {<br> int f();<br> int g();<br> void bar(int x, int y);<br> }<br> }<br> void foo() {<br> namespace N &#x3D; AReallyLongName::AnotherReallyLongName;<br> N::bar(N::f(), N::g());<br> }<br> ‘’’</li>
+<li>命名空间（namespace）相当于一个有独特名字的仓库，可以往里面不停的塞东西： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> myspace&#123;</span><br><span class="line">    <span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Hi!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">std::cout &lt;&lt; myspace::a;</span><br><span class="line">myspace::<span class="built_in">hello</span>();</span><br></pre></td></tr></table></figure>
+ 可以在不同文件、不同位置 不断往同一个 namespace 填东西。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    在a文件中：</span><br><span class="line">    <span class="keyword">namespace</span> x&#123;</span><br><span class="line">        <span class="type">int</span> a=<span class="number">6</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    在b文件中：</span><br><span class="line">    <span class="keyword">namespace</span> x&#123;</span><br><span class="line">        <span class="type">int</span> b = <span class="number">5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    在c文件中我既可以使用a也可以是使用b。</span><br><span class="line"><span class="number">2.</span> 匿名<span class="keyword">namespace</span></span><br><span class="line">    只能在本文件使用的<span class="keyword">namespace</span>。</span><br><span class="line"><span class="number">3.</span> 嵌套的<span class="keyword">namespace</span> 可以通过创建一个别名来使引用更方便：<span class="keyword">namespace</span> N = AReallyLongName::AnotherReallyLongName;</span><br><span class="line">    ```cpp</span><br><span class="line">        <span class="keyword">namespace</span> AReallyLongName &#123;</span><br><span class="line">        <span class="keyword">namespace</span> AnotherReallyLongName &#123;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">g</span><span class="params">()</span></span>;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">bar</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">namespace</span> N = AReallyLongName::AnotherReallyLongName;</span><br><span class="line">        N::<span class="built_in">bar</span>(N::<span class="built_in">f</span>(), N::<span class="built_in">g</span>());</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="C-的引用机制"><a href="#C-的引用机制" class="headerlink" title="C++的引用机制"></a>C++的引用机制</h2><ol>
-<li>类似c中的指针 当定义一个变量a的引用是b后 b就是a的别名，修改b就是修改a本身。<br> ‘’’cpp<br> int a &#x3D; 10;<br> int &amp;b &#x3D; a;   &#x2F;&#x2F; b 是 a 的引用（外号）<br> b &#x3D; 20;       &#x2F;&#x2F; 其实就是把 a 改成 20<br> std::cout &lt;&lt; a;  &#x2F;&#x2F; 输出 20<br> ‘’’</li>
+<li>类似c中的指针 当定义一个变量a的引用是b后 b就是a的别名，修改b就是修改a本身。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> &amp;b = a;   <span class="comment">// b 是 a 的引用（外号）</span></span><br><span class="line">b = <span class="number">20</span>;       <span class="comment">// 其实就是把 a 改成 20</span></span><br><span class="line">std::cout &lt;&lt; a;  <span class="comment">// 输出 20</span></span><br></pre></td></tr></table></figure></li>
 <li>引用的用处<br> 和c指针的用法一样，用来给函数传递外部的值，告诉函数直接操作变量而不是创建变量的副本。</li>
 <li>和指针的区别<ol>
 <li>定义引用：<br> int &amp;b &#x3D; a; b &#x3D; a &#x3D; 20;<br>定义指针：<br> int *b &#x3D; &a; *b &#x3D; 20;&#x2F;&#x2F;b里面是a的地址</li>
@@ -129,7 +128,8 @@
 </li>
 </ol>
 </li>
-<li>常引用 const &amp;<br> 形如：<br> ‘’’cpp<br> void print(const int &amp;x);<br> ‘’’<br> 意思是：<br> 我不会改你的变量（const）<br> 但我也不想复制它（引用）<br> 适用于：string、vector 等大块对象。</li>
+<li>常引用 const &amp;<br> 形如： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">const</span> <span class="type">int</span> &amp;x)</span></span>;</span><br></pre></td></tr></table></figure>
+ 意思是：<br> 我不会改你的变量（const）<br> 但我也不想复制它（引用）<br> 适用于：string、vector 等大块对象。</li>
 </ol>
 <h2 id="内存管理操作符"><a href="#内存管理操作符" class="headerlink" title="内存管理操作符"></a>内存管理操作符</h2><p><strong>new就是一个特殊的指针！</strong></p>
 <ol>
@@ -143,26 +143,19 @@
 </li>
 </ol>
 <h2 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h2><ol>
-<li><p>在C++中我可以用相同的函数名写不同的函数，只要他们的参数不同（个数，类型，甚至顺序不同即可）。比如：<br> ‘’’cpp<br> void print(int x) {<br>     cout &lt;&lt; “整数: “ &lt;&lt; x &lt;&lt; endl;<br> }<br><br> void print(double x) {<br>     cout &lt;&lt; “小数: “ &lt;&lt; x &lt;&lt; endl;<br> }<br><br> void print(string s) {<br>     cout &lt;&lt; “字符串: “ &lt;&lt; s &lt;&lt; endl;<br> }<br> &#x2F;&#x2F;调用：<br> print(10);        &#x2F;&#x2F; 去找 print(int)<br> print(3.14);      &#x2F;&#x2F; 去找 print(double)<br> print(“hello”);   &#x2F;&#x2F; 去找 print(string)<br> ‘’’</p>
-</li>
-<li><p>但是返回值不同不能作为区分的标准！比如：<br> ‘’’cpp<br> int f(int a);<br> double f(int a);  &#x2F;&#x2F; 不行<br> ‘’’</p>
-</li>
-<li><p>有时调用函数机器会无法识别，比如：<br> ‘’’cpp<br> void print(double num)<br> {<br> std::cout &lt;&lt; “C’est un double: “ &lt;&lt; num &lt;&lt; std::endl;<br> }<br> void print_int(int num)<br> {<br> std::cout &lt;&lt; “C’est un int: “ &lt;&lt; num &lt;&lt; std::endl;<br> }</p>
-<p> print(5);&#x2F;&#x2F;X错误因为无法识别参数的类型！<br> ‘’’</p>
-</li>
+<li>在C++中我可以用相同的函数名写不同的函数，只要他们的参数不同（个数，类型，甚至顺序不同即可）。比如：<br> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;整数: &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span> x)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;小数: &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;字符串: &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用：</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">10</span>);        <span class="comment">// 去找 print(int)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">3.14</span>);      <span class="comment">// 去找 print(double)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>);   <span class="comment">// 去找 print(string)</span></span><br></pre></td></tr></table></figure></li>
+<li>但是返回值不同不能作为区分的标准！比如： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a)</span></span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a)</span></span>;  <span class="comment">// 不行</span></span><br></pre></td></tr></table></figure></li>
+<li>有时调用函数机器会无法识别，比如： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">(<span class="type">double</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;C’est un double: &quot;</span> &lt;&lt; num &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_int</span><span class="params">(<span class="type">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;C’est un int: &quot;</span> &lt;&lt; num &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span>);<span class="comment">//X错误因为无法识别参数的类型！</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="C-中的-const-关键字（常量）"><a href="#C-中的-const-关键字（常量）" class="headerlink" title="C++中的 const 关键字（常量）"></a>C++中的 const 关键字（常量）</h2><ol>
-<li><p>这是一个前缀可以加载任何量之前，表示这个量无法被修改。对于非指针的变量来说 const的顺序没有影响。<br> ‘’’cpp<br> void printValue(const int&amp; x) {<br> cout &lt;&lt; x;<br> }&#x2F;&#x2F;函数参数被const字保护，无法被修改。</p>
-<p> const int a &#x3D; 261;<br> int const a &#x3D; 261;<br>&#x2F;&#x2F; 没有区别，都是a变量不能被修改<br> ‘’’</p>
-</li>
-<li><p>const 用在指针时，在指针<em>左边就是修饰指针，指针的值不能变，在变量的左边，<em>的右边就是修饰变量，指针的地址不能变。<br> ‘’’cpp<br> const int</em> p;   &#x2F;&#x2F; 不能改 <em>p（值不能改）<br> int</em> const p;   &#x2F;&#x2F; 不能改 p（地址不能改）<br> const int</em> const p; &#x2F;&#x2F; 都不能改<br> ‘’’</p>
-</li>
+<li>这是一个前缀可以加载任何量之前，表示这个量无法被修改。对于非指针的变量来说 const的顺序没有影响。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">printValue</span><span class="params">(<span class="type">const</span> <span class="type">int</span>&amp; x)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; x;</span><br><span class="line">&#125;<span class="comment">//函数参数被const字保护，无法被修改。</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> a = <span class="number">261</span>;</span><br><span class="line"><span class="type">int</span> <span class="type">const</span> a = <span class="number">261</span>;</span><br><span class="line">   <span class="comment">// 没有区别，都是a变量不能被修改</span></span><br></pre></td></tr></table></figure></li>
+<li>const 用在指针时，在指针*左边就是修饰指针，指针的值不能变，在变量的左边，*的右边就是修饰变量，指针的地址不能变。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span>* p;   <span class="comment">// 不能改 *p（值不能改）</span></span><br><span class="line"><span class="type">int</span>* <span class="type">const</span> p;   <span class="comment">// 不能改 p（地址不能改）</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span>* <span class="type">const</span> p; <span class="comment">// 都不能改</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/11/28/C++_1/" data-id="cuidOs2KvvOs-Nu5J5C9DUOwW" data-title="C/C++ 学习日记 基本语法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2025/11/28/C++_1/" data-id="cuidGIQK9cZRu8b8hUEYFCWkT" data-title="C/C++ 学习日记 基本语法" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -206,7 +199,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Arduino/" rel="tag">Arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DonkeyCar/" rel="tag">DonkeyCar</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitlab/" rel="tag">Gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LaneDetection/" rel="tag">LaneDetection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li></ul>
     </div>
   </div>
 
@@ -216,7 +209,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 16.67px;">C</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 20px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 20px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 20px;">OpenCV</a>
+      <a href="/tags/Arduino/" style="font-size: 13.33px;">Arduino</a> <a href="/tags/C/" style="font-size: 20px;">C</a> <a href="/tags/C/" style="font-size: 20px;">C++</a> <a href="/tags/DonkeyCar/" style="font-size: 16.67px;">DonkeyCar</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/LaneDetection/" style="font-size: 16.67px;">LaneDetection</a> <a href="/tags/OpenCV/" style="font-size: 16.67px;">OpenCV</a> <a href="/tags/ROS/" style="font-size: 10px;">ROS</a>
     </div>
   </div>
 
@@ -225,7 +218,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/02/">二月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">一月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">十一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">十月 2025</a></li></ul>
     </div>
   </div>
 
@@ -238,23 +231,23 @@
       <ul>
         
           <li>
-            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载</a>
+            <a href="/2026/02/24/C++_4/">C/C++ 学习日记 继承</a>
           </li>
         
           <li>
-            <a href="/2026/01/09/MicroControleur/">微处理器 架构和接口协议</a>
+            <a href="/2026/02/24/C++_5/">C/C++ 学习日记 多态</a>
           </li>
         
           <li>
-            <a href="/2026/01/09/encoderCode/">微处理器 PWM控制机械指针</a>
+            <a href="/2026/02/20/ROS_1/">ROS 学习日记 基本语法</a>
           </li>
         
           <li>
-            <a href="/2025/11/28/C++_1/">C/C++ 学习日记 基本语法</a>
+            <a href="/2026/02/09/%E7%89%9B%E5%AE%A2%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/">牛客刷题笔记</a>
           </li>
         
           <li>
-            <a href="/2025/11/28/C++_2/">C/C++ 学习日记 类，实例，属性和方法</a>
+            <a href="/2026/01/09/C++_3/">C/C++ 学习日记 操作符重载 继承</a>
           </li>
         
       </ul>
